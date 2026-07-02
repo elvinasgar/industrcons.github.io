@@ -3,977 +3,349 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IndustrCons — Industry Ready Engineer</title>
+<title>IndustrCons — Azərbaycanın Tikinti Sənayesi Şəbəkəsi</title>
+<meta name="description" content="IndustrCons — tikinti və mühəndislik sahəsində peşəkarları birləşdirən icma, vakansiya, networking və rəqəmsal alətlər platforması. Estimator və Docs alətləri ilə.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy:   #0f2044;
-  --blue:   #1a3a6b;
-  --blue2:  #1e4d9a;
-  --orange: #e87722;
-  --orange2:#f59033;
-  --steel:  #8fa3bc;
-  --light:  #e8edf5;
-  --white:  #ffffff;
-  --dark:   #080f1e;
-  --dark2:  #0c1628;
-  --glass:  rgba(26,58,107,0.18);
-  --border: rgba(255,255,255,0.08);
-  --glow:   0 0 40px rgba(232,119,34,0.25);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--dark);
-  color:var(--light);
-  font-family:'Barlow',sans-serif;
-  overflow-x:hidden;
-  cursor:none;
-}
+  :root{
+    --ink:#14181C;
+    --concrete:#EEEAE2;
+    --steel:#33424E;
+    --signal:#E8590C;
+    --rebar:#7C7568;
+    --card:#FFFFFF;
+    --line:#DAD4C8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--concrete);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.01em;}
+  a{color:inherit;text-decoration:none;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
 
-/* ── CURSOR ── */
-#cur{position:fixed;width:8px;height:8px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:background .2s;}
-#cur-r{position:fixed;width:30px;height:30px;border:1.5px solid rgba(232,119,34,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .13s ease-out;}
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(238,234,226,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:6px;background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--signal);font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:0.85rem;
+  }
+  .nav-links{display:flex;gap:28px;font-size:0.92rem;font-weight:500;}
+  .nav-links a{opacity:0.75;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 20px;border-radius:8px;font-weight:600;font-size:0.9rem;
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:1px solid transparent;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--signal);color:#fff;}
+  .btn-primary:hover{box-shadow:0 6px 18px rgba(232,89,12,0.35);}
+  .btn-ghost{border-color:var(--ink);color:var(--ink);}
+  .btn-dark{background:var(--ink);color:#fff;}
 
-/* ── LANG TOGGLE ── */
-.lang-btn{
-  position:fixed;top:20px;right:80px;z-index:1001;
-  font-family:'JetBrains Mono',monospace;
-  font-size:.6rem;letter-spacing:3px;
-  padding:7px 14px;
-  border:1px solid var(--border);
-  background:rgba(15,32,68,.8);
-  color:var(--steel);
-  cursor:pointer;
-  clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);
-  transition:all .2s;backdrop-filter:blur(10px);
-}
-.lang-btn:hover,.lang-btn.active{color:var(--orange);border-color:rgba(232,119,34,.4);}
+  /* HERO */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:96px 0 72px;
+    background-image:
+      linear-gradient(rgba(20,24,28,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20,24,28,0.04) 1px, transparent 1px);
+    background-size:40px 40px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--steel);background:var(--card);border:1px solid var(--line);
+    padding:6px 12px;border-radius:20px;margin-bottom:24px;
+  }
+  .eyebrow::before{content:"●";color:var(--signal);}
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    font-weight:700;max-width:820px;
+    line-height:1.08;
+  }
+  .hero h1 span{color:var(--signal);}
+  .hero p{
+    max-width:620px;margin-top:22px;font-size:1.08rem;color:var(--steel);
+  }
+  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .stat-row{
+    display:flex;gap:48px;margin-top:64px;flex-wrap:wrap;
+    border-top:1px solid var(--line);padding-top:28px;
+  }
+  .stat b{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.8rem;}
+  .stat span{font-size:0.85rem;color:var(--rebar);}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:0 48px;height:64px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:linear-gradient(180deg,rgba(8,15,30,.95) 0%,transparent 100%);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-}
-.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-/* SVG Logo inline */
-.logo-svg{width:36px;height:36px;flex-shrink:0;}
-.logo-text{display:flex;flex-direction:column;gap:1px;}
-.logo-main{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:800;font-size:1.1rem;letter-spacing:1px;
-  color:var(--white);line-height:1;
-}
-.logo-main span{color:var(--orange);}
-.logo-sub{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.45rem;letter-spacing:3px;
-  color:var(--steel);text-transform:uppercase;
-}
-.nav-links{display:flex;gap:28px;list-style:none;}
-.nav-links a{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:.85rem;font-weight:600;letter-spacing:2px;
-  color:var(--steel);text-decoration:none;
-  text-transform:uppercase;transition:color .2s;
-}
-.nav-links a:hover{color:var(--orange);}
-.nav-cta{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:.8rem;font-weight:700;letter-spacing:2px;
-  padding:9px 22px;
-  background:var(--orange);color:var(--white);
-  text-decoration:none;text-transform:uppercase;
-  clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);
-  transition:all .2s;
-}
-.nav-cta:hover{background:var(--orange2);transform:translateY(-1px);}
+  section{padding:80px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;text-transform:uppercase;
+    letter-spacing:0.08em;color:var(--signal);font-weight:600;
+  }
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:8px;}
+  .section-head p{color:var(--steel);margin-top:12px;}
 
-/* ── HERO ── */
-#hero{
-  min-height:100vh;
-  display:flex;align-items:center;
-  position:relative;overflow:hidden;
-  padding:100px 48px 80px;
-}
+  /* TOOLS */
+  .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .tool-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:32px;display:flex;flex-direction:column;gap:16px;
+    transition:border-color .2s, transform .2s;
+  }
+  .tool-card:hover{border-color:var(--ink);transform:translateY(-3px);}
+  .tool-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;text-transform:uppercase;
+    letter-spacing:0.06em;color:#fff;background:var(--steel);
+    padding:4px 10px;border-radius:5px;width:fit-content;
+  }
+  .tool-card h3{font-size:1.4rem;}
+  .tool-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:4px;}
+  .tool-card li{font-size:0.92rem;color:var(--steel);padding-left:16px;position:relative;}
+  .tool-card li::before{content:"—";position:absolute;left:0;color:var(--signal);}
+  .tool-card .btn{margin-top:8px;align-self:flex-start;}
 
-/* 3D Canvas */
-#hero-canvas{position:absolute;inset:0;z-index:0;}
+  /* GROUPS */
+  .groups-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .group-card{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:22px;display:flex;flex-direction:column;gap:10px;
+  }
+  .group-card .icon{font-size:1.5rem;}
+  .group-card h4{font-size:1rem;}
+  .group-card p{font-size:0.85rem;color:var(--rebar);flex-grow:1;}
+  .group-card a{font-size:0.85rem;font-weight:600;color:var(--signal);}
+  .group-card.new{border-color:var(--signal);position:relative;}
+  .group-card.new::after{
+    content:"YENİ";position:absolute;top:14px;right:14px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--signal);letter-spacing:0.05em;
+  }
 
-/* Grid overlay */
-.hero-grid{
-  position:absolute;inset:0;z-index:1;
-  background-image:
-    linear-gradient(rgba(26,58,107,0.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(26,58,107,0.07) 1px,transparent 1px);
-  background-size:50px 50px;
-  animation:gridDrift 30s linear infinite;
-}
-@keyframes gridDrift{from{background-position:0 0}to{background-position:50px 50px}}
+  /* ABOUT */
+  .about{background:var(--ink);color:var(--concrete);}
+  .about .section-head p{color:#B9C2C9;}
+  .about .tag{color:var(--signal);}
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:start;}
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .pillar{border-top:2px solid var(--signal);padding-top:12px;}
+  .pillar h4{font-size:1rem;margin-bottom:6px;}
+  .pillar p{font-size:0.88rem;color:#B9C2C9;}
+  .founder-card{
+    background:#1E252B;border-radius:14px;padding:28px;
+  }
+  .founder-card .avatar{
+    width:56px;height:56px;border-radius:50%;background:var(--signal);
+    display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;
+    font-weight:700;color:#fff;margin-bottom:16px;
+  }
+  .founder-card p{font-size:0.9rem;color:#B9C2C9;margin-top:10px;}
+  .founder-contact{display:flex;flex-direction:column;gap:8px;margin-top:18px;font-size:0.88rem;}
 
-/* Diagonal cut top-right */
-.hero-cut{
-  position:absolute;top:0;right:0;
-  width:45%;height:100%;
-  background:linear-gradient(135deg,transparent 0%,rgba(232,119,34,0.04) 100%);
-  clip-path:polygon(30% 0,100% 0,100% 100%,0 100%);
-  z-index:1;
-}
-.hero-cut::before{
-  content:'';
-  position:absolute;top:0;left:30%;bottom:0;width:1px;
-  background:linear-gradient(180deg,transparent,rgba(232,119,34,.4),transparent);
-}
+  /* SOCIAL */
+  .social-band{
+    background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .social-wrap{
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:40px 0;
+  }
+  .social-links{display:flex;gap:14px;}
+  .social-links a{
+    display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;
+    border:1px solid var(--line);font-weight:600;font-size:0.9rem;transition:all .2s;
+  }
+  .social-links a:hover{border-color:var(--ink);background:var(--ink);color:#fff;}
 
-.hero-content{position:relative;z-index:2;max-width:700px;}
+  footer{padding:48px 0 32px;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+  .footer-grid .logo{margin-bottom:10px;}
+  footer p{color:var(--rebar);font-size:0.85rem;}
+  .foot-links{display:flex;gap:24px;font-size:0.85rem;flex-wrap:wrap;}
 
-.hero-ire{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.65rem;letter-spacing:6px;
-  color:var(--orange);margin-bottom:20px;
-  display:flex;align-items:center;gap:12px;
-  animation:fadeUp .8s ease .2s both;
-}
-.hero-ire::before{content:'';width:32px;height:1px;background:var(--orange);}
-
-.hero-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(3.5rem,8vw,7rem);
-  font-weight:900;line-height:.9;
-  letter-spacing:-1px;margin-bottom:24px;
-  animation:fadeUp .8s ease .35s both;
-}
-.hero-title .t1{color:var(--white);display:block;}
-.hero-title .t2{
-  color:var(--orange);display:block;
-  text-shadow:0 0 60px rgba(232,119,34,.3);
-}
-
-.hero-desc{
-  font-size:1.05rem;font-weight:300;
-  color:var(--steel);line-height:1.7;
-  max-width:480px;margin-bottom:40px;
-  animation:fadeUp .8s ease .5s both;
-}
-.hero-desc strong{color:var(--light);font-weight:500;}
-
-.hero-btns{
-  display:flex;gap:16px;flex-wrap:wrap;
-  animation:fadeUp .8s ease .65s both;
-}
-.btn-main{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:.9rem;font-weight:700;letter-spacing:3px;
-  padding:14px 36px;text-transform:uppercase;
-  background:var(--orange);color:var(--white);
-  text-decoration:none;
-  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
-  transition:all .25s;display:inline-flex;align-items:center;gap:10px;
-}
-.btn-main:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:var(--glow);}
-.btn-ghost{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:.9rem;font-weight:700;letter-spacing:3px;
-  padding:13px 36px;text-transform:uppercase;
-  background:transparent;color:var(--light);
-  border:1px solid rgba(255,255,255,.2);
-  text-decoration:none;
-  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
-  transition:all .25s;display:inline-block;
-}
-.btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
-
-/* Stats floating right */
-.hero-stats{
-  position:absolute;right:80px;top:50%;
-  transform:translateY(-50%);
-  z-index:2;
-  display:flex;flex-direction:column;gap:20px;
-  animation:fadeUp .8s ease .8s both;
-}
-.stat-pill{
-  background:rgba(15,32,68,.7);
-  border:1px solid rgba(232,119,34,.25);
-  backdrop-filter:blur(12px);
-  padding:16px 24px;
-  text-align:center;
-  clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);
-}
-.stat-n{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:2.2rem;font-weight:900;
-  color:var(--orange);line-height:1;
-}
-.stat-l{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.5rem;letter-spacing:2px;
-  color:var(--steel);text-transform:uppercase;margin-top:2px;
-}
-
-/* Scroll arrow */
-.scroll-ind{
-  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
-  z-index:2;text-align:center;
-  animation:fadeUp .8s ease 1.2s both;
-}
-.scroll-ind span{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.5rem;letter-spacing:4px;color:var(--steel);
-  display:block;margin-bottom:8px;
-}
-.scroll-line{
-  width:1px;height:40px;margin:0 auto;
-  background:linear-gradient(var(--orange),transparent);
-  animation:scrollPulse 2s ease infinite;
-}
-@keyframes scrollPulse{0%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(.4) translateY(8px)}}
-
-/* ── SECTIONS SHARED ── */
-section{padding:100px 48px;}
-.section-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.6rem;letter-spacing:5px;color:var(--orange);
-  text-transform:uppercase;margin-bottom:12px;
-  display:flex;align-items:center;gap:10px;
-}
-.section-eyebrow::before{content:'//';color:rgba(232,119,34,.5);}
-.section-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(2.2rem,5vw,4rem);
-  font-weight:900;line-height:1;letter-spacing:-1px;
-  margin-bottom:60px;
-}
-.section-title .hl{color:var(--orange);}
-
-/* ── ABOUT ── */
-#about{background:var(--dark2);position:relative;overflow:hidden;}
-#about::after{
-  content:'INDUSTRCONS';
-  position:absolute;right:-5%;top:50%;transform:translateY(-50%) rotate(90deg);
-  font-family:'Barlow Condensed',sans-serif;font-weight:900;
-  font-size:10rem;color:rgba(26,58,107,0.06);
-  pointer-events:none;letter-spacing:10px;white-space:nowrap;
-}
-.about-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.about-text p{font-size:1rem;line-height:1.8;color:var(--steel);margin-bottom:16px;}
-.about-text p strong{color:var(--light);}
-.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.mv-card{
-  background:var(--glass);border:1px solid var(--border);
-  padding:24px;
-  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
-  transition:border-color .3s;
-}
-.mv-card:hover{border-color:rgba(232,119,34,.35);}
-.mv-label{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:.65rem;font-weight:700;letter-spacing:4px;
-  color:var(--orange);text-transform:uppercase;margin-bottom:10px;
-}
-.mv-text{font-size:.88rem;line-height:1.6;color:var(--steel);}
-
-/* stats row */
-.stats-row{
-  display:flex;gap:0;margin-top:48px;
-  border:1px solid var(--border);
-  overflow:hidden;
-}
-.stats-row .st{
-  flex:1;padding:24px 20px;text-align:center;
-  border-right:1px solid var(--border);
-  transition:background .3s;
-}
-.stats-row .st:last-child{border-right:none;}
-.stats-row .st:hover{background:rgba(232,119,34,.06);}
-.st-num{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:2.5rem;font-weight:900;color:var(--orange);line-height:1;
-}
-.st-lbl{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:2px;color:var(--steel);margin-top:4px;}
-
-/* ── GROUPS ── */
-#groups{background:var(--dark);position:relative;}
-.groups-wrap{max-width:1200px;margin:0 auto;}
-.groups-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-.group-card{
-  background:var(--dark2);
-  border:1px solid var(--border);
-  padding:28px 24px;
-  position:relative;overflow:hidden;
-  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%);
-  transition:all .3s;cursor:default;
-}
-.group-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--orange),var(--blue2));
-  transform:scaleX(0);transform-origin:left;transition:transform .4s;
-}
-.group-card:hover{border-color:rgba(232,119,34,.3);transform:translateY(-4px);}
-.group-card:hover::before{transform:scaleX(1);}
-.group-card.featured{
-  border-color:rgba(232,119,34,.25);
-  background:linear-gradient(135deg,rgba(232,119,34,.06) 0%,var(--dark2) 60%);
-}
-.group-icon{font-size:1.8rem;margin-bottom:14px;display:block;}
-.group-name{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.05rem;font-weight:700;letter-spacing:.5px;
-  color:var(--white);margin-bottom:10px;
-}
-.group-desc{font-size:.82rem;line-height:1.6;color:var(--steel);}
-.group-tag{
-  display:inline-block;
-  margin-top:14px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:.5rem;letter-spacing:2px;padding:3px 8px;
-  background:rgba(232,119,34,.12);
-  border:1px solid rgba(232,119,34,.25);
-  color:var(--orange);text-transform:uppercase;
-  clip-path:polygon(3px 0,100% 0,calc(100% - 3px) 100%,0 100%);
-}
-
-/* ── FOUNDER ── */
-#founder{background:var(--dark2);}
-.founder-wrap{max-width:900px;margin:0 auto;}
-.founder-card{
-  display:grid;grid-template-columns:220px 1fr;
-  gap:60px;align-items:center;
-  background:var(--glass);
-  border:1px solid var(--border);
-  padding:48px;
-  clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,24px 100%,0 calc(100% - 24px));
-  position:relative;overflow:hidden;
-}
-.founder-card::before{
-  content:'';position:absolute;top:0;right:0;
-  width:200px;height:200px;
-  background:radial-gradient(circle,rgba(232,119,34,.08) 0%,transparent 70%);
-}
-/* Monogram avatar */
-.founder-avatar{
-  aspect-ratio:1;
-  background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%);
-  border:2px solid rgba(232,119,34,.3);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
-}
-.founder-avatar::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(232,119,34,.15) 0%,transparent 60%);
-}
-.founder-mono{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:3.5rem;font-weight:900;
-  color:var(--orange);letter-spacing:2px;
-  position:relative;z-index:1;
-  text-shadow:0 0 40px rgba(232,119,34,.4);
-}
-.founder-name{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:2rem;font-weight:900;letter-spacing:1px;
-  color:var(--white);margin-bottom:4px;
-}
-.founder-title{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.6rem;letter-spacing:3px;color:var(--orange);
-  margin-bottom:20px;text-transform:uppercase;
-}
-.founder-bio{font-size:.9rem;line-height:1.7;color:var(--steel);margin-bottom:24px;}
-.founder-contacts{display:flex;flex-direction:column;gap:8px;}
-.fc-row{display:flex;align-items:center;gap:10px;}
-.fc-icon{
-  width:26px;height:26px;
-  border:1px solid rgba(232,119,34,.3);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.7rem;color:var(--orange);flex-shrink:0;
-}
-.fc-val{font-size:.8rem;color:var(--steel);}
-.fc-val a{color:var(--steel);text-decoration:none;transition:color .2s;}
-.fc-val a:hover{color:var(--orange);}
-
-/* ── CTA ── */
-#cta{
-  background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 50%,var(--dark) 100%);
-  text-align:center;padding:100px 48px;
-  position:relative;overflow:hidden;
-}
-#cta::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 50%,rgba(232,119,34,.12) 0%,transparent 70%);
-}
-/* Construction line pattern */
-#cta::after{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-  background-size:40px 40px;
-}
-.cta-inner{position:relative;z-index:1;}
-.cta-ire{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.65rem;letter-spacing:6px;
-  color:var(--orange2);margin-bottom:16px;display:block;
-}
-.cta-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(2.5rem,6vw,5rem);
-  font-weight:900;line-height:.95;
-  color:var(--white);margin-bottom:24px;letter-spacing:-1px;
-}
-.cta-sub{font-size:1rem;color:rgba(255,255,255,.6);margin-bottom:40px;}
-.cta-btn{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1rem;font-weight:700;letter-spacing:3px;
-  padding:18px 48px;text-transform:uppercase;
-  background:var(--orange);color:var(--white);
-  text-decoration:none;display:inline-flex;align-items:center;gap:12px;
-  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
-  transition:all .3s;
-  box-shadow:0 8px 40px rgba(232,119,34,.4);
-}
-.cta-btn:hover{background:var(--orange2);transform:translateY(-3px);box-shadow:0 16px 60px rgba(232,119,34,.5);}
-.cta-members{
-  margin-top:24px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:.58rem;letter-spacing:3px;
-  color:rgba(255,255,255,.35);
-}
-
-/* ── FOOTER ── */
-footer{
-  background:var(--dark);
-  border-top:1px solid var(--border);
-  padding:40px 48px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.footer-logo{display:flex;align-items:center;gap:10px;}
-.footer-copy{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.52rem;letter-spacing:2px;color:rgba(143,163,188,.3);
-}
-.footer-links{display:flex;gap:20px;}
-.footer-links a{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.52rem;letter-spacing:2px;
-  color:var(--steel);text-decoration:none;transition:color .2s;
-}
-.footer-links a:hover{color:var(--orange);}
-
-/* ── MOBILE MENU ── */
-.mob-btn{
-  display:none;flex-direction:column;gap:5px;
-  cursor:pointer;padding:4px;
-}
-.mob-btn span{width:22px;height:2px;background:var(--steel);display:block;transition:all .3s;}
-.mob-nav{
-  position:fixed;inset:0;
-  background:rgba(8,15,30,.97);backdrop-filter:blur(20px);
-  z-index:999;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:28px;
-  transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);
-}
-.mob-nav.open{transform:translateX(0);}
-.mob-nav a{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.8rem;font-weight:700;letter-spacing:4px;
-  color:var(--steel);text-decoration:none;text-transform:uppercase;
-  transition:color .2s;
-}
-.mob-nav a:hover{color:var(--orange);}
-.mob-close{
-  position:absolute;top:20px;right:24px;
-  font-size:1.5rem;color:var(--steel);
-  background:none;border:none;cursor:pointer;
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
-.reveal.vis{opacity:1;transform:translateY(0);}
-
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;}
-  .mob-btn{display:flex;}
-  section{padding:80px 24px;}
-  #hero{padding:100px 24px 80px;}
-  .hero-stats{display:none;}
-  .hero-title{font-size:3.2rem;}
-  .about-wrap{grid-template-columns:1fr;gap:40px;}
-  .about-cards{grid-template-columns:1fr;}
-  .groups-grid{grid-template-columns:1fr 1fr;}
-  .founder-card{grid-template-columns:1fr;gap:32px;padding:32px;}
-  .founder-avatar{width:120px;height:120px;}
-  footer{flex-direction:column;gap:16px;text-align:center;padding:32px 24px;}
-  .footer-links{flex-wrap:wrap;justify-content:center;}
-  .lang-btn{right:60px;top:18px;}
-}
-@media(max-width:560px){
-  .groups-grid{grid-template-columns:1fr;}
-  .stats-row{flex-direction:column;}
-  .stats-row .st{border-right:none;border-bottom:1px solid var(--border);}
-  .hero-btns{flex-direction:column;}
-  .btn-main,.btn-ghost{text-align:center;justify-content:center;}
-}
+  @media (max-width:860px){
+    .tools-grid{grid-template-columns:1fr;}
+    .groups-grid{grid-template-columns:repeat(2,1fr);}
+    .about-grid{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+  }
+  @media (max-width:520px){
+    .groups-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+  a:focus-visible, button:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
 </style>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur-r"></div>
-
-<!-- LANG -->
-<button class="lang-btn" id="langBtn" onclick="toggleLang()">EN / AZ</button>
-
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#hero">
-    <!-- Inline SVG logo -->
-    <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Gear -->
-      <circle cx="16" cy="22" r="10" stroke="#8fa3bc" stroke-width="1.2" fill="none"/>
-      <circle cx="16" cy="22" r="6" stroke="#8fa3bc" stroke-width="1" fill="none"/>
-      <!-- Gear teeth -->
-      <rect x="14.5" y="10" width="3" height="3" rx=".5" fill="#8fa3bc"/>
-      <rect x="14.5" y="31" width="3" height="3" rx=".5" fill="#8fa3bc"/>
-      <rect x="4" y="20.5" width="3" height="3" rx=".5" fill="#8fa3bc"/>
-      <rect x="25" y="20.5" width="3" height="3" rx=".5" fill="#8fa3bc"/>
-      <!-- Buildings -->
-      <rect x="11" y="16" width="4" height="8" fill="#1a3a6b"/>
-      <rect x="15.5" y="13" width="5" height="11" fill="#1e4d9a"/>
-      <rect x="21" y="15" width="3.5" height="9" fill="#1a3a6b"/>
-      <!-- Hard hat arc -->
-      <path d="M 10 20 Q 16 12 22 20" stroke="#e87722" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="16" cy="20" rx="7" ry="1.5" fill="#e87722" opacity=".7"/>
-      <!-- IRE badge -->
-      <rect x="22" y="28" width="16" height="8" rx="1" fill="#e87722"/>
-      <text x="30" y="34.5" font-family="sans-serif" font-weight="900" font-size="5.5" fill="white" text-anchor="middle">IRE</text>
-    </svg>
-    <div class="logo-text">
-      <div class="logo-main">Industr<span>CONS</span></div>
-      <div class="logo-sub" data-az="Sənayeyə Hazır Mühəndis" data-en="Industry Ready Engineer">Industry Ready Engineer</div>
+<header>
+  <nav class="wrap">
+    <div class="logo"><span class="logo-mark">IC</span> IndustrCons</div>
+    <div class="nav-links">
+      <a href="#tools">Alətlər</a>
+      <a href="#groups">İcma</a>
+      <a href="#about">Haqqımızda</a>
+      <a href="#contact">Əlaqə</a>
     </div>
-  </a>
+    <a class="btn btn-primary" href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">İcmaya qoşul</a>
+  </nav>
+</header>
 
-  <ul class="nav-links">
-    <li><a href="#about" data-az="Haqqında" data-en="About">About</a></li>
-    <li><a href="#groups" data-az="Qruplar" data-en="Groups">Groups</a></li>
-    <li><a href="#founder" data-az="Qurucu" data-en="Founder">Founder</a></li>
-  </ul>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Azərbaycan · Tikinti &amp; Mühəndislik Şəbəkəsi</span>
+    <h1>Tikinti sənayesinin insanlarını və <span>alətlərini</span> bir yerə yığırıq.</h1>
+    <p>IndustrCons — mühəndislərin, sahə mütəxəssislərinin və tələbələrin vakansiya paylaşdığı, networking qurduğu icmadır. Üstəlik, layihələrinizi sürətləndirmək üçün iki rəqəmsal alət təqdim edirik: <b>Estimator</b> (smeta hesablama) və <b>Docs</b> (sənədləşdirmə).</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#tools">Alətlərə bax</a>
+      <a class="btn btn-ghost" href="#groups">İcma qruplarını gör</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b class="mono">12+</b><span>ixtisaslaşmış WhatsApp qrupu</span></div>
+      <div class="stat"><b class="mono">1000+</b><span>üzv</span></div>
+      <div class="stat"><b class="mono">2</b><span>rəqəmsal alət — Estimator &amp; Docs</span></div>
+      <div class="stat"><b class="mono">86+</b><span>hazır sənəd şablonu (Docs)</span></div>
+    </div>
+  </div>
+</section>
 
-  <a class="nav-cta" href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" data-az="Qoşul" data-en="Join Now">Join Now</a>
+<section id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Rəqəmsal Alətlər</span>
+      <h2>İşinizi sürətləndirən iki platforma</h2>
+      <p>İcmamızdan doğulan alətlər — sahədə real ehtiyaclara görə hazırlanıb, pulsuz istifadə üçün açıqdır.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <span class="tool-tag">Estimator</span>
+        <h3>IndustrCons Estimator</h3>
+        <p>Tikinti layihənizin dəyərini saniyələr içində hesablayın: sahə, mərtəbə, bina növünə görə dəqiq smeta, material miqdarı və printable PDF hesabat.</p>
+        <ul>
+          <li>7 addımlı smeta sihirbazı və vizual dashboard</li>
+          <li>Region üzrə qiymət əmsalları (Bakı, Gəncə, Sumqayıt və s.)</li>
+          <li>Loqolu, QR kodlu PDF smeta hesabatı</li>
+        </ul>
+        <a class="btn btn-dark" href="https://industrconsestimator.netlify.app/" target="_blank" rel="noopener">Estimator-u aç ↗</a>
+      </div>
+      <div class="tool-card">
+        <span class="tool-tag">Docs</span>
+        <h3>IndustrCons Docs</h3>
+        <p>HSE, KEY/KEN, sənəd idarəetməsi və sahə mühəndisliyi üçün 80-dən çox hazır PDF şablonu, mühəndis kalkulyatorları və Excel alətləri.</p>
+        <ul>
+          <li>86+ hazır sənəd şablonu, 4 əsas kateqoriya</li>
+          <li>18 mühəndis kalkulyatoru (beton həcmi, armatur çəkisi və s.)</li>
+          <li>Tam Azərbaycan dilində, çap üçün hazır formatlarda</li>
+        </ul>
+        <a class="btn btn-dark" href="https://industrconsdocs.netlify.app/" target="_blank" rel="noopener">Docs-u aç ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="mob-btn" onclick="openMob()"><span></span><span></span><span></span></div>
-</nav>
+<section id="groups">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">İcma</span>
+      <h2>Sahənizə uyğun qrupa qoşulun</h2>
+      <p>Vakansiya paylaşımı, təcrübə mübadiləsi və networking üçün ixtisas üzrə bölünmüş WhatsApp qrupları. Aşağıdan sizə uyğun olanı seçin.</p>
+    </div>
+    <div class="groups-grid">
+      <div class="group-card"><span class="icon">🏗️</span><h4>İnşaat Vakansiyaları 1 &amp; 2</h4><p>Sahə mühəndisi, sahə müdiri və digər inşaat vakansiyaları.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card"><span class="icon">📋</span><h4>Ümumi Vakansiyalar</h4><p>Sənayelərarası vakansiya elanları və iş axtaranlar üçün dəstək.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card"><span class="icon">🦺</span><h4>HSE Qrupu</h4><p>İş təhlükəsizliyi və sağlamlıq üzrə müzakirə və vakansiyalar.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card"><span class="icon">📐</span><h4>Topoqraf &amp; GEO Mühəndis</h4><p>Geodeziya və topoqrafiya sahəsi üzrə peşəkarlar.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card"><span class="icon">🔧</span><h4>MEP Mühəndisləri</h4><p>Mexaniki, elektrik və santexnika sistemləri üzrə mütəxəssislər.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card"><span class="icon">🧑‍💼</span><h4>HR Şəbəkəsi</h4><p>İnsan resursları mütəxəssisləri üçün networking qrupu.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card"><span class="icon">📑</span><h4>Tenderlər</h4><p>Aktual tender elanları və müqavilə imkanları.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card"><span class="icon">👷</span><h4>Usta/İşçilər Qrupu</h4><p>Ustalar və sahə işçiləri üçün iş elanları və əlaqə şəbəkəsi.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card new"><span class="icon">📊</span><h4>PM Group</h4><p>Layihə meneceri və layihə idarəetməsi üzrə mütəxəssislər.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card new"><span class="icon">✅</span><h4>QA/QC Group</h4><p>Keyfiyyətə nəzarət və keyfiyyət təminatı mütəxəssisləri.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card new"><span class="icon">🗓️</span><h4>Planning Group</h4><p>Layihə planlaşdırması və proqram (scheduling) üzrə mütəxəssislər.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+      <div class="group-card new"><span class="icon">🎓</span><h4>Gənclər &amp; Tələbələr üçün Dəstək</h4><p>Tələbələr və yeni məzunlar üçün mentorluq, təcrübə və karyera dəstəyi.</p><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">Qoşul →</a></div>
+    </div>
+  </div>
+</section>
 
-<!-- Mobile nav -->
-<div class="mob-nav" id="mobNav">
-  <button class="mob-close" onclick="closeMob()">✕</button>
-  <a href="#about" onclick="closeMob()" data-az="Haqqında" data-en="About">About</a>
-  <a href="#groups" onclick="closeMob()" data-az="Qruplar" data-en="Groups">Groups</a>
-  <a href="#founder" onclick="closeMob()" data-az="Qurucu" data-en="Founder">Founder</a>
-  <a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" style="color:var(--orange)" data-az="İndi Qoşul" data-en="Join Now">Join Now</a>
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Haqqımızda</span>
+      <h2>IndustrCons nədir?</h2>
+      <p>Tək bir WhatsApp qrupundan başlayan təşəbbüs, bu gün Azərbaycanda tikinti və mühəndislik sahəsinin ən aktiv rəqəmsal şəbəkələrindən birinə çevrilib.</p>
+    </div>
+    <div class="about-grid">
+      <div class="pillars">
+        <div class="pillar"><h4>Vakansiya paylaşımı</h4><p>İş axtaranları və işəgötürənləri ixtisas üzrə bölünmüş qruplarda birbaşa əlaqələndiririk.</p></div>
+        <div class="pillar"><h4>Networking</h4><p>Sahə mühəndisindən podratçıya qədər — sahədəki hər kəs üçün əlaqə qurma məkanı.</p></div>
+        <div class="pillar"><h4>Məsləhət &amp; mentorluq</h4><p>Təcrübəli mütəxəssislərdən məsləhət, gənclər üçün mentorluq dəstəyi.</p></div>
+        <div class="pillar"><h4>CV paylaşımı</h4><p>CV-nizi paylaşın, rəy alın və işəgötürənlərin görüş sahəsində olun.</p></div>
+        <div class="pillar"><h4>Estimator alət</h4><p>Layihə dəyərini saniyələr içində hesablayan smeta platforması.</p></div>
+        <div class="pillar"><h4>Docs alət</h4><p>HSE və sənədləşdirmə üçün hazır PDF şablonları kitabxanası.</p></div>
+      </div>
+      <div class="founder-card">
+        <div class="avatar">EƏ</div>
+        <h3>Elvin Əsgərov</h3>
+        <p style="color:var(--signal);font-size:0.85rem;font-weight:600;margin-top:2px;">IndustrCons-un yaradıcısı</p>
+        <p>IndustrCons Azərbaycanda tikinti sektorunda şəffaf əlaqə, əlçatan qiymətləndirmə və peşəkar dəstək ehtiyacından yaranıb. Məqsəd — sahədəki hər kəsə, təcrübəsindən asılı olmayaraq, doğru resurs və doğru insanlarla əlaqə imkanı yaratmaqdır.</p>
+        <div class="founder-contact">
+          <a href="mailto:elvinasgarov12@gmail.com">✉️ elvinasgarov12@gmail.com</a>
+          <a href="tel:+994775889727">📞 +994 77 588 97 27</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="social-band">
+  <div class="wrap social-wrap">
+    <div>
+      <h3 style="font-size:1.1rem;">Bizi izləyin</h3>
+      <p style="color:var(--rebar);font-size:0.88rem;margin-top:4px;">Yeniliklər, vakansiyalar və sənaye məzmunu üçün</p>
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/industrcons/" target="_blank" rel="noopener">in LinkedIn</a>
+      <a href="https://www.instagram.com/industrcons" target="_blank" rel="noopener">◎ Instagram</a>
+      <a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">✆ WhatsApp</a>
+    </div>
+  </div>
 </div>
 
-<!-- HERO -->
-<section id="hero">
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-grid"></div>
-  <div class="hero-cut"></div>
-
-  <div class="hero-content">
-    <div class="hero-ire" data-az="// Sənayeyə Hazır Mühəndis — IRE-3" data-en="// Industry Ready Engineer — IRE-3">
-      // Industry Ready Engineer — IRE-3
+<footer id="contact">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="logo"><span class="logo-mark">IC</span> IndustrCons</div>
+      <p style="max-width:320px;">Azərbaycanda tikinti sənayesi üçün icma, networking və rəqəmsal alətlər platforması.</p>
     </div>
-    <h1 class="hero-title">
-      <span class="t1">Industr</span>
-      <span class="t2">CONS</span>
-    </h1>
-    <p class="hero-desc" data-az="Tikinti və Mühəndislik Peşəkarlarını Birləşdirən <strong>Community Platform</strong>. Əlaqələr qur. İmkanlar yarat. Karyeranı inkişaf etdir." data-en="The <strong>Community Platform</strong> connecting Construction & Engineering professionals. Build Connections. Create Opportunities. Grow your career.">
-      The <strong>Community Platform</strong> connecting Construction &amp; Engineering professionals. Build Connections. Create Opportunities. Grow your career.
-    </p>
-    <div class="hero-btns">
-      <a class="btn-main" href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank">
-        <span>👷</span>
-        <span data-az="İcmaya Qoşul" data-en="Join Community">Join Community</span>
-      </a>
-      <a class="btn-ghost" href="#groups" data-az="Qrupları Gör" data-en="Explore Groups">Explore Groups</a>
+    <div class="foot-links">
+      <a href="#tools">Estimator</a>
+      <a href="#tools">Docs</a>
+      <a href="#groups">İcma qrupları</a>
+      <a href="https://www.linkedin.com/company/industrcons/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/industrcons" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
-
-  <div class="hero-stats">
-    <div class="stat-pill">
-      <div class="stat-n">1K+</div>
-      <div class="stat-l" data-az="Üzv" data-en="Members">Members</div>
-    </div>
-    <div class="stat-pill">
-      <div class="stat-n">8+</div>
-      <div class="stat-l" data-az="Qrup" data-en="Groups">Groups</div>
-    </div>
-    <div class="stat-pill">
-      <div class="stat-n">AZ</div>
-      <div class="stat-l" data-az="Ölkə" data-en="Country">Country</div>
-    </div>
-  </div>
-
-  <div class="scroll-ind">
-    <span data-az="AŞAĞI" data-en="SCROLL">SCROLL</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-wrap">
-    <div class="about-text reveal">
-      <div class="section-eyebrow" data-az="01 — Haqqımızda" data-en="01 — About">01 — About</div>
-      <h2 class="section-title" data-az="Tikinti &amp;<br><span class='hl'>Mühəndislik</span> Platforması" data-en="Construction &amp;<br><span class='hl'>Engineering</span> Platform">
-        Construction &amp;<br><span class="hl">Engineering</span> Platform
-      </h2>
-      <p data-az="IndustrCons tikinti və mühəndislik sektorunda fəaliyyət göstərən <strong>mütəxəssisləri, işəgötürənləri, HR mütəxəssislərini</strong> və iş axtaranları bir araya gətirmək məqsədilə yaradılmış peşəkar community platformasıdır." data-en="IndustrCons is a professional community platform designed to bring together <strong>specialists, employers, HR professionals</strong> and job seekers active in the construction and engineering sector.">
-        IndustrCons is a professional community platform designed to bring together <strong>specialists, employers, HR professionals</strong> and job seekers active in the construction and engineering sector.
-      </p>
-      <p data-az="Platformamızın əsas məqsədi sektor daxilində peşəkar əlaqələrin qurulması, vakansiyaların paylaşılması, bilik mübadiləsinin təşviqi və karyera imkanlarının artırılmasıdır." data-en="Our platform's core purpose is to build professional connections within the sector, share vacancies, promote knowledge exchange and expand career opportunities.">
-        Our platform's core purpose is to build professional connections within the sector, share vacancies, promote knowledge exchange and expand career opportunities.
-      </p>
-      <div class="stats-row" style="margin-top:40px;">
-        <div class="st">
-          <div class="st-num">1000+</div>
-          <div class="st-lbl" data-az="Üzv" data-en="Members">Members</div>
-        </div>
-        <div class="st">
-          <div class="st-num">8+</div>
-          <div class="st-lbl" data-az="Xüsusi Qrup" data-en="Specialized Groups">Specialized Groups</div>
-        </div>
-        <div class="st">
-          <div class="st-num">🚀</div>
-          <div class="st-lbl" data-az="Böyüməkdə" data-en="Growing">Growing</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-cards reveal">
-      <div class="mv-card">
-        <div class="mv-label" data-az="Missiyamız" data-en="Mission">Mission</div>
-        <div class="mv-text" data-az="Tikinti və mühəndislik sektorunda fəaliyyət göstərən insanları vahid platformada birləşdirərək iş imkanlarını, peşəkar əlaqələri və bilik paylaşımını inkişaf etdirmək." data-en="Unite people in the construction and engineering sector on a single platform to develop employment opportunities, professional connections and knowledge sharing.">
-          Unite people in the construction and engineering sector on a single platform to develop employment opportunities, professional connections and knowledge sharing.
-        </div>
-      </div>
-      <div class="mv-card">
-        <div class="mv-label" data-az="Vizyonumuz" data-en="Vision">Vision</div>
-        <div class="mv-text" data-az="Azərbaycanın və gələcəkdə regionun ən böyük tikinti və mühəndislik peşəkarları şəbəkəsinə çevrilmək." data-en="To become the largest construction and engineering professionals network in Azerbaijan and the broader region.">
-          To become the largest construction and engineering professionals network in Azerbaijan and the broader region.
-        </div>
-      </div>
-      <div class="mv-card" style="grid-column:1/-1">
-        <div class="mv-label" data-az="IRE-3 Nədir?" data-en="What is IRE-3?">What is IRE-3?</div>
-        <div class="mv-text" data-az="Industry Ready Engineer — sektora hazır mühəndis konsepsiyası. Nəzəriyyə ilə praktikanı birləşdirən, sahəyə hazır peşəkarlar yetişdirmək üçün yaradılmış proqram çərçivəsi." data-en="Industry Ready Engineer — a concept for engineers ready for the sector. A program framework created to develop professionals who bridge theory and practice in the field.">
-          Industry Ready Engineer — a concept for engineers ready for the sector. A program framework created to develop professionals who bridge theory and practice in the field.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GROUPS -->
-<section id="groups">
-  <div class="groups-wrap">
-    <div class="section-eyebrow" data-az="02 — Qruplar" data-en="02 — Groups">02 — Groups</div>
-    <h2 class="section-title" data-az="Community <span class='hl'>Qruplarımız</span>" data-en="Our Community <span class='hl'>Groups</span>">
-      Our Community <span class="hl">Groups</span>
-    </h2>
-    <div class="groups-grid">
-
-      <div class="group-card featured reveal">
-        <span class="group-icon">🏗</span>
-        <div class="group-name" data-az="Azerbaijan Construction Network (ACN)" data-en="Azerbaijan Construction Network (ACN)">Azerbaijan Construction Network (ACN)</div>
-        <div class="group-desc" data-az="Tikinti sektorunda fəaliyyət göstərən mütəxəssislər üçün əsas community. Vakansiyalar, CV paylaşımı və professional networking üçün nəzərdə tutulmuşdur." data-en="The main community for professionals in the construction sector. Designed for vacancies, CV sharing and professional networking.">The main community for professionals in the construction sector. Designed for vacancies, CV sharing and professional networking.</div>
-        <span class="group-tag" data-az="Əsas Qrup" data-en="Main Group">Main Group</span>
-      </div>
-
-      <div class="group-card reveal">
-        <span class="group-icon">👔</span>
-        <div class="group-name" data-az="IndustrCons HR Network" data-en="IndustrCons HR Network">IndustrCons HR Network</div>
-        <div class="group-desc" data-az="Tikinti sektoru üzrə HR mütəxəssisləri və recruiter-lər üçün xüsusi qrup. Vakansiyaların paylaşılması və uyğun namizədlərin sürətli tapılması." data-en="A dedicated group for HR specialists and recruiters in the construction sector. Sharing vacancies and finding suitable candidates faster.">A dedicated group for HR specialists and recruiters in the construction sector. Sharing vacancies and finding suitable candidates faster.</div>
-        <span class="group-tag">HR Only</span>
-      </div>
-
-      <div class="group-card reveal">
-        <span class="group-icon">📢</span>
-        <div class="group-name" data-az="IndustrCons All Vacancies Network" data-en="IndustrCons All Vacancies Network">IndustrCons All Vacancies Network</div>
-        <div class="group-desc" data-az="Müxtəlif sahələr üzrə vakansiya və iş imkanlarının paylaşılması üçün yaradılmış platforma." data-en="A platform created for sharing vacancies and job opportunities across various fields.">A platform created for sharing vacancies and job opportunities across various fields.</div>
-        <span class="group-tag" data-az="Vakansiyalar" data-en="Vacancies">Vacancies</span>
-      </div>
-
-      <div class="group-card reveal">
-        <span class="group-icon">🦺</span>
-        <div class="group-name" data-az="IndustrCons HSE Network" data-en="IndustrCons HSE Network">IndustrCons HSE Network</div>
-        <div class="group-desc" data-az="Health, Safety & Environment mütəxəssisləri üçün peşəkar şəbəkə və bilik mübadiləsi platforması." data-en="A professional network and knowledge exchange platform for Health, Safety & Environment specialists.">A professional network and knowledge exchange platform for Health, Safety &amp; Environment specialists.</div>
-        <span class="group-tag">HSE</span>
-      </div>
-
-      <div class="group-card reveal">
-        <span class="group-icon">🔧</span>
-        <div class="group-name" data-az="IndustrCons MEP Network" data-en="IndustrCons MEP Network">IndustrCons MEP Network</div>
-        <div class="group-desc" data-az="Mechanical, Electrical & Plumbing sahəsində çalışan mühəndis və mütəxəssislər üçün xüsusi community." data-en="A dedicated community for engineers and specialists working in Mechanical, Electrical & Plumbing fields.">A dedicated community for engineers and specialists working in Mechanical, Electrical &amp; Plumbing fields.</div>
-        <span class="group-tag">MEP</span>
-      </div>
-
-      <div class="group-card reveal">
-        <span class="group-icon">📐</span>
-        <div class="group-name" data-az="Topographer & Surveyors" data-en="Topographer & Surveyors">Topographer &amp; Surveyors</div>
-        <div class="group-desc" data-az="Topoqrafiya, geodeziya və xəritəçilik sahəsində çalışan mütəxəssislər üçün peşəkar şəbəkə." data-en="A professional network for specialists working in topography, geodesy and cartography fields.">A professional network for specialists working in topography, geodesy and cartography fields.</div>
-        <span class="group-tag" data-az="Geodeziya" data-en="Geodesy">Geodesy</span>
-      </div>
-
-      <div class="group-card reveal">
-        <span class="group-icon">🛠</span>
-        <div class="group-name" data-az="IndustrCons Ustalar" data-en="IndustrCons Masters">IndustrCons Ustalar</div>
-        <div class="group-desc" data-az="Tikinti sahəsində çalışan ustalar və texniki işçilər üçün iş imkanları və əməkdaşlıq platforması." data-en="A work opportunities and collaboration platform for craftsmen and technical workers in the construction field.">A work opportunities and collaboration platform for craftsmen and technical workers in the construction field.</div>
-        <span class="group-tag" data-az="Texniki" data-en="Technical">Technical</span>
-      </div>
-
-      <div class="group-card reveal">
-        <span class="group-icon">🏛</span>
-        <div class="group-name" data-az="Memar & Dizaynerlər" data-en="Architects & Designers">Memar &amp; Dizaynerlər</div>
-        <div class="group-desc" data-az="Memarlar, interyer dizaynerləri və layihələndirmə mütəxəssisləri üçün peşəkar community." data-en="A professional community for architects, interior designers and design specialists.">A professional community for architects, interior designers and design specialists.</div>
-        <span class="group-tag" data-az="Memarlıq" data-en="Architecture">Architecture</span>
-      </div>
-
-      <div class="group-card reveal">
-        <span class="group-icon">📋</span>
-        <div class="group-name" data-az="IndustrCons — Tenders Group" data-en="IndustrCons — Tenders Group">IndustrCons — Tenders Group</div>
-        <div class="group-desc" data-az="Yerli tenderlər, müsabiqələr və layihə imkanları ilə bağlı məlumat mübadiləsi üçün xüsusi qrup." data-en="A dedicated group for sharing information about local tenders, competitions and project opportunities.">A dedicated group for sharing information about local tenders, competitions and project opportunities.</div>
-        <span class="group-tag" data-az="Tenderlər" data-en="Tenders">Tenders</span>
-      </div>
-
-      <div class="group-card reveal" style="grid-column:1/-1;background:linear-gradient(135deg,rgba(232,119,34,.07) 0%,var(--dark2) 60%);">
-        <span class="group-icon">💬</span>
-        <div class="group-name" data-az="IndustrCons Discussion Group" data-en="IndustrCons Discussion Group">IndustrCons Discussion Group</div>
-        <div class="group-desc" data-az="Tikinti və mühəndislik sahələri üzrə müzakirələr, fikir mübadiləsi və peşəkar əlaqələrin qurulması üçün yaradılmış açıq qrup. Hamı üçün açıqdır." data-en="An open group for discussions, opinion exchange and building professional connections in construction and engineering fields. Open to everyone.">An open group for discussions, opinion exchange and building professional connections in construction and engineering fields. Open to everyone.</div>
-        <span class="group-tag" data-az="Açıq Müzakirə" data-en="Open Discussion">Open Discussion</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section id="founder">
-  <div class="founder-wrap">
-    <div class="section-eyebrow" data-az="03 — Qurucu" data-en="03 — Founder">03 — Founder</div>
-    <h2 class="section-title" data-az="Platformanın <span class='hl'>Qurucusu</span>" data-en="Platform <span class='hl'>Founder</span>">
-      Platform <span class="hl">Founder</span>
-    </h2>
-    <div class="founder-card reveal">
-      <div class="founder-avatar">
-        <div class="founder-mono">EA</div>
-      </div>
-      <div>
-        <div class="founder-name">Elvin Əsgərov</div>
-        <div class="founder-title" data-az="Tikinti Mühəndisi · Sənaye Mühəndisi · Tədqiqatçı" data-en="Construction Engineer · Industrial Engineer · Researcher">Construction Engineer · Industrial Engineer · Researcher</div>
-        <p class="founder-bio" data-az="Tikinti və mühəndislik sektorunda fəaliyyət göstərən peşəkarların daha güclü şəbəkə yaratması məqsədilə IndustrCons platformasının yaradıcısı. Azərbaycanda tikinti sektoruna peşəkar baxış, real iş imkanları və peşəkar bilik mübadiləsi üçün əvvəlsiz bir icma qurmaq missiyası ilə fəaliyyət göstərir." data-en="Creator of the IndustrCons platform, with the mission of building a stronger network for professionals in the construction and engineering sector. Operating with the mission to build an unparalleled community for professional insight, real job opportunities and expert knowledge exchange in Azerbaijan's construction sector.">
-          Creator of the IndustrCons platform, with the mission of building a stronger network for professionals in the construction and engineering sector. Operating with the mission to build an unparalleled community for professional insight, real job opportunities and expert knowledge exchange in Azerbaijan's construction sector.
-        </p>
-        <div class="founder-contacts">
-          <div class="fc-row">
-            <div class="fc-icon">✉</div>
-            <div class="fc-val"><a href="mailto:elvinasgarov12@gmail.com">elvinasgarov12@gmail.com</a></div>
-          </div>
-          <div class="fc-row">
-            <div class="fc-icon">in</div>
-            <div class="fc-val"><a href="https://www.linkedin.com/in/elvinasgarov" target="_blank">linkedin.com/in/elvinasgarov</a></div>
-          </div>
-          <div class="fc-row">
-            <div class="fc-icon">📱</div>
-            <div class="fc-val"><a href="tel:+994775889727">+994 77 588 97 27</a></div>
-          </div>
-          <div class="fc-row">
-            <div class="fc-icon">🌐</div>
-            <div class="fc-val"><a href="https://industrcons.github.io" target="_blank">industrcons.github.io</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section id="cta">
-  <div class="cta-inner">
-    <span class="cta-ire">// INDUSTRCONS · IRE-3</span>
-    <h2 class="cta-title" data-az="İcmaya<br>Qoşul" data-en="Join the<br>Community">Join the<br>Community</h2>
-    <p class="cta-sub" data-az="1000+ tikinti və mühəndislik peşəkarı artıq burada. Növbə səndədir." data-en="1000+ construction and engineering professionals are already here. Your turn.">1000+ construction and engineering professionals are already here. Your turn.</p>
-    <a class="cta-btn" href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank">
-      <span>👷</span>
-      <span data-az="WhatsApp-da Qoşul" data-en="Join on WhatsApp">Join on WhatsApp</span>
-    </a>
-    <div class="cta-members" data-az="Pulsuz · Azərbaycanca · Peşəkar" data-en="Free · Professional · Growing">Free · Professional · Growing</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-      <circle cx="16" cy="22" r="10" stroke="#8fa3bc" stroke-width="1.2" fill="none"/>
-      <circle cx="16" cy="22" r="6" stroke="#8fa3bc" stroke-width="1" fill="none"/>
-      <rect x="14.5" y="10" width="3" height="3" rx=".5" fill="#8fa3bc"/>
-      <rect x="14.5" y="31" width="3" height="3" rx=".5" fill="#8fa3bc"/>
-      <rect x="4" y="20.5" width="3" height="3" rx=".5" fill="#8fa3bc"/>
-      <rect x="25" y="20.5" width="3" height="3" rx=".5" fill="#8fa3bc"/>
-      <rect x="11" y="16" width="4" height="8" fill="#1a3a6b"/>
-      <rect x="15.5" y="13" width="5" height="11" fill="#1e4d9a"/>
-      <rect x="21" y="15" width="3.5" height="9" fill="#1a3a6b"/>
-      <path d="M 10 20 Q 16 12 22 20" stroke="#e87722" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="16" cy="20" rx="7" ry="1.5" fill="#e87722" opacity=".7"/>
-      <rect x="22" y="28" width="16" height="8" rx="1" fill="#e87722"/>
-      <text x="30" y="34.5" font-family="sans-serif" font-weight="900" font-size="5.5" fill="white" text-anchor="middle">IRE</text>
-    </svg>
-    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:1px;">Industr<span style="color:var(--orange)">CONS</span></span>
-  </div>
-  <div class="footer-copy">© 2025 IndustrCons · Baku, Azerbaijan</div>
-  <div class="footer-links">
-    <a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank">WhatsApp</a>
-    <a href="https://www.linkedin.com/in/elvinasgarov" target="_blank">LinkedIn</a>
-    <a href="mailto:elvinasgarov12@gmail.com">Email</a>
+  <div class="wrap" style="margin-top:24px;">
+    <p>© 2026 IndustrCons. Bütün hüquqlar qorunur.</p>
   </div>
 </footer>
 
-<script>
-/* ── Cursor ── */
-const cur=document.getElementById('cur'),cr=document.getElementById('cur-r');
-let mx=0,my=0,tx=0,ty=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function tick(){tx+=(mx-tx)*.12;ty+=(my-ty)*.12;cr.style.left=tx+'px';cr.style.top=ty+'px';requestAnimationFrame(tick);})();
-
-/* ── 3D Hero Canvas — Construction Site ── */
-const canvas=document.getElementById('hero-canvas');
-const ctx=canvas.getContext('2d');
-let W,H,t=0;
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-resize();window.addEventListener('resize',resize);
-
-// Buildings data
-const blds=[];
-for(let i=0;i<14;i++){
-  blds.push({
-    x:(Math.random()-.5)*800,
-    z:Math.random()*500-50,
-    h:60+Math.random()*220,
-    w:35+Math.random()*55,
-    c:Math.random()>.6?'#e87722':'#1a3a6b'
-  });
-}
-
-// Crane
-const crane={x:180,z:200,h:220};
-
-function project(x,y,z,rotY){
-  const rx=x*Math.cos(rotY)-z*Math.sin(rotY);
-  const rz=x*Math.sin(rotY)+z*Math.cos(rotY);
-  const fov=450,pz=rz+900;
-  return{x:W/2+rx*fov/pz,y:H/2+y*fov/pz};
-}
-
-function drawScene(){
-  ctx.clearRect(0,0,W,H);
-  t+=.004;
-  const rotY=Math.sin(t*.4)*.15;
-
-  // Ground plane grid
-  ctx.strokeStyle='rgba(26,58,107,0.12)';ctx.lineWidth=.5;
-  for(let i=-8;i<=8;i++){
-    const p1=project(i*80,-10,-200,rotY);
-    const p2=project(i*80,-10,600,rotY);
-    const p3=project(-640,-10,i*100+200,rotY);
-    const p4=project(640,-10,i*100+200,rotY);
-    ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);ctx.stroke();
-    ctx.beginPath();ctx.moveTo(p3.x,p3.y);ctx.lineTo(p4.x,p4.y);ctx.stroke();
-  }
-
-  // Buildings
-  blds.forEach((b,i)=>{
-    const alpha=.08+Math.sin(t+i*.5)*.02;
-    const tl=project(b.x-b.w/2,-b.h/2,b.z,rotY);
-    const tr=project(b.x+b.w/2,-b.h/2,b.z,rotY);
-    const bl=project(b.x-b.w/2,10,b.z,rotY);
-    const br=project(b.x+b.w/2,10,b.z,rotY);
-    ctx.strokeStyle=b.c==='#e87722'?`rgba(232,119,34,${alpha*1.4})`:`rgba(26,58,107,${alpha*2})`;
-    ctx.lineWidth=.7;
-    ctx.beginPath();ctx.moveTo(tl.x,tl.y);ctx.lineTo(tr.x,tr.y);ctx.lineTo(br.x,br.y);ctx.lineTo(bl.x,bl.y);ctx.closePath();ctx.stroke();
-    // Floors
-    const floors=Math.floor(b.h/28);
-    for(let f=1;f<floors;f++){
-      const fy=-b.h/2+b.h*f/floors;
-      const fl=project(b.x-b.w/2,fy,b.z,rotY);
-      const fr=project(b.x+b.w/2,fy,b.z,rotY);
-      ctx.globalAlpha=.3;ctx.beginPath();ctx.moveTo(fl.x,fl.y);ctx.lineTo(fr.x,fr.y);ctx.stroke();ctx.globalAlpha=1;
-    }
-    // Windows glow
-    if(b.c==='#e87722'){
-      ctx.fillStyle=`rgba(232,119,34,${alpha*.8})`;
-      const wx=project(b.x-4,-b.h/2+20,b.z,rotY);
-      ctx.fillRect(wx.x-3,wx.y-3,6,6);
-    }
-  });
-
-  // Crane
-  const cBase=project(crane.x,10,crane.z,rotY);
-  const cTop=project(crane.x,-crane.h,crane.z,rotY);
-  const cArm1=project(crane.x-160,-crane.h,crane.z,rotY);
-  const cArm2=project(crane.x+80,-crane.h,crane.z,rotY);
-  const cHook=project(crane.x-120,-crane.h+60+Math.sin(t*1.5)*20,crane.z,rotY);
-  ctx.strokeStyle='rgba(232,119,34,0.35)';ctx.lineWidth=1.5;
-  ctx.beginPath();ctx.moveTo(cBase.x,cBase.y);ctx.lineTo(cTop.x,cTop.y);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(cArm1.x,cArm1.y);ctx.lineTo(cArm2.x,cArm2.y);ctx.stroke();
-  ctx.strokeStyle='rgba(232,119,34,0.2)';ctx.lineWidth=.8;ctx.setLineDash([3,4]);
-  ctx.beginPath();ctx.moveTo(project(crane.x-120,-crane.h,crane.z,rotY).x,project(crane.x-120,-crane.h,crane.z,rotY).y);ctx.lineTo(cHook.x,cHook.y);ctx.stroke();
-  ctx.setLineDash([]);
-  // Hook box
-  ctx.strokeStyle='rgba(232,119,34,0.5)';ctx.lineWidth=1;
-  ctx.strokeRect(cHook.x-5,cHook.y-5,10,10);
-
-  requestAnimationFrame(drawScene);
-}
-drawScene();
-
-/* ── Mobile nav ── */
-function openMob(){document.getElementById('mobNav').classList.add('open');document.body.style.overflow='hidden';}
-function closeMob(){document.getElementById('mobNav').classList.remove('open');document.body.style.overflow='';}
-
-/* ── Reveal on scroll ── */
-const revEls=document.querySelectorAll('.reveal');
-const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-revEls.forEach(r=>ro.observe(r));
-
-/* ── Language Toggle ── */
-let lang='en';
-function toggleLang(){
-  lang=lang==='en'?'az':'en';
-  document.getElementById('langBtn').textContent=lang==='en'?'EN / AZ':'AZ / EN';
-  document.getElementById('langBtn').classList.toggle('active',lang==='az');
-  document.querySelectorAll('[data-az]').forEach(el=>{
-    const val=lang==='az'?el.getAttribute('data-az'):el.getAttribute('data-en');
-    if(val){
-      if(el.tagName==='INPUT'||el.tagName==='BUTTON'){el.value=val;}
-      else{el.innerHTML=val;}
-    }
-  });
-  document.documentElement.lang=lang==='az'?'az':'en';
-}
-</script>
 </body>
 </html>
