@@ -169,7 +169,11 @@
   #rmtab-hse:checked ~ .rm-tablist label[for="rmtab-hse"],
   #rmtab-plan:checked ~ .rm-tablist label[for="rmtab-plan"],
   #rmtab-mep:checked ~ .rm-tablist label[for="rmtab-mep"],
-  #rmtab-est:checked ~ .rm-tablist label[for="rmtab-est"]{
+  #rmtab-est:checked ~ .rm-tablist label[for="rmtab-est"],
+  #rmtab-geo:checked ~ .rm-tablist label[for="rmtab-geo"],
+  #rmtab-proc:checked ~ .rm-tablist label[for="rmtab-proc"],
+  #rmtab-bim:checked ~ .rm-tablist label[for="rmtab-bim"],
+  #rmtab-arch:checked ~ .rm-tablist label[for="rmtab-arch"]{
     background:var(--ink);color:#fff;border-color:var(--ink);
   }
   #rmtab-pm:checked ~ .rm-panels #panel-pm{display:flex;}
@@ -178,6 +182,10 @@
   #rmtab-plan:checked ~ .rm-panels #panel-plan{display:flex;}
   #rmtab-mep:checked ~ .rm-panels #panel-mep{display:flex;}
   #rmtab-est:checked ~ .rm-panels #panel-est{display:flex;}
+  #rmtab-geo:checked ~ .rm-panels #panel-geo{display:flex;}
+  #rmtab-proc:checked ~ .rm-panels #panel-proc{display:flex;}
+  #rmtab-bim:checked ~ .rm-panels #panel-bim{display:flex;}
+  #rmtab-arch:checked ~ .rm-panels #panel-arch{display:flex;}
   .rm-node{
     background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;
     transition:border-color .2s;
@@ -200,6 +208,21 @@
   .rm-col ul{padding-left:16px;font-size:0.85rem;color:var(--steel);display:flex;flex-direction:column;gap:4px;}
   .rm-branch-note{margin-top:24px;background:#EAF1F8;border-radius:10px;padding:16px 20px;font-size:0.87rem;color:var(--steel);}
   .rm-branch-note b{color:var(--blue);}
+
+  /* Mission / Vision / Values */
+  .mvv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .mvv-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;
+    display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;
+  }
+  .mvv-card::before{
+    content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--signal);
+  }
+  .mvv-card .icon{font-size:1.7rem;}
+  .mvv-card h3{font-size:1.15rem;}
+  .mvv-card p{font-size:0.9rem;color:var(--steel);}
+  .mvv-card ul{padding-left:18px;font-size:0.88rem;color:var(--steel);display:flex;flex-direction:column;gap:6px;}
+  @media (max-width:860px){ .mvv-grid{grid-template-columns:1fr;} }
 
   /* Motion */
   @keyframes fadeInUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
@@ -317,6 +340,7 @@
       <a href="#groups" data-i18n="nav_groups">İcma</a>
       <a href="#internship" data-i18n="nav_intern">Virtual Təcrübə</a>
       <a href="#roadmap" data-i18n="nav_roadmap">Karyera Xəritəsi</a>
+      <a href="#mission" data-i18n="nav_mission">Missiya</a>
       <a href="#about" data-i18n="nav_about">Haqqımızda</a>
     </div>
     <div class="nav-right">
@@ -421,9 +445,15 @@
         <a class="go" href="https://elvinasgar.github.io/IndustrCons-Enginering-Map/" target="_blank" rel="noopener" data-i18n="go">Keç →</a>
       </div>
       <div class="eco-card">
+        <span class="icon">📚</span>
+        <h4 data-i18n="eco6_h">Engineering Comics</h4>
+        <p data-i18n="eco6_p">Mühəndislik anlayışlarını komiks formatında sadə, vizual və yadda qalan şəkildə izah edən tədris resursu.</p>
+        <a class="go" href="https://elvinasgar.github.io/IndustrCons-Engineering-Comics/" target="_blank" rel="noopener" data-i18n="go">Keç →</a>
+      </div>
+      <div class="eco-card">
         <span class="icon">📈</span>
-        <h4 data-i18n="eco6_h">Yeni platformalar</h4>
-        <p data-i18n="eco6_p">Ekosistemimiz daim genişlənir — yeni alətlər və proqramlar yolda.</p>
+        <h4 data-i18n="eco7_h">Yeni platformalar</h4>
+        <p data-i18n="eco7_p">Ekosistemimiz daim genişlənir — yeni alətlər və proqramlar yolda.</p>
         <span class="badge-soon" data-i18n="soon">Tezliklə</span>
       </div>
     </div>
@@ -471,606 +501,4 @@
         <div class="intern-facts">
           <div class="fact"><b>2 <span style="font-size:0.9rem;" data-i18n="months">ay</span></b><span data-i18n="fact1">müəyyən müddətlərdə keçirilir</span></div>
           <div class="fact"><b data-i18n="fact2_b">Sahə mütəxəssisi</b><span data-i18n="fact2">mühəndislər tərəfindən mentorluq</span></div>
-          <div class="fact"><b data-i18n="fact3_b">Praktiki</b><span data-i18n="fact3">real ssenari əsaslı tapşırıqlar</span></div>
-          <div class="fact"><b data-i18n="fact4_b">Sertifikat</b><span data-i18n="fact4">proqramı bitirənlərə təqdim olunur</span></div>
-        </div>
-        <div class="soon-card">
-          <h5 data-i18n="soon_h">🚀 Tezliklə əlavə olunacaq funksiyalar</h5>
-          <ul>
-            <li data-i18n="soon1">CV əlavə etmə və profil yaratma</li>
-            <li data-i18n="soon2">Vakansiya paylaşma paneli</li>
-            <li data-i18n="soon3">Gündəlik iş elanları bildirişləri</li>
-            <li data-i18n="soon4">Digər virtual təcrübə növləri (tezliklə)</li>
-          </ul>
-        </div>
-        <div class="cv-service">
-          <h5 data-i18n="cv_h">📄 CV və LinkedIn Hazırlama Xidməti</h5>
-          <p data-i18n="cv_p">Peşəkar CV və LinkedIn profili hazırlanması üçün əlaqə saxlayın.</p>
-          <a class="btn btn-primary btn-sm" href="https://wa.me/994775889727" target="_blank" rel="noopener">✆ +994 77 588 97 27 (WhatsApp)</a>
-        </div>
-      </div>
-      <div>
-        <h5 style="font-size:1rem;margin-bottom:14px;" data-i18n="steps_h">Qəbul proseduru</h5>
-        <div class="steps">
-          <div class="step"><span class="num">01</span><div><h5 data-i18n="step1_h">Forum doldurma</h5><p data-i18n="step1_p">Qeydiyyat forması və CV əsasında ilkin qiymətləndirmə.</p></div></div>
-          <div class="step"><span class="num">02</span><div><h5 data-i18n="step2_h">Mini test qiymətləndirməsi</h5><p data-i18n="step2_p">Sahə üzrə bazar biliklərini ölçən qısa test.</p></div></div>
-          <div class="step"><span class="num">03</span><div><h5 data-i18n="step3_h">Video müsahibə</h5><p data-i18n="step3_p">Mentor komandası ilə qısa görüş.</p></div></div>
-          <div class="step"><span class="num">04</span><div><h5 data-i18n="step4_h">Təbriklər 🎉</h5><p data-i18n="step4_p">Proqrama qəbul və 2 aylıq təcrübəyə başlama.</p></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="roadmap">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tag" data-i18n="rm_tag">Karyera</span>
-      <h2 data-i18n="rm_h2">Construction Career Roadmap</h2>
-      <p data-i18n="rm_p">Azərbaycan tikinti bazarına uyğun, 6 istiqamətdə addım-addım karyera yolu. Hər mərhələyə klikləyin: lazımi bacarıqlar, təxmini müddət və tövsiyə olunan sertifikatlar görünsün.</p>
-    </div>
-
-    <div class="rm-tabs">
-      <input type="radio" name="rmtab" id="rmtab-pm" checked>
-      <input type="radio" name="rmtab" id="rmtab-qaqc">
-      <input type="radio" name="rmtab" id="rmtab-hse">
-      <input type="radio" name="rmtab" id="rmtab-plan">
-      <input type="radio" name="rmtab" id="rmtab-mep">
-      <input type="radio" name="rmtab" id="rmtab-est">
-
-      <div class="rm-tablist">
-        <label for="rmtab-pm">🏢 Ümumi Menecment</label>
-        <label for="rmtab-qaqc">✅ QA/QC</label>
-        <label for="rmtab-hse">🦺 HSE</label>
-        <label for="rmtab-plan">🗓️ Planlaşdırma</label>
-        <label for="rmtab-mep">🔧 MEP</label>
-        <label for="rmtab-est">📊 Smeta (Estimation)</label>
-      </div>
-
-      <div class="rm-panels">
-        <div class="rm-panel" id="panel-pm">
-          <details class="rm-node" open>
-            <summary><div class="rm-node-title"><span class="rm-index">01</span><h4>Virtual Təcrübə / Intern Mühəndis</h4></div><div class="rm-node-meta"><span class="rm-years">0–6 ay</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Çertyoj oxuma əsasları</li><li>AutoCAD və MS Office</li><li>Komanda daxilində ünsiyyət</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Sahə təhlükəsizliyi giriş təlimi</li><li>IndustrCons Virtual Təcrübə Sertifikatı</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">02</span><h4>Sahə Mühəndisi (Site Engineer)</h4></div><div class="rm-node-meta"><span class="rm-years">1–3 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Ölçmə və keyfiyyət nəzarəti</li><li>ŞNiK / normativ sənədlərin tətbiqi</li><li>Gündəlik hesabatlıq</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>AutoCAD sertifikatı</li><li>MS Project əsasları</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">03</span><h4>Böyük Sahə Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">3–5 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Alt-podratçı koordinasiyası</li><li>Büdcə izləmə</li><li>Qrafik idarəetməsi</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Primavera P6 əsasları</li><li>PMP-ə hazırlıq kursu</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">04</span><h4>Layihə Mühəndisi (Project Engineer)</h4></div><div class="rm-node-meta"><span class="rm-years">5–7 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Dizayn koordinasiyası</li><li>Risk idarəetməsi</li><li>Müqavilə şərtləri (FIDIC)</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>FIDIC Contract Management</li><li>PMP (tövsiyə olunur)</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">05</span><h4>Layihə Meneceri (PM)</h4></div><div class="rm-node-meta"><span class="rm-years">7–10 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Tam layihə həyat dövrü idarəetməsi</li><li>Maraqlı tərəflərlə əlaqə</li><li>Strateji planlaşdırma</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>PMP (mütləq)</li><li>Primavera P6 Advanced</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">06</span><h4>Tikinti Direktoru / Baş Mühəndis</h4></div><div class="rm-node-meta"><span class="rm-years">10+ il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Strateji rəhbərlik</li><li>Şirkət səviyyəsində qərar qəbulu</li><li>İnvestisiya və risk strategiyası</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Executive MBA</li><li>PMI-RMP</li></ul></div></div>
-          </details>
-        </div>
-
-        <div class="rm-panel" id="panel-qaqc">
-          <details class="rm-node" open>
-            <summary><div class="rm-node-title"><span class="rm-index">01</span><h4>QA/QC Təcrübəçisi</h4></div><div class="rm-node-meta"><span class="rm-years">0–1 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Keyfiyyət standartları əsasları (ISO)</li><li>Yoxlama vərəqləri (checklist)</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>ISO 9001 əsasları</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">02</span><h4>QA/QC Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">1–3 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Materialların yoxlanması</li><li>ITP (Inspection Test Plan) hazırlanması</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>ISO 9001 Lead Auditor</li><li>NDT Level I</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">03</span><h4>Böyük QA/QC Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">3–6 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Qeyri-uyğunluq (NCR) idarəsi</li><li>Podratçı auditi</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>NDT Level II</li><li>Weld Inspector (CSWIP/AWS)</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">04</span><h4>QA/QC Meneceri</h4></div><div class="rm-node-meta"><span class="rm-years">6–9 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Keyfiyyət sisteminin qurulması</li><li>Komanda rəhbərliyi</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Six Sigma Green Belt</li><li>ISO Lead Auditor</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">05</span><h4>Baş QA/QC Direktoru</h4></div><div class="rm-node-meta"><span class="rm-years">9+ il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Korporativ keyfiyyət strategiyası</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Six Sigma Black Belt</li></ul></div></div>
-          </details>
-        </div>
-
-        <div class="rm-panel" id="panel-hse">
-          <details class="rm-node" open>
-            <summary><div class="rm-node-title"><span class="rm-index">01</span><h4>HSE Təcrübəçisi</h4></div><div class="rm-node-meta"><span class="rm-years">0–1 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Təhlükəsizlik qaydaları, PPE</li><li>Sahə müşahidəsi</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>HSE əsas giriş təlimi</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">02</span><h4>HSE Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">1–3 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Risk qiymətləndirilməsi</li><li>Hadisə araşdırması</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>NEBOSH IGC</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">03</span><h4>Böyük HSE Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">3–6 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Audit keçirmə</li><li>Təlim proqramlarının hazırlanması</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>NEBOSH Diploma</li><li>ISO 45001</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">04</span><h4>HSE Meneceri</h4></div><div class="rm-node-meta"><span class="rm-years">6–9 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Sahə HSE strategiyası</li><li>Tənzimləyici əlaqələr</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>IOSH Managing Safely</li><li>NEBOSH Diploma</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">05</span><h4>HSE Direktoru</h4></div><div class="rm-node-meta"><span class="rm-years">9+ il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Korporativ HSE siyasəti</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>CMIOSH</li></ul></div></div>
-          </details>
-        </div>
-
-        <div class="rm-panel" id="panel-plan">
-          <details class="rm-node" open>
-            <summary><div class="rm-node-title"><span class="rm-index">01</span><h4>Planlaşdırma Təcrübəçisi</h4></div><div class="rm-node-meta"><span class="rm-years">0–1 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Qantt qrafikləri</li><li>Excel əsasları</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>MS Project əsasları</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">02</span><h4>Planlaşdırma Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">1–3 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Primavera P6</li><li>İş həcmi hesablama</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Primavera P6 sertifikatı</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">03</span><h4>Böyük Planlaşdırma Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">3–6 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Resurs yükləmə</li><li>Tənqidi yol analizi (CPM)</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Primavera P6 Advanced</li><li>PMI-SP</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">04</span><h4>Planlaşdırma Meneceri</h4></div><div class="rm-node-meta"><span class="rm-years">6–9 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Çoxlayihəli qrafik koordinasiyası</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>PMI-SP</li><li>PMP</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">05</span><h4>Baş Planlaşdırma Direktoru</h4></div><div class="rm-node-meta"><span class="rm-years">9+ il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Portfel səviyyəsində strategiya</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>PgMP</li></ul></div></div>
-          </details>
-        </div>
-
-        <div class="rm-panel" id="panel-mep">
-          <details class="rm-node" open>
-            <summary><div class="rm-node-title"><span class="rm-index">01</span><h4>MEP Təcrübəçisi</h4></div><div class="rm-node-meta"><span class="rm-years">0–1 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>MEP çertyojları oxuma</li><li>Əsas hesablamalar</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>AutoCAD MEP əsasları</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">02</span><h4>MEP Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">1–3 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>HVAC/elektrik/santexnika nəzarəti</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Revit MEP</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">03</span><h4>Böyük MEP Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">3–6 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Sistem dizaynı koordinasiyası</li><li>Enerji səmərəliliyi</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>LEED Green Associate</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">04</span><h4>MEP Meneceri</h4></div><div class="rm-node-meta"><span class="rm-years">6–9 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Çoxdisiplinli komanda rəhbərliyi</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>LEED AP</li><li>PMP</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">05</span><h4>MEP Direktoru</h4></div><div class="rm-node-meta"><span class="rm-years">9+ il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Strateji MEP həlləri</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Chartered Engineer (analoji)</li></ul></div></div>
-          </details>
-        </div>
-
-        <div class="rm-panel" id="panel-est">
-          <details class="rm-node" open>
-            <summary><div class="rm-node-title"><span class="rm-index">01</span><h4>Smeta Təcrübəçisi</h4></div><div class="rm-node-meta"><span class="rm-years">0–1 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Material/əmək hesablamaları</li><li>Excel</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>IndustrCons Estimator təlimi</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">02</span><h4>Smeta Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">1–3 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>BOQ hazırlanması</li><li>Təchizatçı qiymət təhlili</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>Cost Estimation əsasları</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">03</span><h4>Böyük Smeta Mühəndisi</h4></div><div class="rm-node-meta"><span class="rm-years">3–6 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Tender smetaları</li><li>Risk ehtiyatı hesablama</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>AACE sertifikatı</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">04</span><h4>Smeta Meneceri</h4></div><div class="rm-node-meta"><span class="rm-years">6–9 il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Böyük layihə büdcə strategiyası</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>AACE Certified Cost Professional</li></ul></div></div>
-          </details>
-          <details class="rm-node">
-            <summary><div class="rm-node-title"><span class="rm-index">05</span><h4>Baş Smeta Direktoru</h4></div><div class="rm-node-meta"><span class="rm-years">9+ il</span><span class="rm-chevron">▾</span></div></summary>
-            <div class="rm-detail-inner"><div class="rm-col"><h6>Bacarıqlar</h6><ul><li>Korporativ maliyyə/smeta siyasəti</li></ul></div><div class="rm-col"><h6>Sertifikatlar</h6><ul><li>MRICS (analoji)</li></ul></div></div>
-          </details>
-        </div>
-      </div>
-    </div>
-
-    <div class="rm-branch-note" data-i18n="rm_branch">
-      <b>Qeyd:</b> Bütün istiqamətlər Sahə Mühəndisi / Təcrübəçi səviyyəsindən başlayır və illər, bacarıqlar, sertifikatlar Azərbaycan tikinti bazarının tələblərinə uyğun tərtib olunub. Karyera yolu şirkətdən şirkətə fərqlənə bilər.
-    </div>
-  </div>
-</section>
-
-<section id="about" class="about">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tag" data-i18n="about_tag">Haqqımızda</span>
-      <h2 data-i18n="about_h2">IndustrCons nədir?</h2>
-      <p data-i18n="about_p">Tək bir WhatsApp qrupundan başlayan təşəbbüs, bu gün Azərbaycanda tikinti və mühəndislik sahəsinin ən aktiv rəqəmsal ekosistemlərindən birinə çevrilib.</p>
-    </div>
-    <div class="about-grid">
-      <div class="pillars">
-        <div class="pillar"><h4 data-i18n="p1_h">Vakansiya paylaşımı</h4><p data-i18n="p1_p">İş axtaranları və işəgötürənləri ixtisas üzrə bölünmüş qruplarda birbaşa əlaqələndiririk.</p></div>
-        <div class="pillar"><h4 data-i18n="p2_h">Networking</h4><p data-i18n="p2_p">Sahə mühəndisindən podratçıya qədər — sahədəki hər kəs üçün əlaqə qurma məkanı.</p></div>
-        <div class="pillar"><h4 data-i18n="p3_h">Virtual təcrübə &amp; mentorluq</h4><p data-i18n="p3_p">Təcrübəsi az olanlara peşəkarlardan praktiki dəstək və sertifikat.</p></div>
-        <div class="pillar"><h4 data-i18n="p4_h">Karyera xəritəsi</h4><p data-i18n="p4_p">Sektor üzrə vəzifə artımı yolunu, bacarıq və sertifikatları izləyin.</p></div>
-        <div class="pillar"><h4 data-i18n="p5_h">Rəqəmsal alətlər</h4><p data-i18n="p5_p">Estimator, Docs, AI, Knowledge Center, Games və Engineering Map.</p></div>
-        <div class="pillar"><h4 data-i18n="p6_h">CV &amp; LinkedIn dəstəyi</h4><p data-i18n="p6_p">Peşəkar profil hazırlanmasında birbaşa dəstək xidməti.</p></div>
-      </div>
-      <div class="founder-card">
-        <div class="avatar">EƏ</div>
-        <h3>Elvin Əsgərov</h3>
-        <p style="color:var(--signal);font-size:0.85rem;font-weight:600;margin-top:2px;" data-i18n="founder_tag">IndustrCons-un yaradıcısı</p>
-        <p data-i18n="founder_p">IndustrCons Azərbaycanda tikinti sektorunda şəffaf əlaqə, əlçatan qiymətləndirmə və peşəkar dəstək ehtiyacından yaranıb. Məqsəd — sahədəki hər kəsə, təcrübəsindən asılı olmayaraq, doğru resurs və doğru insanlarla əlaqə imkanı yaratmaqdır.</p>
-        <div class="founder-contact">
-          <a href="mailto:elvinasgarov12@gmail.com">✉️ elvinasgarov12@gmail.com</a>
-          <a href="tel:+994775889727">📞 +994 77 588 97 27</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="social-band">
-  <div class="wrap social-wrap">
-    <div>
-      <h3 style="font-size:1.1rem;" data-i18n="follow_h">Bizi izləyin</h3>
-      <p style="color:var(--rebar);font-size:0.88rem;margin-top:4px;" data-i18n="follow_p">Yeniliklər, vakansiyalar və sənaye məzmunu üçün</p>
-    </div>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/company/industrcons/" target="_blank" rel="noopener">in LinkedIn</a>
-      <a href="https://www.instagram.com/industrcons" target="_blank" rel="noopener">◎ Instagram</a>
-      <a href="https://t.me/industrcons" target="_blank" rel="noopener">✈️ Telegram</a>
-      <a href="https://whatsapp.com/channel/0029VbCAEQHA89MiFSgGvP1R" target="_blank" rel="noopener">📢 WA Channel</a>
-      <a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">✆ WhatsApp</a>
-    </div>
-  </div>
-</div>
-
-<footer id="contact">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="logo"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAC9AlgDASIAAhEBAxEB/8QAHQABAAICAwEBAAAAAAAAAAAAAAcIBQYBBAkDAv/EAFoQAAEDAwIDBAUGCQcIBwYHAAECAwQABREGBxIhMQgTQVEUImFxgRUykaGx0RYjQlVigpSywRckM1Jyc5I1Q0VjorPS4SVTdaPC0/AYNGR0lcMoNjhEVmWE/8QAGwEBAAEFAQAAAAAAAAAAAAAAAAECAwQFBgf/xAA5EQABAwMBBAcHAwQDAQEAAAABAAIDBAURIQYSMUETUWFxkaHRFCIyUoGxwSPh8BUWQnIzYvGCov/aAAwDAQACEQMRAD8Av5TPOlcY50VK5pSlESlKURKUpREpSuBmiLmlKURKVwc5rW5evNMRJS4xnl51BIUlhtS8EeGQMVi1VbT0jd6okDR2kBXoaeWY4iaSewZWy0rURuLYCrHdTwP6xY/55rKW/VdgubiWotxb709GnPUV9BrEp75b6h25FO0nqyFekoKmIbz4yB3LNUrjINc1tVipSlKIlKUooylKUooSlM0opCUpSiZSlKUUBKUpRTlKUpRClKUooSlKURKUpREpSlESlKUVSUpSipSlKUU5SlKUUpSlKKCUpSlFASlKUU5SlKUUpSlKIlKUoiUpSiJSlKIlKUooylKUopSlKURKUpREpSlFGUpQUooSlKUUpSlKKEpSlFOEpSuM0RM1r181dAtDqorX87mY/oUHkj+2fyfd1rA6010YcpdisjgMzGH5A5hgeQ/S+ytGiENpIBKiTxKUo5Kj4knxNec7U7bCicaWh1fzdyHd1nyXS22xGVgmn0B4Dr7T2fdSlpS7zrq/NcnPJVgoKG0JwlAOeQqOH2QJz+EgfjVn/aNbtoBXE5O9yP41qb6f5690/pFfaa4vaOplqbNQzTOLnEyZJ7wthQNENXM1owMN+y6XdmiY6VvthSAcLSRn313u7HDXDacSWx+mPtFcZTayt7x91tnS+6VIeor1Ksq4a2Gm3W1lQcQo4JAA6HwNdyz3+3XtpRiPYdR/SML5LR7x5e2tf14rhag+9f2CtDU+9HlolxH1MSW+aHUdR7D5j2V69c9sJ7Td3wSe9F7unMaDh6LmaO0sq6UOGjtdfrzU40rV9I6uY1CwuK+Es3FgfjWh0WP66fZ9lbRXolFWw1sLZ4HZaVoainkp5DFKMEJSlKy1ZSlKURKUpRQQlKUooSlKUUpSlKJhKUpRQlKUoiUGfGlKIlKUopSlKUUpSlKKClKUooSlKUUpSlKKEpSlESlKURKUpREpSlFISlKUUpSlKIlKUoiUpSipSlKUUhKUpRSlKUoiUpSiJSlKIlKUoqUpSlESlKUU4SlKUUpWk7hauNgtIgwXOG4yUkII6tJ8V+/wH/KtruVwjWu1SLhLXwMsNlxZ9g/9Yqud4vMm+3yRdJWQt5WQn+onwSPcP41x+2F8NvpuhhP6j/Icz6Lo9nLUK2fpJB7jfM8h6riCChJUSSpRJKlHJNZhleB1rDxleonHurvNuYxmvBZSSTlegzMyVvOj7/Bs7kv00rAcSkpKU5yRnl9dYpTocfW5jHEoqx7zmsM06Aa7qHMjrWRU3KaelipH43I8469dTlaU0bGSulHF2M/Rd/jGK/IcCHULPMJUD9dfDvOVfhbgrBjduODhyTo86LZNX32DdTETCWpYbCiolOOuOXP3Vpb72c4r6vuDFY51wHNbG5XCW5VLqmbG87HDhoMK/QUbKeMRt4BfhFwlWu6sXWC53chlWQrwI8j7D0qd9OX6NqHT7NxjYBUOFxvOS2sdUn/10qvMtfqgZ5k1tG2+oTZtUphPrxDmkNqz0Sv8lX8K7DYm9uoKgU8p/Tecdx5H8FWL/aRVU3TMHvs8x1einWlcDpWnbg6RvWpLL3+l9U3DTt9jpJiyo7p7pZ68DzZyFIJ8cZHUeVe4xtDnAOOO1eZSOLWktGVuVKpnC7Te6GgdUyNN7iWSLc3obndSGykRpCfalafUWCOYOMEVYzbnePQ25kTFguJbuCU8btslANyGx58OcKT+kkkVm1NtnpxvuGW9Y1Cwqa5wVB3GnDuo6FSBSuAQa5rAWwSlKwOtNWW7Q2hblqq7NvuQ4DXeuIYAK1ZUEgJBIGSSPGqmtLiGt4lUucGguPALPUquau2Rt4lWPwe1Kfb3TP8A5lS9txuDa9zdEjU9ngzYkRT7jCUTEpStRQQCQEkjGTj4VkzUM8Dd+RuAseGtgmduxuyVt1KUrEWUlKUoiUpSijCUpVee0LvnqXa7VNms2mGLY65KirkyDMbU4UjjCUYwoY6Kq/TUz6mQRR8VYqahlPGZJOCsNSqY6O7UO6ep9wbHp30LT+LjOZjKKIqwQlSwFEev4JyauaOlXayhlpHBsuNVbpK2OrBdFyXNKUrDWYlKUoiUpSijCUpSilKU8M0BzRMJSlKIlKUoiUrgnFa9f9b6c03lFynjv/COyONz6B0+NWZ6iKnZvyuDR1lXIYJJnbkTST2arYqVFb29tsCv5tZJjifNxxKCfgM12YG81jfdCZtumxQfy04cA+jnWobtLbS7dEw8/RbQ2C4Bu90R8vVSXSutAnxbnbmZ8J3vI7yeNC8EZHuNfG63q1WSGZV1nNRWs4CnDjiPkB1J91bkzMDOkLhu8c8lqhG8v3ADnq5rv0qNZu9GnGHSmHBnyh4L4Q2k/Sc/VX5ib1WB1wJl22fHSfyxwrx9BrUHaK2h270w/natmLDcC3e6E/zsUmUrF2XUNn1BDMm0Tm5KE8lBPJSD5KSeYrKZ5ZrcRyslaHsOQeYWrkjdG4seMEcilK1bUuvrDpW4twrmJSnXG+9AYb48DOOfP2Vhf5ZtIH/N3P8AZ/8AnWvmvNDC8xySgOHEErNitVXMwSRxEg88KQ6V1bfPj3O1x7hEUVMPthxBI54I8a+kuU1CgPTHyQ0yhTiyPIDJrYCRpbvg6cVhFhDt0jVfalR2nejRykhQTcumf/d/+dbXpvU1u1Ta13C2JkBlDhaJeRwEkAE4GfbWFT3WjqX9HDIHO6gVlz22qp2b80ZaOshZmldS43S32mEqZcpbUZhPVx1XCP8An8K0afvHpiM4UQ2Js3H5baAhJ/xHP1VVV3Klo/8AnkDfv4KKa31NV/wMLv51qRKVF7W9dnKvx9nnIT5pWhR+jIraLFuDpfUD6I0Of3clZwmPISW1qPs8D8DWPTX2gqHbkcoz1cPur09nrYG78kRA8fstopSlbZa1KUpRUpSlKKQlM4pWgbn7p2bbexBx/Ey6yEn0OAk4K8cuNZ/JQD1PU9BRSt+yK5qsW3XaWki6Lt+4YQqO+6VNXKO3w+j8R+YtA6oGcBQ5gdc9astElxp0BqZDktSGHk8bbzKgpKwehBHIimEyo73eu5as8SyNKIVIX3zuP6iTyHxV9lRCMg1LeotF3rVWuJMxxaIcFsJZbcdOSpKRzKUj2k9a6noG2ulnCic+bzNT1b/pAD/ZHqj45ryHaC3VNfXSVM7hHENAXHGg6hxOePBeh2m409DSMhjBe86kNGdT1ngo7t7E6Y/3MGK9JUfyWkFf2VtEXQ+spISpNpQyk+Mh5KMfDmazh3GuMj+Z6U022lI5JCGy4f8ACgACgj7rXZHG+6uC0eoU4hjHwTk1rYLNbXH3BLOf+jcN8Sqqi71XEhkY/wCxyfAL8R9ttTcHE/LtTPs41q/gK7SNCS2Vj0jUlqbHlwHP1qrETdAXuSrvLpqyGnzC3nHTXWZ20gPOcDurYwV4BMc/xNbSPZ1p+C2H/wCpPRauS6E/FVD6NWz/AIFpIwnVFvz/AGM/+OvwdBSnD+K1Dblny7s/wVXQ/kbHdZa1Ck8sgmNy/erGubWd25wnU7AUP/h1A/vVdOzx52wfST91aFxHKq//AAsvJ251LwEsSrY95estGfqNYCZonWUYKKrOHkjxjupX9XI/VWWjbdaojo4rXqVpeegDrrf3ivv6Ju7acqafXMQPDvEPZHuVzrCnsNKz/loZWdrSHhZkF1mHwTMd/sCFHE6LPiP8M+I/GV0w62UfbXxbUUqCkq4VDmD5VJp3Cv0FHo2q9MIW0RhXeNKaz8CCk1FW5+ompN4t0nQlqEJpLSzKbLSeFxZI4eWemAeYx1rVvs1LJpSVADvleCw/kLcxXmVrf14Tjrad4eqsrpS7i+aRhzyfxikcDg8lp5H7KzRAPWq0bMbm6pakLtV60m4zDW73jzsYlfd5ykqGT05JJHPxqy4IIyDXs1pklko4zUDD8DPPXv7eK85rmRtneIvhzoq4drHbaPeNBDX9vjpTcrOAmUpI5vRicHPtQSCPYVVTOBPm2u5sXC3S3okuOsOMyGFlC21DoQR0r1I1Hamb7pC6WWQgLamxHY6kkZzxoKf415XqaUytTKzlTZKD7wcH7K9F2eqDLC6F2u79iuB2hpxFM2Vmm99wr19n/fdG4kE6a1K421qaM3xBYHCic2Oq0jwWPykj3jlnE8V5WWG93HTWp4F/tD6mZ0F9MhlYOOaT0PsIyD7Ca9OtK6hiar0Va9SQCPR7hGRIQM54eIZKfeDkfCtPe7e2mkEkfwu8ittZLg6pYY5Pib5hZmoH7W93Fv7P5gBWF3K4sR8A/kpJcP7gqeKqL2071mdpLTqSfURInLGfPhbT/wCKsW0x9JVxjtz4LMusnR0jz2Y8VVIqSDlXTrXpDsNZfkHs7aVhKRwuOQkynOWPWdJcP7wrzjiQnblc4tuZBLkp5DCAkcyVqCR9teju5+opG2PZ6ud2s7jSJVshNR4ZcQFJ7zKW0ZT49c4rf7QZf0UDeLj+35WhsGGGSZ3Bo/f8KRMiuc1QNXar3h5/9MWoY8raj763K/drfUMHb+z2uypgz9SOxEu3O6us4YYcV63dtNDAUpIIBJOAR41qH2KqaQAAc9q2zL7SuBOox2K5OR5iuc15xntC7ymd6WdeTuLOe7DLIb93DwYxVrOzzvbK3Stc60X9llu+21CHFuMJ4USWlHHHw/kqBGCBy5giqKuzT0sfSuwR2KukvMFTJ0bcg9qnCmQK1vXGt7Dt/oyTqXUUruYrOEpQgcTjyz81tCfFR/5nkKpdrPtV7lahuTidPyGtNW/P4tqKhLj5H6bqgefsSAKs0Vsnq9Yxp1lXqy5Q0mjzk9QV9Mjzrz97UN5Td+0jdWEKBTbo7EIYPiEcavrcr76K7UW5WnL8wvUF0VqO1qWBIjS0IDnDnmW1pAwoDoDkGov1rfvwo3Jv+pEcXBcZ70lAUMEIUr1QR4EJwK6C12qWkqC6TUY0IWgud0jq6cNj0OdQVInZksnyz2krM4pHE3bmnp6vIFKOFP8AtLFeg4wEgDwqnfYvs3ean1TqRaRwsRmYKFEeK1FxX1IT9NdjeftFa90nvNedN6WnW9qBALbQD0NLqivu0qX6xPmrHwrDuVPJXVpii/xH8+6y7dUR0NGJZf8AI/z7K3uaVVHYLe7c3cbeJuxX64QXbY1EekvpZgpbUeHAT6w6esoVN29Ws5+gdlbxqS1ONIuDQbajKdQFpDi3EpyUnryJOK1E1BLFO2B2N4481toa+KWF07c7oz5KQMjzpVBj2qd4Mn/pe1Af9mo++rgaG1VNXsJZ9Y64nx2X3LamfOklsNIQkgrzwjphJA9vxq5WWuakAMmNTjRW6S6Q1RIjzoM6rec1xxJ/rCqb687XOo5s92HoG3x7bBSohE6a13r7oH5QQfVQD5HJ91RXJ363gdkd8vcC6oUefC2G0J+gIrLh2fqZG7zsN71izbQU0bsNye5ejmR511rnOZtdll3KQQGorK31knGEpSVH6hVTOz5vTutrTdmHpW73aNdLcWXZEp2RFSHWm0J5cK0cPMqKBzB61q+6/aJ1zc9S6s0hbZUBqwrfkW5ITFBdUyCW1evnqcK548atNss5nMORpqe5XHXmEQdNrroO9dq/dsHXl0b4NO2a12NtQylxYMp3Hh87CQfgasB2db1qjUuzY1Jq27yLlMnzn1NOO8ICGkENhKQkAAZSo/GvPlIxzx0qWNHb8bo6esVq0dpu4W5qI0UxYzRgIWr1l8sk9TlX11vq+0NMO5TNAPM9netFQ3ZzZt+pcSMaDt7l6E5pkVCXaD3P1HtloWxLscuMm7TZXdOOvMJcSpCG8rISemVFNQHaO05uvN1DAiSr7Z2I7shtDrrkBCUobKhxKJzyATk1z1NaJ6iLpWYwuhqbvBTy9E/OfVXoyAM5pkY61SDcbtV6yvV/fjaFkCxWZtRQ093SVyZAH5aioEIB8EgZGeZqbNjdc6uuPZ8uGttb3hdyc9IeENTjSGz3aAEAEpAySvPM1arbdLRUxqpyAB4q5R3GOrqBTQgk+S2XcncF2zrVYLK7wzSnL8gf5kH8kfpEfQKhNxanHFOOLUpSjlSlHJJ8ya+kqU/NmvTJKyt55ZccUfFROSakPanSLF5uLt6uTKXYkVXC02sZStzrk+YSMfE14VPPU7Q14jadCdByA6/Ve1QwU9hoTI4ajieZPUtZtWhNV3mIJUGzOlk/NcdUGgoeY4iM185+jtSWlaEXG0vshxQQlxIC0ZJwPWTkeNWcCQBgchQgY5ge6ut/sWl3ABI7e69MeH7rlf7zqd8kxt3erXPj+y1a/wB/g6C0OwpSA4622mPGj5wXFhP1AYyTVerzfLnqG7ruF1kF55XJI6JQP6qR4Ctg3Mvy73r6S0lZMWCTGaTnlkfPV8T9grD6UsK9SasiWlJIQ4ridWOqUDmo/wAPjXM3+5S3CrFFT/ADugdZ4Z9OxdFY7dFQUprJ/jI3ieocceq4s+ldQ6h4l2i1vSEDkXeSEZ8uJRAJr43Oy3SyTPRLtAeiO4yA4OSh5g9CPdVpoMGLbrczBhMIYYZSEIbQMACtG3ihsu7fCUpA72PJbKFHwCjwkfHP1Vta/Y2OmoXTCQl7Rk9Xb2+a11FtbJU1jYSwBjjgdevDs8lCtkvs7Tt7ZulucKXEH1keDifFKh4g1Z+13GPd7JFucU5ZkNB1PsBHT4VUwnPWrD7TyFObWxC4rk046gE+ACyf41b2Hrnid9KT7pGe4jH4Ve2dGwwsqgPeBx9CPwoo3RnenbnXAA+rHCI4/VTk/WTWnHlXfu8s3HUE64K5mRIccz7Co4+rFdRTDqY6H1IPdLKkoX4KKcZ+jIrj7hKamqllHMk+a6y3winpo4jyAHkp12avPpui3bY4r8ZAe4U5/qL9YfXxCs5uTP8AQNsLs4k4U40GE+9ZCfsJqItp7x8lbgNRnFcLM9Bjq8uLqn68j41vm9UwNaPhQgeciUFEexCSftIr0S33XfsD3E+8xpb+B5ELgbhbNy+MYB7ryHfk+YKghIwBjkKsbtwhq0bRQ5ck92hSHJbij4JJJz9AFV24CtQQjGVeqB7TyqxeroyrZslMhsZT3EFDJx5DhB/jWh2OaY3VFWB8Df3/AAt3ta7pBBTZxvu/b8qF9V6nm6pvq5slakx0kiOxnk2nw+J8TXQtlmud6kmLaoD0t0DJDaeSR5k9BXRJqUdpNVWa1syrNcXURX33u9bfc5JXyA4SrwIxyz51pbfG26VwFZJjezk/hbaue620Z9kjzu8B+VqErb7WcNrvHrBJUkcz3RS5j4JJrObTWdUncByRJaUn5PaKylYIIWr1U5B/WqeUlC0BSVAgjII55rhLDKX1PJaQlxYAUsAcSsdMnxrv6bY2np6mOojeSGnODg56tdFxFRtbPUU8kEjAC4YyM6dfX919KUpXZrk0pSlFASlKhvdretehtRQ7HYY0WdOTh6cl8nhbbI9VAI6LPX2ADlzopUyVTjtFaRu1l3Pc1BIkyJlvu3rsOuni7lSRgs58AOqR5E+VTLprtF6KujHDfG5NjlBJJDo71pRAzhK0+J8AQKrvujuLcdxdWma53ke1x8ogwyfmJ8Vq8CtXj5DAFVAKCtNstjuuo9QRrLZYjkqdJVwtNI5e8k+CR1J6AVZix3nSHZ20r8iX3VUm7X2UUuO22O4VsxSfEI6NJ581HmrqBUB6IuuuIOo1QNv1vi6XBsx8R2UKWpP9pQPAB14sgDGTU9aS2W0ZtzbTrfda7xLhcwrvlqmLKo7Lh58grm857SD7B41DxlpGcIDg5W2Msa11/HRJXNTCtLwC0KRlKHEnoUpHrKyPEnFbFaNstM2oJclNOXJ7rxSPmj3IHL6c1E2oe0vKn3MWXbfTLkx9w92y/LQVKcP6DKOf0n3gVzEse7V3V8obi7jT7M0vmLVZ1IQ8QfBRSOFH0qNc5R7L0sT+mqMyyfM858BwHgtlPd5nN6OP3G9TdPPiVN8+8R7JDCI0NDKAMJARwJ+AFaBdtVXSe4pDb6kI8k8qx8GAw0DFtyJhbURxOS5Tkl5w+alrJ+gYFbxYtHsEJkTEcQ6hJrpQxrBgLUlxeVpkCz3m8Pjg75aT1WokCtyY0/YtLW03bUc9htLfMrfXwpSfL2n2CsXrHcuHpW4ydP2m3gzo6EcTjuA2njTxDAHMnHuqCdValueoJ5l3Wc5IWD6oUcJR7EjoKZyqHPDVv24G+khcb5L0QlURsuJQq4uo9cpKgD3aD83PP1jz9ld6zbgxm53DqeAZSOIj0iOeFfX8pHRXwwagCbIRhvKh/So/fFb7JHrq/tH7aYUxPLs5VoLDdbLeoAlWKczIaHIhHIo9iknmD76zNVn2udcRu7akIcUkOFxKwCRxDu1HB86sxVKvBfhxpt5sodQlaT1SoZB+BrUL1tlpG8qU6q3CE/172Ge7+lPQ/RW5UrDqqGnq27s7A4doV+GolgdvROIPYoZd291PpC7pvOmXkXDu8+oUgOYPUFJOFfA5rc9Ma+i3d8W66Mm3XIer3TmQlZ8hnmD7DW51g77pSz6hYPpzHC+B6klr1XEHwIPj8a0LLJNbXb9sf7vONxy09x4tPiFsjcY6sbtY3X5hx+o4FZl1wNMLdV0SkqPuFeUs11L10lPI+at9xSfcVkivSLcG8OaI2Ev1zmTjJfhW1xtD6k4U44pPA3keeVJrzVSOFASfAYr1PZZrjG+RwxnC872neA9kYOcZQnFX87K816Z2arUh45EaTKjt+xCXSQPrqgmedehPZpty7b2aNOBxHCZCXZWD5LdUQfoxWTtER7O3v9Vi7O5NST2fkKWicDNUG7V12+Uu0fLiBeUW2BHigeAJSXVf7wfRV+VfNx515i7oXv8ACLejVN44uJL9zeDZzn1Eq4E/UkVq9nY96dz+ofdbfaGTEDWdZ+yyex9m+Xu0NpKAW+NCZ6ZTg/RaBcP7oqz/AGxLyIeydvs6VlLlyujYIHLKG0qcP18NRH2P7MJ+9twuy0ZRbbWshXkt1YQPqC6zPbNvRka501p1KwUxIbstaR4KcWEj6kGtjU/rXSNnyjP59FrqcdDbJH/McfYeqrD41cLbHsnaZk6Aj3PcE3B27zmg6mNHfLKYQUMpHL5y8EE55Z5Y5VW7bGyo1HvLpeyONhxqTcmQ6jzQlXGr6kmvSy6T2rXYZlzewG4rDkhWeWAlJV/Cl9rZIiyKI4J19FNjoo5Q+WUZAXlrqK1N2LWF1sjT/fogTHoqXcfPCFlIP1fTmrBdjKC6vdLUVySCWmLUllR8OJbwI+pBqt8uY5cZ79wd/pJLq31E+a1FR+2rjdjq2i37X6m1M4j/AN5nBpJ8SllrJ5+9ZrNvD9yicDxOAsK0M36xpHAZKintQbgydWbwyNOR3z8lWBRiobB5LkYHeuHzI+YPLB86jzbXby5bmbiw9L2970dDmXZMop4hHZT85ePE8wAPMitauk96732ddpCyt6ZIckrUTnJWsqP21afsWWlhR1bflJy+hTEJB8kEKcV9Jx9FJ3ewUPucQB4nmkDTXVvv8CfLqWT3N7MGg7DspdLpphu4NXi1RFSxJflFz0kIHEpK0n1RkZxwgYOKp1gDoeteh3aR1Ozprs8XxJc4ZNzQLbHSDzUp04V9CAo153rWEpUvoAM1ZsUs00DnSknXTKvXyKGKZrYhjTXCvV2R7MLbsM5dHEhKrncXXuI+KEYbH7qqpzr28nUO5+or5nImXKQ8k5/JLhCfqAq82lQdvexbFlOANuQtOrlnww4ttTg/2livPgZ4AFHnjmaos46Wonn7cfzyVV3PRU8EPZn+eatL2LLLx33VeolIH4ppiC2o+aipavqSmtw7ZF6MXa+x2JtWFT7l3qgD1Q02T+8tNZPshWcQNgnbkpADlyub72fNKOFsfuK+moj7X+o2rluxa9Psu8SbVBKnUg/NdeVxY9/ClP01gsBnuxPJp+w9VnPPQWkDm78n0VemIzk2WzCZGXJDiWUAeJWoJH21dvtOIk6f7NFrsdvWpMQS4sF7h8W0NqIB9nEhNVa2Usf4Q9oTSdvUjjbTPTJcH6LQLh+tIr0L1jpCza60XM01fmVLhykjJQcLbUDlK0nwUDzFZN5qmxVUO9qG6n+fRY9npXS0027oXaBeYTiSUnhPPHLPnVztmoPZ11PomBaoVjsD15DCEy4t3ZQqYt3HrnK/ngnJBTyx4CoU3E7N24OjXH5lrinUdoRlQkwE5eQn/WM9c+1PEPdULjiQ4lQJSpJyCORSfZ4g1sKhkdxjHQyYx1fkLXwPfbpCJY856/wvSnSu0mgdEasmai0rYm7XMmR/RnUsLV3XDxcXqoJIScgdMdBVVu0ztxoTb2TYxpiDIYuNzdkSJK3pbj3EkY6BRIGVLzmpM7Ke6N+1VFumjtRzHbg7bWESYkt5XE4WirhLa1dVcJxgnng48Ki/tcXj5Q33j2xKsotlsabI8luKUs/VwVpbfDPFcOikcTga9o5fdbm4SwSUHSRtAydNOBzr9lC+n7U5fdV2uysp4nJ0xmMADj56wn+Jq+dq7N20lmvkO7QdPyEyob6JDKlznlgLQcpJSVYPMdKqX2dbML12ktNoUnibhrcnr9ndtkpP+Ipr0O8Krv8AWSMlbHG4jTXHaqLDRxyRukkaDrpnsVL+2TePSNyNPWNK8ph29chQ8lOuYH1N1XW3w5t1usa122K5KmSnUssMNjKnFqOAB8akbtHXr5a7SupFJVluGtqAjnn+jbGf9pSq2TslWBu779m5PNBaLTAckpyPmuLIbSffgrra07xSW8OPJufqdVq52Gqry0Hi7HgpH0x2NbQvTzTmr9UXH5UWkKWzbQ2lpk/1QVJJXjz5eyt/1PpyNtvsDY9DW6W7JZZfDXfupCVOgFbiioDlzJFTUBgYqL97W1K05a3R8xMpQPxQcfZXme1lxqZrZNvuzp+32XpGzFvp4bjDuNxr+/3UJE4GcVZHbeCiFtrawkJCnmy+sjxKjn7qrcrnVktuJ7M/be1ltQKmWvR1gfkqTyx9lecbC7vtr88d3TxGV3+2pd7JGBw3tfDRbX4V1p8hMO2SZZ6MtLc/wgn+Fdk9KxWo0Le0ddW2vnKhuge/gNeozuLY3OHHBXnELQ6RrTzIVU1OqfdW+skqdUXFE9SSc/xqVNj4SXL7dbgoAllpDKcjoVEk/UkVFDY/Fp9wqXtjZbSZN4gqVh1YbdSPMDIP0ZFeN7L7r7pEX9ZP1wcL1naXLbZIGdnhkKZqjfeialjQseHn15MtIHuSCo/wqRz0qvW62o273rFMKK6HIlvSWgpJyFOE5WR7sAfA16NtTWtpre8E6u0H14+S4HZqkdUV7CBo3U/Th5rRcZqedMKVp/s9rmK9Vfoj0ge9eeH7RUJ2u3vXe9RbZGQVOyHEtgDwyeZ+AyanDdBxqz7RG2x/VQ4pmIgfojn9ia4jZiMwxVNceDWkDvK7DaSQTS01EOLnAnu4flQInk2AeoGDW+vabU72e4N4Q3+NZluyT592tXAf3UmtBweEkeAqz1osbB21h2GQgd2qCllweXEjn9ZNWNmLcK81DT8mB3k6fZXtpLiaIQOHzZ+gGv3VZGHno0puQwopdaUHEKHgQcj7KkPdW9t3pOnnWVeo5CMrA8Csgf8AhNaHPhuW+6SYDww7HdU0sHzScV+H5T8lthDy+JMdvumx5JyTj6VGtNFWPp6eakP+WPEFbaWkZPPDVD/HPgQsjpOD8o67tEIjKXJSCoYz6oPEfsqz06ExcrY/AlJ4mX2y2tPmCMVAe0cT0rc1l4jIjR3Hc+RICR+8asGVpC+DiHERnGeeK9C2JpwKF73D4zj6AY9Vwm2FQTWsY0/CPMnPoqy6q0fdNKXJTUppbkMq/Ey0p9RY9p8Few1rvjVuX2GJUdbEhlDrSxhSHEhQPvBqI9xduLTb7FJ1DZv5p3GFOxv82oEgZTn5p59Olaa97HupmvqKR2WDXB4gdh5rb2fats7mwVQw46A8ie3qWm6U15etMSW0IfXKgZHHEdVkY/QJ+afqqwtousO92Zi6QHONh9PEk9CPMEeBB5VVDOORFTpss48vREpK892mYru8+1IJ+uq9i7tO6f2OQ5aQSOzH4Vva61wtg9rYMOBAPbn8qSaUpXpy88XAzXNKUUALGaivcTTmlLhfZygmPCYU8vJxnA5D3k4Hxqhd3ucy+6gm3i4LK5Ux5T7pPgVHp7gMD4V6Ay4kWfCdhzY7UiO6nhcadQFpUPIg9agPdXZTSFo0vP1TZX12f0ZHGqIkFxl0kgBKQTlBJI6HHsqppQqtxQTX1t9muF7vMa02uKuTMlOBpppHVSj9g8SfAZNdksHPSrC7G6Wt2mtGzdyr6EtcTS+4cWP6JhPz1j2qIx7h7aklQsjEiaS7Oe2CrhPDc/UM0cB4OTkp3Ge7R4paT4n4nJIqEIUXXu/WuXJVwmBMaP6zslYIi29s+CU+eOg6nqTXF1c1LvpvSluNlpUlRbjoXzRBipOSSPdzPmogVOMti16csjGidNNhq2wuTzg+dKd/KWs+Jz/6wBUgKHHAXV05ZdM6FgKt+kYxVIWOGReHwDIkefCfyEewVk2WXZb/ADyok9Tzr4W6J3igMZqQLDp8JbS+8nA6jNVEhqtAFxX5sGn0NpS64jn1Oa20JCEAJGABWuas1xpPQVmTO1JeI8FtR4WWicuvq6BLaBzUfdX2susNPX/1Ldcm1PeLDnqOD9U9fhVo66q8ABoqq73Xr0LtA36Op3h/FRSAT/qRUbzdRIKf6UfTUo9pLZLcO9bjT9f6Yhou0B5hlDkOKo+ktd22ElXAccYOPyST7KqmJcg5C1K9xq+xoIWHI0hxypEN8bemR0BzOXmxj9cVN8gjjV7z9tVVt8hZvMIE8vSGv3xVn3nsrVz8T9tUyNwrkAxlbRthz3js/vdP/dKqzWcDnVY9qjx7x2jxx3x/7pVbRvHvbc9I32TpLT0FLc9DSFuXB/Cg2FpyO7R4nHirkPI1bxlZOVKGr9eaY0PavTtQ3JDBUMtR0es88fJCBzPv6e2uvpDcrRut2Emw3phyTjKoTp7t9HvQeZ94yKordLncbxdHbjdZ0ibLdPrvvrK1q+J8PZ0rHoUtp5Lza1ocQcpWlRSpJ8wRzFN1Mr0myMZrmqkbO7pboTNaW/SsaWm+RnlfjE3LKlR2h85feD1sAeBzzwPGrM6y1baND6IuGp7293cOG2VkD5ziuiUJHipRwB76Bhc4NAySoc8NBcToq4dsTXiWbfatvIT4Lj6hcJyUnmlCSQ0k+9XEr9UVUbNZrWGqbnrXXFz1ReFgy57xcUkHKW09EoT7EpAA91YPPtr0S30gpYGxc+fevOrhV+1Tuk5cu5d+0WqZfdQQbJb0FyXOkIjMpA5lS1BI+3Pwr1HsFnjaf0tbrHDGGIMZuM37kJCc/VVQuyTtq7ddUv7jXOOfQrdxR7fxDk5IIwtY9iEnHvV7KufXMbQVQklELTo37/sum2epDHEZnDV3Du/dYbVt2Fh0Jeb2o49CgvSefmlBI+sCvLLiU7+Mdzxr9ZXvPM/bXqJrvS/4a7d3bSnyg5ATcWDHVJbbDikJJGcAkZ5DFV4V2LLZ1G4E/wD+nt/8dVWWup6VjzKcE9iXqinqXs6JuQO1drsY2X0fQuptQLRlUue3FQrH5LTfEcfFz6qg7tJ3r5Z7S2oeFWW4PcwEc+nA2Cf9paquztVt3H2v25Z0rHuTlxCH3ZCpLjQbUsrVn5oJHLkPhUOai7IUPUmsLpqGXr+eh+4y3JbiEwG8JK1FWB63QZx8KmluEDa2SokOh0GipqaCY0UcEY1GpUQ9k60G6dopmYU5RbbfIkn+0oBtP75+irYb9XpVh7OWrJiF8LjkFUVB/SdIbH7xrDbN7Cwdob5dLnH1DJuzs9hEfD0dLXdpSoq5YJzkkfRWz7r7djdDQJ0s5enrUyuS2+460yHSsIyQnBIGMkH4VjVlZFPWtlz7gwsqjpJIKN0ePeOfNeZ6QBhI6DlXoR2dbAIPZaskZQKV3Fl+Url/1qlY/wBnhqNVdii2KBA3CuABGP8AJ7f/AB1ZjTtlY07pO22GMoqYgRW4qFEYKghITkj24zWXebnDURtZCc654LFs9tlglc+UY0wvLi426TaLxLtMxpTUiG+uM6hQwUqQopI+qpB2h3mvG0NwuC4NtYucG4JT38R1wtYWjPCtKgDg4JBGMGrT7s9mrT24t+d1HargqxXp7HpDiWu8ZkkDAUtGQQrGBxA88cxUb2XsYTjcEK1Jrdj0RKvWbtsU94sf2nDhP0Gth/VqKog3Zz3jVa7+k1kE+9AO46KEt0t2NV7tXdm53llMW2Q1FqLCj8RZZUoZOVH5yyB18hyAFaPbLe5d7/b7S1njmSmoycea1hP8avZrXsyaW1JpGw6a0/cXdNW+0Kdd7tiOl9UlxwJBccUogqVhPU+dYHSPZHtWlte2jUq9aTZ3ybKRLTGVCQhLikHIBIUcDOD8KphvVJHDus93GcDCqms9XJNvO97OMnK3/fqGqP2VtUw4aDhm3oQEpH5CVozy9wNedp5r+Nerk6DFuVrkW6cwiRGkNqZeacGUuIUMKB9hBNVY1N2M2nbo49pDV4iRFKyiJcY5dLY8g4ggkD2jPtrBslzhp2OjmOMnOVnXq2zVDmyRDOBjCi/bbtG6m2026e0pDs0Ce0hbjsR+Q4pJYKzkhQHz05yR061Fd8ut2veo5l5vz7r9ymuGQ+46nhKioAg48BjGB0xirg6B7IunbDdWrprS7nUTjRCkQm2e5jZ81gkqX7sgeYNfjVPZHh6o1tdNQv67mR1T5K3wwi3tlLQJ5IB4ugAAHLoKzo7rQRzOcwYzxODqsGS110kLWvOccBkaKLuyFaPT98p12Un8XbbW4oHyW4tKB9XHUibl9pfUGhd9rrp+2W+3XSzQUNMrZdyhYe4eJZS4n+0kYIPSpM2b2RgbQG7uRr4/dnbl3QUt5hLXdpb4sAcJOclWa03W/ZOsOp9RT79atV3S3TZz65LyZSEymytRycfNUBk9Mmte+so56x0k2rMYGhWfHR1cFG2OHR+cnVa8rtmwTb1FOgZgl8Pqgz0d3n2nhzj4VVrUV5kaj1Xcr/KZZafnyXJLjTCeFCFLOcJHlViT2M9Tek8I1xaSzn53oTvFj3cWPrre9IdkPRtmnNzdU3eXqJaDkRS2I8cn9JIJUoewnFZ0NbbaPL4Tqe/8rCmo7jWENmGg7vwte7HmjZ8SJfNdTGFtR5zaYMLiGO9SlRUtY808WAD44NQr2gFyldpPVxlghQloCM/1Ay3w/VXofEiRYMJqJDjtR47KA2200kJQhIGAAByAFRPu12f9N7pXBN59Mfs96Q2GjMZQHEvJHQOIOM4yQCCCBy51rqS7NFY6eUYDhju6lsau1P8AY2wRHJac96pltbuHL2x3Ba1REtzNwww5GcjOLKOJC8dFAHBykeHnV4dnN0Jm6OiZ+p5dkbtEViYqM0kP96VhCEqWonAxzVj4VBkfsY3f0gpk69hJZzyU1AWVH4FeKsDovbOPojZlegrZdXlqU1ISbgppIXxu8WV8AOOWRgZ8BVy71NHOA6PV+muvBW7TTVkDi2QYZrppxXnTqS6qv2t7zfHTlU6e/Jz/AGnFEfVirUdi6zhNp1XqBSObj7MJCvYlJWofStNfsdiq0JbSlO4Fy5ADnAb/AOKpu2o21h7V6D/BqJcXbjxSXJS5LrQbKlKxywCRyAAq7crrBLTGGE5OnJWrdbKiOqEszcDXmt6rW9dWBepNFSrexj0lOHmM/wBdPQfHmPjWyUxXIVMDKiJ0Mg0cMFdbBM6CRsrOLTkKorrTjDymXm1NuIJSpChgpI6gjzrLaf1Te9NSFuWmappKzlbSkhSFe9J8fbU7ap27sOqHTKeS5EmkY9JYxlXlxA8j9taK9sjcEu/za/xlI83WFA/Ua8sn2VudDNv0nvY4EHB+vBelw7TW6sh3KrTPEEZH5WDmbqaylMFtMxiNkYywyAo/E5xUm7Xsvu7cty5zrkh2c86+tbyipSwTwjJPsTWuwdlGgtKrnfFuJ8URmuDPxJP2VJtrtsW0WeNbYSFJYjoDbYUcnA8z410uz1uubag1FxcSMYAJzxxy4LnL7X250AgoGga5JAxw81WnV2m39M6rk29xCu5Ki5HWRyW2Tyx7uh91Y21XS4WW6t3G2SVR5DfRY8R4gjxHsqz1907adR24w7pFS6kc0LBwts+aT4VGc7ZBZdUq2X4BBPJEpnJHxSf4VobnsjWU9QZqHVucjXBC3dt2opZoBFW6Oxg6ZBWp3Lc/V90gKiLnNRkKGFmM3wKUPLOSR8K08NqWtKEIKlKOAAMknyxUsRNkZfeZm35lKM/5hgk/Wa3vTm3unNNupkx46pMwDlJkkKUn+yOifhVLNm7tcZAax2AObjk/QAqt20NroGEUbck8gMD6k/utf2w0G7Y2Tfbu1wz3kcLTKurCD5/pH6hy86xW+E04s9tSeRU4+oe4BI+01L/TpWj6w26Rq6+tXB68PRg0z3SWkMhQ6k5yT7a6242Z0VqNDQtyTjnx1ySVy9BdmyXMVta7AGfppoPNQTZYfyhqKBA/6+Q23y8ioZq1qUhKeEDAHIVHFh2ki2TUsO7/AC0/IMZfeBpTKUhRwR1z7akmrOyVont8UntDcOcRzB0A7FXtNdIa+VnQHLQO7UlQDu7Z/k/XQuDaMNT2g4SBy40+qr6uE1H9WY1no6NrC2x4zspcVbDveJdQgKPMYIwfA8vorSxsdF8dRyP2ZP31zl72VrJa2SWlZljteIGp4+a6CzbTUkVGyKpdhzdOBOg4eS6+yMEFy73JQ5gNx0n6VH+FYTc/U08bnf8ARk16Mq3NJZS4yvhPEfWV7+oHPyqWtHaTY0hZXbezLXKLjxeU4tASc4AAwPdWB1BtLYr1OfnsSpcKU8suLUlXeJUo8ycK/ga3M1mrm2iKkp9Hg5drjrOh/nBaqG70brrJVT6sIwNM9Q1HdnxUewd3dYRmwh9yHMAGAp5nB+lJFYzUevdRani+iTn2momQox2EcKVEdMk5Jrbndkbglf8AN7/FUn/WMKB+o12ImyKspNwv/L8pMdn+Kj/CtDJbtoZmdA/e3T1uGPut22vsMT+nYG73Y0+iiaPFkzJbUWKyt591XA22gZKj5VZnRenvwZ0bFtaylT4BceUPFxXM/R0+Fcac0XYNMIKrdFzIIwqS6eJxXx8B7BWw11OzezZthM0xzIRjTgAua2g2g/qOIohhg114kpSlK61cvhKE4FK+chwMxXHiM8CCvHuGaKVGNy310xbNQTLW9bbm56K+thTzSUFKyk4JGVA4zUf7r7pWvWmlotmsjM1pv0gPSDJQEZCR6oGCc8zn4CozdUqTLekrJKnXFOH3kk/xr8FkHniqwAoXXg2x25XSLb2Qe8kvIZTjrlRA/jU29oW7NaW2ss2iLWQ2iWQ2tKeX4hkDl8VFP0GtB24hIkbs6fQseqmWHPilJUPsrudqCWtW5drjE5Qza+8SPapxWf3RTmoW3bE6eTp3aK6a3ebxOuQUiOojmllB4Rj3r4j8BXciw1vujllZOTmt2g25ELYGzQGEgJRAjck+ZSkn6zX10xY/XS+6nPvqQcKhwyV+YEC16dsi77qWbGgRGU8SnJDgQhPvJ+yoO3Q7W0WOw9Z9sYoed+b8sS2/xaPa00eav7SsD2GtR7XVwlq3ihWtUp4w2rW06mOXD3YWVuZUE9OLAAz1qujnMmrjIwfeKtPkI90LIztQXrUmrWrxqC6yrlPdeb45EpwrVjiHIeQ9gwPZVjHZKwvvAohQVkKBwRVYYaf+lI398j94VZR44KhnxNJOSmHmpy2V1BeL1EvUS6XF+WzEQ13IePEUcQXkZ6noOtee0xHBMe/vV/vGr7dn05OpP7LB/fqhc5QM9/8AvV/vGph4lJ+S/Nt53yEPOQ3++Kswt4FShnxNVmgHF2iH/Xt/vCrDF/Kjz8TSYJCeKkPaNWd5LV/Ze/3Sq1ftBgfy9XL/AOWjf7us5s46Vb1WkdRwv/7pVYHtCct+7n/8vG/3dWRxV9RatIzX6iwpM+ezBgx3JEl9YbaZaTxKWo9AB512YMCbdbkzbrbFdlS31htplpPEpaj4AVbHanaK2beWpWpNRuMO3zuipx5ah3UFGMqCVHlnHzl/Ry6znqULIbS7bwNsdGPXC7OMJu0hrvZ8pSgEMISM92FHolPUnxOT4CqndoLeRe5mrU2yyvLGmLcsiMBkCU70L6h5Y5JHgOfjWa7QW/z2upb2kdJSFs6YaVwvyEHhVcVD7Ggeg/K6nlgVXzi9ldbZrV0P68w97kOr91yN4uvTfoQ/DzPX+y/dbdtrt9edy9fxdN2lCkIUQ5LlYymKyD6yz7fADxOKw+l9L33WeqomndOQHJlwkqwlCeQQnxWs/koHUk/bXohtJtjYdrtG/I1tcblXFwpXcp2AFvO8PIY/JSAfVT5c+pzWZdbk2kZhvxnh2dqwrXbTVv3naMHHt7FtmmdO2rSelIOnrJHDEGE0GWkeOB1JPiScknxJNZalK4Nzi45PFd61oaN0cAlKUqFKUpWua01vZNB2SNdb8ZIjyJSIbfo7RcUXF5xkeA5HnRFsdK1PV24umNDzbXG1FIfj/KSyhl1LRWhOCASsj5oHEOddzVmsrPo3Tjd8u3pC4jj7cdKorfeEqcOEnGentoi2ClafrLcnT2hpVuj3lm4uu3ALMdEOP3xVw4yMA9fWFdLT28Gi9RXxuztvzbdPd/oY9zjKjl32JJ5E+zNEW+0rXbrrWzWfXFn0pLEo3C7BZjd21xN+qOfErPq9K51PrO0aSetLd1RKKrpMTBj9w3x/jFdOLmMD20RbDStM1ludprRNwjWy4JnTbnJSVtW+3Ry+8pI5cWB0GQevka61p3Z0/d9NXe8s2rULItKUGVEfty0v+t04Efl/A0Rb5SomV2htEJn+gm1ap9Kxxdx8lL7zHnw5zj24rO3jdvTVi0dZNR3CFeUx7yeGKwmGe/CsZwtskFJ9lEW+UqP7DvHpC+6gZsnd3W1zpB4WGrrDVH70+SSeRNZaFuBYpm40zRCkzIt3jN96ESWuBD6OR4mlZ9YYOfdnyNEW1YpWsMa7scrcd7RMMSpNyjsh6SplriZjg9AteeSunL2itmzhOaIuaVFh380ephchm0anfjNqUlUhm2lTYI6+tnHKtsh6+05cduZGtrfIdlWuOy4853bZ7xPAPWSUHGFDyoi2elRVF390rObQ5E05rF5tzBQ43aVKSoeYIODUmy50aDa3rjLcDMdlsvOLXy4UgZJPwoi7FK1bRW4GntfW+VL0+4+UxnQ063Ib7tYJGQcZPIjPP2GulrHdLTuiL7EtF1iXaRLlMl9pEGL32UhRSehBzyoi3alaLpbdzRmrbz8jwZMuHcSCUw7hHUw4sfog8j54zmsjC3AsMzceZociXGu8Zvvg3Ja4EPI5HibVk8Qwc/T5URbTStZTruxvbkr0PEEuXdGme/klhriajJ8A4vOEk8uXXmK2VSuFJURyAzRFzSolb7Q+i3iv0Wy6rlJQsoK49rU4nI6jKSa2W87o6asGgrZq+7M3ONAuK0oaQuKe+QVAkcaM5TySaIt1pWv37WVk0/oCRrOQ65KtLDCZBchpDhWhRABSMjPUeNfWTqyxQdEt6suM1MK1rjok97I9UhK0gpGBn1jkDAzzoizdKiBvtG6IMhBfs+qY0BxQSm4u2xXcHJwDkEnHwrd9T69sekpFkauiJijeZKYkUsM8WFnGOPJHCPWFEW0UrUNT7l6W0fqu1afv0h+NIuQJZe7vLSBxcOVqz6vPHOu3rDW9l0PaYdxvQlKZly24TXozfeHvF5xkZHLkedEWyUrSNcbpad0BdLfb7zFusiRPStTCIEXvyrhIBGAQc8xyr56R3WsmstQ/I9usepIj3cqe72425UdrCSBjiJ6+sMD30Rb3Soon9oHR0G8zbYmy6pmPQn1xnjDtpdSFpJB5hXsNZ9W6en2tqXdwZUC8xLY2vu1MSYhbk57zgz3ZPTJ656URbxSomjdofQjrzImQtR2yO8QEzJ1tW2xz6HjBPI+dSu24h1pLrS0rQsBSVJOQQehFEX6pSlESlKURKUpREpSlESvhNQt22yGmxla21JSPMkECvvSiKo8nb7WttR/PNM3AJA5qab70fSgmsO7DkR1cEiO8yo/kutlB+giroch7Kize+0mVpmBdUDnFfLaz+isfekfTUgqCFD+hHxA3NsUlXJIloST5BWU/+Ku12pICka7s07B4JNvUxn2ocJ+xdYNCXWnm3mlcLjagtJ8iDkfZUob3Wz8O9goWrbc33ki3cMxaU8yGyOF4fA8/1anmoUkaHksah2asL7eCh62sjl4KSkJP1pNbHCjCPHSkDGKgjswa1anaZm6KlPASoKzKjAnmtlZ9YD+yr6lCrA5yM1SVIVGO1woHf5oeVpY/fcqAHM5qfO1t/wDqAR/2TH/ecqAVmsyP4QsKT4iv3CIF1ik9O+R+8KsXIeBWojpk1XKGc3SKPDvkfvCp8deHErHmaokV2Hmp17O6uIal9gY+xdUKmH+fv/3q/wB41e7s5L41anA/qsf/AHKolLH8+f8A71f7xqIeJSfgFxC5XON/fI/eFTv3vX3moIhf5Tjf3yP3hU6xYc24T0QoEZ6VJcJCGWUFalc/ACpmUQc1IGybnHvfagf+rfP/AHSq7u6uitQ657S1wttggqdwxG76SsEMxx3fVaug9w5nwFbjtFtFqDT2p4+rNQvNQ1tNrS3AT66zxpKcrUOSeR6DNbDujvronbBp6K46m535Yym2RFDjzjALyujY6defkKohifK8MjGSrkszIWl8hwF9dMaM0Nsro+RfrzcI6H0N/wA7u8ocP6jafAHwSMk+2qrb2doG8bkyHbFY+/tel0K5sk4dm46Kdx0T5I+nJ6aPuDuhq7cy/fKGpJ34lskxoDGUsRh+inxP6R5n6q03GT0NdhbbM2nIlm1f5Bchcby6ozHFo3zK/Cjk9az2i9E6h1/q2Pp3TUFUiS4cuOHIbjo8XHFfkpH0noOdbdtVsjqvdO4JfiNm32FC+F+7PIyjl1S0P84r3ch4mpe3C3h0D2b9JP7dbURY07VPDiZPc4XExnMc3H1/5x0eDfRPjgcjerro2E9HF7z/ACHerVBan1GHyaM+/cs1InaU7NOnYmhdFREan3Q1CUMstFPrLcUcJW7jm2wk8wjqrBPmRP8AoXS7mk9GRrdNnuXO6OEyLlcnsccySvm44cdBnklPRKQlI5Cq89lTZ+9Jlyd7dyFSZmo7ykrt/px4nWmlj1n1Z6LWMBI5cKPLiq1YGBgVxlVIXuOTk8z1n0XZwRhjQGjA5BKUpWMr6wl5Z1Y5MaOn59ojsBB7xM2M46oqzyIKVpAGKx3ou5PjetNfsD3/AJtbZSiLBWljWDdxKr3cbPIi8BHBEiuNL4uWDlS1DHXwqM+00M7XWX/t+L9i6mmsDq3R1i1tZ2LXqCM4/GYkoloS26pshxGeE5TzPU8qIot3ws8LUG5+3VkuLalxZkt9h0JODwkJ5g+Y61oWrrlfNL6Q/kl1X3klyLPjSLTcAMpfjBz5pPmPq6eVWSu+k7JfdQ2i93KKtybaHFPQ3EuqSEKOM5AOFdB1r46p0TpvWTERrUFu9J9Ed71haVltbavYpJBwcDI6chRFHm5nLfzavwxJkEn9VFdPtFvWx/TFjgRVNu6kcuTXoCGiFPAZ9bGOeM8Px91SHrLbfSuvHIS9RRJDyoQWlksyFslIVjOeE8/miurpbaPQGj7oLpZbChM5IIRKkOrfcRnrwlZPD8KItP3CfahdovbaZcHUNICXm1urOE8ZGOvvI+mvpvU9Gf1HoC2tvIVLN9adDCTlZSMDix5ZPWpF1Vo3Tus7OLbqG3JlMpVxtq4ilbSvNKhzBrB6V2j0No+8C7Wq1uuzwMIlTH1PrbH6PF833iiLGaz0DKvO40fV2j9UR7PqiJG7pSHm0vIcaJOCpHzh1IzjBptvrrUt61Ze9Iasi283O0pSpUu3qPdOgnHQ9D48vaMDFZXVe0mh9Y3w3q7W15FyKEtqlxJK2HFpAwAopODisvpPRGmtE25yHp22JipdIU64pRccdI6FSlZJoijxpaT22Hkc+IWDOfiK63aDVMEjQ6bchpc43oejpeOEFwBPCFHwGcZqTk6OsKdw1a2EZz5YVF9DL3eq4e7znHD0zy61zqHR9h1RMtcm8xHH3LXJEuKUuqQEODHM4PPoORoihdKtV613+s+ntxPky0SLKPlGMxBSpQm8wrCHFHn83n7j41s+/FjEfSzG41sfMO96fcQ60+gZ7xClhPAfPBVkfrDxqQL7o2w6ju9tutyiuGdbXO8iyGXltLbOQcZSRkZHQ8q7WpNO2vVemJWn7yyt2DKADqELKCQFBQ9YcxzAoi0/ZrSsWw7dR7uXFSrnfEpuM6W585xbg4gn3JB+kk1Ibhwys/on7K61rt0Wz2WJaoKCiLFZSy0lSiopSkYAyeZ5DrXaUkKQUnoRg0RVI0nf9yrHsLd7nYItqd096bJRJWpKnJTfEQla+HITwjI91S1CtOn7J2SLk3p2aZsB+0vyPSlDBdWtB4iR+Tg8seGMVvum9Fad0rpV3TtnglFueW4txh5xTvGXPn5Ks8j5V0rVttpWzaLuOk4EWUi0XDjD0ZcpxYHEMK4CTlGfZRFHW2cDdk7fabctep9Ms2MtNrTHeiLL4Z4sqSVZxxYyM12e0Pq0W/SsLR0UyFSr05h9MVsuuojJPrlKRzJPQe41mB2fNswngFsuIGMYFyfAx8FVuLOitPs63a1aIrirq1FEJt5bylBtoDGEpJwD7evWiKA9H63sFk7Q0ZyxW27WyxXyO1AdauUMxih9ACULSDyIyBk+azW9arWk9r7RCSQOG2SFHJxgfjBUhas0Xp/WkCLFv8Vx9MV8SGFNuqaW2sDGQpJz8Kxer9q9H65use46ihSn5Mdn0dtbUtxrCMk/kkZ5k86ItC3oetk3XeiYlncYd1MLmhSQwQXUNZB9bHPGeYz5Gsrvnp9LWmmdxrXI9BvenFB9qQlOe8b4wC2rzGVZHxHjW1aS2r0Lomaudp+xIZmLSUmU84p53HkFKJx8Kz+otP2vVOmJlgvLCnoMxHdvNoWUFQyD84cxzAoi1HaDTTFo2/j3t1fpN1vqU3KbKUPWWpwcQTnySD9JNb89yYWf0T9lfC122JZ7JEtMBBRFiMpYZQpRUUoSMAZPM8hXaWkLQUnmCMGiKtmzlu3Rd0BLd0XftPQYK7g/lq4xHHVlz1cnKT06VsvaEZdc210pEuym333b1EbkloFCXCUkL4fEA5OKz/8A7P8AtrxqUm3XFHESohFyfSMn2BVbHP230pc9LWfT02E+5As7qH4aPSV8SFo+aSrOVdT1oir1riRdNq9H6l2tvJfmWG6sKesMwjIawsKLSvd4+0Z6K5bRuq62xtvtS7cgr5CQ/EM/IJRjuUcPF8OOpq1fovTuubAbPqS3iXF4w4nCihaFDxSoc0nqOXWuxI0vYpuj0aXn25qXakMIjiNIHGOBAATz65GBz60RR3u1rXV+jdLI1LpZvTszTrbSAr0gqWtS1KwnuwkhJRjhrDbuzHLixtXPkJQl6Td4zygjoFKShRx7MmtiY7PW17MpLi7PLfZSriTFfmurZH6melbjfNE6c1Cqzm5wSsWd9MmEltxTYaWnAHIEZAwOR8qIoi3h0xD1j2idG6cuClojTLdLQpbfzkEcRSoeeCAceNRpq7UOpYNns+1GsW3XbpZr7FdizeqZMX1kpOT1xlOD5cjzFWtnaRslx1vbNWSo7irpbW1tRnA6oJSlfzspHI9T1rp6s280prSbbZl/txfkW5zvY7zbim1J5g8JKeqcgHB5URRZvSm4u78bdR7NKjRbkpT5jPSmy42hfEnBUkcyKkzSMPcOPcZCtaX+x3KMWwGEW6MppSV8XMqJJyMcq41ntjpHXtwhzdSQZD70JCm2FMyVs8IUQT80jxAr4aU2l0Tou/i9WC3ymZgbUyFOzHXRwqxn1VKI8BzoiiPQEPcSXrLXbuhb/Y7cz8uOpkouUVbqlq4l4KSnoMZrcd5m7zH7K09vUsuNLuiUMCW/EQUNrX3qclKTzA9lZadsLtvcbrKuMi23Dv5Tyn3S3cX2wpaiSThKgOpNZ1G2WkE7bL0GYD67GtZcUwuS4pRUV8fzyeL53toigrUM7cG9WTSu2+tGLDZbLd0sIjXNjjdylCU8KSScJWRw8sflDnjNWdgRGoFqjQWAoNR2ksoCjk8KQAM/RWGv2idN6m0qxp28W8yIDBQWkhxSFtlAwkpWCCCBy686zkWOmLCZjIU4pLSAgKcWVqIAxzJ5k+00RYm7x9Wuz0qsVytMeNwAKRMiLdUVZ5kFK08sY5YroCLuL+etOf8A093/AM2tqpRFiLOzqZt9w32fbJLZSA2IcZbRBzzJKlqzWXpSiJSlKKMpSlKKUpSvwXEJWlBUApXQE8zRRwWI1Zd51i0lLutviIlOsJCihZIATnmrlzOOuKrpfdQ3vUUzv7tOW8AfUaHqto/spHIe/rVoX2W5MVyO+2FtuJKFoPRQIwRVbb1pG6WzWMixw4UmUUq4mC0gq42z808vo94ohWud1UmbV6jYjOP6VunCYc3PdB3mnjIwpB9ih9fvrpRNqtTuWx6ZIRHjuJQVtxlL4nFkeHLkPprUkMrS7+UhSTzHQgj7KlQtL13pnUGxe8kW+2HiFuU8X7a+rJQpH5cdz3AlJ804PhVsNAa9se4WkWr1ZngFDCJMRR/GRnMc0KH2HoRzrTrfdrBuBpNeitdsNvd6Alt9Z4StQ+aoK/IcHgfH6QYUvm3O5mxerV6p0fKfuFpRyVIZbK/xec8EloeH6Q5eOU04qeC1vtbn/wDECgf/ANTH/ecqAFnmaknerXre4u4MbUaIKoTptrDD7PFxJ7xJXkoPik5GM8/Co1V51mR/CFhS/EVzD/ylH/vUfvCptcdPEeZ6moWtjD8q9xYsVh199TqAlppBWo+sPAc6s5YtnNwtQqStuyKt8cn+nuKu5GP7PNR+ircquwqR+zOrKtUc/CP/APcqlEWyXe/akdtljtcy5TFPLCWIjKnV/OPgkcvecV6JbU7XubdQ7h6Td0z5M/u+8S21wIb4OLkCTk/O6nFfqfqLaLZixmIuTZtPtkFQhRUAvvHrngTlazz6mqYt4uwwZKqm3QN55wAq37b9kTUdxlR7ruBcBZYqFJc+T4ikuSV4OcKVzS3/ALR91WXlSdstmtMqly3oNkYP+cWSuRJPkOq1n3cqr7r/ALXlxmodgbd2n5PaPL5SuKQt0+1DQ9VPvUT7qrher7etR3dy6X+6y7lNc+c/KcK1e4Z6D2DAreUtimmIdOd0dXP9loqq+wwgtpxvHr5fup33P7V1/wBQNvWfQMd2xW5WUquDpHpbqf0ccms+zKvdVc1uOPPreecW444oqW4tRUpRPUknmT7TXIbUtxKEJKlKOEpSMknyA8am3bXsya31ktm46gQrTVnV63eSkZkup/QaPT3rx7jXQNbS26Pk0eZ/K0DnVNwk5uPkPRQ3brbcLtc2bda4UiZLfVwtR47ZcWs+xI51ZbQXZvs+mbErXG+Fzh263xkh02xx8IbT4/j3PE/6tPXzPSsxfN09juzjbJFi0Hb2dQ6o4eB5bLocVxf/ABEnnwj/AFaM+4VULcrdfXe61/Fw1bd1vtIXmNbo4KI0fPQNtjqrw4jlR8609RcpqnLYfdb18z6LeUdmjgw+f3ndXL91Ou8PazdulrXovZ9hdisTaSwq5obDDzqAMcLCB/Qoxn1vnEdOGuOzJ2bXNX3KLuNr+Cv5CbWH4ECQk5uKwch1wHq0DzAPzz7BzyXZ57Jkm5OxNb7rQFsQhh6Fp94YW/4hckfkp6EN9T+VgcqvC00hlpLbSUoQkBKUpGAAOgA8K0U0zYxuRfUrfsYTq5fpKQlIA6AYrmlKwVkJSlKIlKUoiUpSipSlKUUhKUpRSlKUoiVjb5frZp21fKN2fLMfjDfEEFR4j05CslUV73TeCxWq3g83ZCnVAeSE4H1qrW3etNDRyVDeLRp38As+10YrKqOB3Bx17ua2D+VXReM/KTp//wA6/up/KrorH+Unf2df3VXeucZHWvOf74r/AJW+B9V339mUXzO8R6Kw38q2ifzk7+zL+6uf5VdFfnJ39nX91Qbb9KajusJMy3WaXJjqJAdbSCCQcHxr43OyXazPNtXW3vw1uAqQl0AFQ9nOr52uurWdK6IBvXuux45VgbLWxz+jEp3urebnwwp2O7OiAcfKT37Mv7qDdfRJ6XN79mX91QdB0jqW6xEzbdZpUmOokJdbSMEg4PU12RoDWef/AMtzv8Kfvq4zai8PAc2DIP8A1d6ql2zVpad10+D/ALN9FNP8q2ifzk7+zr+6h3W0UP8AST37Mv7qgq4aa1BaGu9udmmRm+vGts8I+IyBWNqxLtlcoTuyRtB7QR+Vej2St8o3o5CR2EH7BWH/AJVtFfnF/wDZl/dT+VbRWP8AKL37Mv7qhGFpLU1xgtzYFkmSY7gyh1tI4Ve7nXY/ATWXX8HJ/wDhH31fbtReXAFsGR/q71Vh2zdpacOn1/2b6KZ/5VdFY/yk9+zr+6uP5VtFfnF79mX91QlN0lqW229ybcLJLjR2xlbriQEp9/OsLVmXbG5wndljDT2tI/KvRbJ26Yb0chI7CD9grEfyq6K/OT37Mv7q4O6+iR/pF79mX91V4rhQyDVn++a/5W+B9Vd/syi+Z3iPRWH/AJWdEfnJ79mX91P5WNE/nJ79nX91Qbb9I6nuzYdt9jmPNHo5wcKT7irGayD23WtYzXeL0/IWPJtSFn6AazW7T3pzd9sGR/q71WI7Zy0Mduunwf8AZvopiO7GiR/pF/8AZl/dQbr6KP8ApB/9mX91V8eYejSFsSGXGXUHCm3ElKkn2g1+KwztvcGnBa3wPqssbG0JGQ93iPRWIG6uij/pF79nX91Z2xamtGpGHnrTIU8hlQSsqbUjBIz4iqtip42cilnQDkpScGTKWoHzCcJH2Gt3s9tLWXKrEMjW7uCTgH1Wlv2z1LbqXpo3EuyAMkeikOlKV3q4tKUpREpSlESlKUUJSlKKUpSlESlKUUYSlKUUpSlKIlRtva3qKJtkrVOklKF60++m6MtpGQ82kEPNKH5SVNqVkezzFSTX4cQlxtSFpCkqBBChkEe6rkUnRvD8ZwrcsfSMLAcZUY7Vb5aP3OtzLMeWi33wIBetUhYC8+JbJ/pE+0c/MVKAIJzjnVDd/dl5+22qHNT6ejunTMp3vG3Ws5t7pOe7URzSnPzVfDqBnCaU7Re7Gk2m4zeovlWK3gCPdm/SOXlx5Cx/iNb99lbUt6ajdoeR5dmVoGXp1O7oaxvvDmOfavQ7FRdrzRMl68IutliLeMpXC+y0Pmr/AK/sB8fb76hi0ds2eloJvuhGHV+LkCaUA/qrScfTWwp7ZOluEF3Rl7B/ReZP8awHWasafg+yz23mjd/nj6Fbc9tfqVMBD7fojrpGVRw7hSfIZPI/TXftGo9a6WUmHfrBcZ8AeqFhsrcbH6KhkKHsP01Hr/bM00hOY+iLy4f05LKfvrB3DtoSSki1aCaQfBUqeT9SEfxqG2asP+HmEdeaNv8An5FSZqrYfavdaM5e4cWRZ7i7kKl29JYUF+TjKhwk+fIH21rGlOx5oq1umTqu9T9RKCjhhseiM8OeQUEkqUcdfWAqJb32tt07ikotqbPZ0nxYjF1Y/WcJH1VGd/3R3F1OlaL5rW9Sm1dWRILTZH9hGB9VZ0NgqT8bgB4rBlv9N/g0k+Cvgi4bN7Twyw3L0tptKRgtsltLy/oytR99R3qnteaHtZWzpa03K+v88OuD0Vj35VlR/wANUkB9YqA9Y9SBzNdmKxJnSUxobD0l9XINMILiz+qkE1sodn6dmsri7y/nitdNf536RNDfMqW9ZdpXdLVgWxHuyLBCVkdxagULI8i6cqPwxURPPPSJK5El5x55w8S3XFFa1HzJPM1KmleznuvqoNup098kRV//ALi7L7jl5hHNZ/w1Kkfs5bW7eW9F33g3Fj8KRxGMHRDaV7BklxfwxWSa2hoxux4z1DVYooq6sO8/OOs6KrkKFNuNwRBtsORMlOEBDEZsuLV7kpBNTpoLsra81IpuZqpbembecKKHgHZSh7GwcI/WPwrPXftWbQ7bwHLTs3oNE1wAp9LLPobBPmSQXXPjj31XfcHtCbqbkLWxetRvQ7ao4+TLXmMxjyVwniX+sT7qwZbpUS6RN3R1nU+C2lPZIY9Znbx6hwVqpur+zb2c21tWxLepNUtDBTGUmZKCv0nT6jIz4DB9hqum6faj3G3LS9bI0j8HLC5yMC3OELdT5OvclK9w4R7DUIYGAAAB7K4GRWAIQXb8h3ndZW3bhjd2MYHUFs+idB6t3D1Kiw6Osr1xlnCl8GEtsJJxxuLPqoT7T8M1fPZDsp6b21kxtS6oeZ1Bqdv1m1lB9GhK/wBUk/OV/rFc/ICoD7DV2EXfu8WpSzwzrKtSRnGVNvIV08eSjXoKBgVgVk7w7cGgWVCwEbyYHlSlK16yEpSlFCUpSiEpSlKKEpSlESlKURKUpRVJSlKIlQPvNPD+uY0IHlGijI/SWon7AKng1WTX8z0/c28PZyEPdyn3ISE/aDXHbbT7lAIx/k4eWvous2Oh364vP+LT54C17NcggDnXAFfWLHXLnMxGxlTziWx+sQP415OxpcQ0c16c4hoLjwCsloGD6BtvaWFJwpTAdV71kq/jUVbuzEyNwRHSoYiRkIIHmSVH+FTpGZTGhtR2wAltAbAHkBj+FVo1TKVedzLipolXfTu4R48gQgfZXqO1Y6C2xUjeZA8B/wCLzbZj9e4S1LuQJ8T/AOqfNEQvQNvrTHUnCvRw4rl4q9b+NYi+bmWmw6les8qFKWWeHjda4SBkA9M55Zrc2Gkx4bTCOQbQED4DFanL2307cNRPXeeZkh55zvVtrcwgnywB05dM1v6qGsjpooqDAIwDnhgBaOmlpZKiSWtyQckY45JW1NqYlwkrADjTqAoBQyFAjPSqz6+gxbRuHc4UFISwhSVpQnogqSFFPwJqedUaxtGkIbaZYWp9aCWIzafn45degA5VX5b0jU2t23pOC/PmICseHEoDA9w5fCuZ2ynhmbHStwZcj6afnK6PZCGWJ8lU4Yjwfrr+MKxmkoPyboa1RCnCkRUZ95GT9ZrXr5ulZLFqOTaJEKa67HIStbXBw5IB5ZOfGt6CUttBI5JSMD2AVqsi5bdSZLj0mVp511ZytbhbKifaTXU1bZYoGRU8jWEY466ALmaV0csz5J4y8HPDTUnuUda73LtmpdJqtVtiS2lrdQpangnHCk5xyJ8cVGJWkHmoD41u25cqxSdUx27AiD6M1HHE5ECQlSyST08hitz0TN2+haHgs3aTZlTikqe79CVLCionByPAYrzipppbrcJI6idoLBje4A46hntXoFNUx2ugZJBC47xzjiRnr07FCyXEk44h9NfZgtiS0XVYaDiSs4zhORn6qsCu+bWIHrP6e+DSP+GoHu8lmVfp0uM2hDLj61tobGEhPEcYA6csVg3Oztt4Y9szXkngOz6rOtt2dXlzHQuYAOJ7fopek71WNlXdQLTMkISMBS1JaH0HJrddJ6ja1Vp5N1ahPRUlZRwO4OSPEEdR7a0vSd023gaWtkSbJsxnJZSHlOsgq4zzOVFPmfOpEkR1v2ks2yX6EVJHdvMoSsJHhgHlivSbRJVy/qyzNeMfC0DQ9+eS88ukdLH+lHC5hz8TidR3YUOb1OxDqe3NNJb9ITHUXlJHPBUOEH6DUZjnWa1jbbta9aTIt4mKmSiQ4ZJP9KkjkceHljwxWFTyxmvK73O6eulkc3dOeHVjRem2aBsFDExrt4Y49edV+vCrN6Kg/J+39oilPCoRkqUPaocR+2q1QoyptzjQ0dXnUNf4lAfxq2DLSWWENI5JQkJHuAxXWbBU/wCpNMeQA/P4XLbbz+5FD15P4/K+lKUr0pefJSlKIlKUoiUpSigpSlKIEpSlFKUpSiJSlKIlKUooygpSlEC+EuHFnwnYc2O3IjvJKHGXUBaFpPUEHkRVbdwuyLY7q+7cdv7kLK+olRt8oFyMT5IUPWb93Me6rM0rJpqyamdvROwseppIakbsrcrzvvXZ83dsTykOaPkz2wcB62rTISr24BCvqrTpGitaR3izI0fqBtaTgpVbnuR/w16g0x7T9Nblm0kwHvsB8lpn7ORE+68jzXl81ojW0k8MfR2oHD0wm3Pf8NZqFsnu7cVpTH28vacn5z7SWR9K1Crgbwaf7QKnHbxs/r+GhsJyuw3GCxkkf9TIKT1/qr+CvCqb6s387T2nbyqz6v1HeLDMSeEsuW9mOVe1KgjCh7Uk1lMvk0vwNaPFWv6BE0+84+S3W2dlTeG4rT6TbbVbEHqqVOSoj9VsKrcInZJh2poSdebn2u2sgZWiOhKPf67qh9lVcvG7+6t8BTdtxNSyEHqj09bafoQRWS2h20vu9u6TWnPlCSiOltUmfcn8yPRmhyBwo81KVhIGfM+FWZK+qIJc8NHYPVX4rTStOjST2lWRVA7Gmg1EXbVCtUy2+rSX3ZgJ/ssgI+k11pvbF240jCXC2s2sLYA4Q7IS3BR7MpQFLV8SK2C3dhDRzTiFXTXmoJaR1Swwwxn6QrFcbk9jXRUHaG6PbeR7o7qWKgSY5mzFPGQEc1M8PJIKhnBx1ArWvqGSnEry7vWyjphEP02AKv8Aq7tZb06qLrTOoGdPRV/5izMhpQH96riX8QRUM3C4z7pPXPuc+TNlrJKpEl1TrivepRJrrrGFYIII5EEYIr8Zz0FZrY2s0aFQSTxUy7F7AXje5y5SI1+iWe3W11tmQ84yp5xalpKgG0ggcgOeSOtXG0R2Rdn9JRCu52l3VE5SClUi7q4kDIweBpOEp9h5kedah2EIYb2Ov9wwnMi+LRkeIQy2PtJq1NaqpnfvloOiyoo24BwvNDtDdnu5bRagN4syH5mj5juI8pXrKhrPRl4/urPzuh5jnr+1WwG4G7Upt+zQPk+yFWHLzOSUsAePdjq6r2J5eZFeod1tNsvloftV4gRp8GQngejSmw424M5wpJ5HmK+8eOzFjojx2kNMtpCUNtpCUoA8AByAqRXPDMc06FucqNdotitD7P2fhsMQy7u8jhl3iWkKkPeaR4Noz+Qnl0zk86k+lKxHOLjkq6AAMBKUpVKnKUpSiapSlKIlKUooSlKURKUpRSAlKUohSlKUUr5vupYjuPK+a2krPwGaqXLkKl3KRLUSVPuqdOf0iT/GrLa5n/J23l3lBYSoRlISScesr1R9tViK0JA9dPl1rzXbyo/Uhh6gT+F6FsRAdyWbrIHhr+Qv3WzbewxP3MtLKhlKHS8oexCSr7cVqwdR/WT/AIhXYt92nWm4CbbJqoshKSkONkZAPUVxFDNHDUMlk1aCCfoV2VZBJNA+OPQkED6q1s+UiBaZMxRwllpTh+AJ/hVbdAxFXbcy1h4A/jzJX+rlZ+vFfCTrjVM2E7ElahlOsOpKFtqUnCgeo6VjLdd5lomiZbJpiyAkpDjahnB6iunu+0kFfUwSBpDGHJGmTqO3sXOWrZ2ehp54y4F7xgHXA0PZ2q1dxlJhWiVMWcJZaW4T7kk1GW0uq5dxkzLPc5br7qh6Qyp5ZUcflJyfgfpqMZWuNUTYbsOVqGU8w6koW2pacKB6jpWOg3SXbJ6JtvmGNIRnhcbUARkYrLrNsWPq4Z4QQ1ucjTXKxqTZF0dLLDKQXOxg66Y+in/dHT5vmiHH2G+OXAPpDYHUp/LT8Rz+FRRtnATP3MtxUMojhck/qpwPrIroHcDVyklJ1LLIIx89P3Vibde7lZpapVquLkR5aeFS2lAEjOcc/bWBcb7RVVfFWNYQBjeGmuOHNZtBZKymoZaRzwc53TrpnjyVr3kd7HW1xlPGkp4h1GRjIqNU7KWFIA+VrkcePqf8NRgNwtY+OppZ/WT91P5QtYf/AMll/wCJP3VuKzau1VmDUQF2OGceq1NJsvdKTIgmDc8cZ9F3dfaXt2lL5Gt1vlSJBWx3zheKcjJIAGAPI1qmCPE197leZ94n+m3OeqU/whHeOKGcDoOXvrp96n+uj6a4aunhmne+Bu6w8B1BdpRQTRQMZO7eeBqV9MVJu3GgbXqPT0y4Xht0oU53MdTaygoxzUofE4+FRaXk/wBcfTWQtep73ZFk2m8SIqSclCHAUH9U5FX7TV01NUCSqZvt10/9Vm6UlTUQGOmfuO01/wDFMCdk7R6XxOXqcuPnJaCEAkeXF/yqSCqFabSONxDEWM2E8S1YCEpGBz9wquX8qWtuDh+Xh7+5bz9lYa6anvV8wLtd35SQchC3MJB/sjArrodqbXQtcaKAhx/nWVykuzNzrXNFZMC0fX8BZPWl9a1Hrabc4+fR1FLbRPihIwD8eZ+NYCvl3qf66P8AFTvkeK0/SK4apqHVErpn8XHK7anphBE2Fg0aMeC2rb+H6duTaGiMpQ93x9yUk/birL1Auy8ZMrXMmWMKTGinn5KWoD7AanqvU9iYOjoDJ8zj5YC8z2xl364M+Vo89UpSldguTSlKURKUpREpSlESlKURKUpREpSlESlKURKUpRRolKUopSlKUVKUpSiqSsZfNO2LU1rVbdQ2aBdIaurE1hLqPoUOR9orJ0oNOCKvWpuxnszfnXHrdEuun3V88WyWe7B9jbgUB7hW8bL7Jac2V01PtlllybjInyO/kz5aEpdcA5IbwkABKRnp1JJ8ak2lVule4bpOipDADkBK4IyPbXNKoVSq/rHsVaS1bujdNUo1VcLRBuDnpCrZCjNkIdVzcKVqzhKletw8PIk1sWnOxzslYlpdm2e4X9xIHO6zFLQT/do4U/Ag1P1KvGokIxvKjo29Sxdg05YtL2dFp07Z4NqgoJUI8JlLSMnqcADJ5Dn1rKUpVlVcEpSlFCUpSiJSlKKQlKUoiUpSilKUpRUpSlKIEpSlFUlKUoiUpSiL4yYseZHUxKYaeaV1Q4kKB+Brp/g/YvGy279mR91ZKlW3RMecuaCq2yPbo04WN/B+xfmW3fsyPup+D9i/Mtu/ZkfdWSpVPs8XyjwCq6eT5j4rHfg/YvCy279mR91cfg9YfzLbv2ZH3VkqU9ni+UeATp5PmPisb+D9i/Mtu/ZkfdT8HrEetlt37Mj7qyVKezxfIPAJ08nzHxWN/B6w/mS2/syPup+D1iPWy279mR91ZKlPZofkHgE6eT5j4rG/g9YfzLbv2ZH3U/B6w/mS2/syPurJUp7NF8g8Ao9ol+Y+Kxv4PWH8y279mR91PwesP5lt37Mj7qyVKezQ/IPAKenk+Y+Kxv4P2L8y279mR91PwesP5lt37Mj7qyVKezxfIPAJ08nzHxWM/B2w/mS2/syPup+D1h/Mtu/ZkfdWTpT2aH5B4BOnk+Y+Kxv4P2L8y279mR91PwesP5kt37Mj7qyVKezRfKPBOnk+Y+K6sS22+AVGDBjRiv53ctJRxe/ArtUpVxrWsGGjAVtzi45JylKUqpQlKUoiUpSiJSlKIlKUooKUpSilKUpREpSlFBSlKUTC/9k=" alt="IndustrCons logo" style="height:32px;"></div>
-      <p style="max-width:340px;" data-i18n="footer_p">Azərbaycanda tikinti sənayesi üçün icma, virtual təcrübə, karyera xəritəsi və rəqəmsal alətlər platforması.</p>
-    </div>
-    <div class="foot-links">
-      <a href="#tools">Estimator</a>
-      <a href="#tools">Docs</a>
-      <a href="#ecosystem" data-i18n="nav_eco">Platformalar</a>
-      <a href="#internship" data-i18n="nav_intern">Virtual Təcrübə</a>
-      <a href="#roadmap" data-i18n="nav_roadmap">Karyera Xəritəsi</a>
-      <a href="https://t.me/industrcons" target="_blank" rel="noopener">Telegram</a>
-    </div>
-  </div>
-  <div class="wrap" style="margin-top:24px;">
-    <p>© 2026 IndustrCons. <span data-i18n="rights">Bütün hüquqlar qorunur.</span></p>
-  </div>
-</footer>
-
-<button id="ai-toggle" aria-label="AI Assistant">x</button>
-<div id="ai-panel">
-  <div id="ai-head">
-    <h5 data-i18n="ai_title">IndustrCons Köməkçi</h5>
-    <span data-i18n="ai_status">Offline · Açar sözlərlə</span>
-    <button id="ai-close" aria-label="Bağla">✕</button>
-  </div>
-  <div id="ai-body"></div>
-  <div id="ai-quick"></div>
-  <div id="ai-input-row">
-    <input id="ai-input" type="text" data-i18n-ph="ai_ph" placeholder="Sualınızı yazın... (məs: estimator)">
-    <button id="ai-send" data-i18n="ai_send">Göndər</button>
-  </div>
-</div>
-
-<script>
-/* ===================== I18N ===================== */
-const I18N = {
-  az: {
-    nav_tools:"Alətlər", nav_eco:"Platformalar", nav_groups:"İcma", nav_intern:"Virtual Təcrübə", nav_roadmap:"Karyera Xəritəsi", nav_about:"Haqqımızda", nav_join:"Qoşul",
-    hero_eyebrow:"Azərbaycan · Tikinti &amp; Mühəndislik Şəbəkəsi",
-    hero_title:'Tikinti sənayesinin insanlarını və <span>alətlərini</span> bir yerə yığırıq.',
-    hero_sub:"IndustrCons — mühəndislərin, sahə mütəxəssislərinin və tələbələrin vakansiya paylaşdığı, networking qurduğu icmadır. Estimator, Docs, AI, Biliklər Mərkəzi, Oyunlar, Virtual Təcrübə və Mühəndislik Xəritəsi — hamısı bir ekosistemdə.",
-    hero_cta1:"Ekosistemi kəşf et", hero_cta2:"İcma qruplarını gör",
-    stat1:"rəqəmsal platforma", stat2:"ixtisaslaşmış qrup", stat3:"üzv", stat4:"dil: AZ / EN / RU",
-    tools_tag:"Rəqəmsal Alətlər", tools_h2:"İşinizi sürətləndirən iki platforma", tools_p:"İcmamızdan doğulan alətlər — sahədə real ehtiyaclara görə hazırlanıb, pulsuz istifadə üçün açıqdır.",
-    est_p:"Tikinti layihənizin dəyərini saniyələr içində hesablayın: sahə, mərtəbə, bina növünə görə dəqiq smeta, material miqdarı və printable PDF hesabat.",
-    est_l1:"7 addımlı smeta sihirbazı və vizual dashboard", est_l2:"Region üzrə qiymət əmsalları (Bakı, Gəncə, Sumqayıt və s.)", est_l3:"Loqolu, QR kodlu PDF smeta hesabatı",
-    docs_p:"HSE, KEY/KEN, sənəd idarəetməsi və sahə mühəndisliyi üçün 80-dən çox hazır PDF şablonu, mühəndis kalkulyatorları və Excel alətləri.",
-    docs_l1:"86+ hazır sənəd şablonu, 4 əsas kateqoriya", docs_l2:"18 mühəndis kalkulyatoru (beton həcmi, armatur çəkisi və s.)", docs_l3:"Tam Azərbaycan dilində, çap üçün hazır formatlarda",
-    open_btn:"Aç ↗", go:"Keç →", soon:"Tezliklə",
-    eco_tag:"Ekosistem", eco_h2:"IndustrCons platformaları", eco_p:"Estimator və Docs-dan başqa, icmamızın inkişaf etdirdiyi digər platformalar.",
-    eco1_h:"Knowledge Center", eco1_p:"Tikinti və mühəndislik sahəsi üzrə strukturlaşdırılmış bilik bazası və resurslar.",
-    eco2_h:"IndustrCons AI", eco2_p:"Tikinti sahəsinə xüsusi süni intellekt köməkçisi — suallara cavab verir, resurs tövsiyə edir.",
-    eco3_h:"IndustrCons Games", eco3_p:"Mühəndislik biliklərini əyləncəli formada möhkəmləndirən interaktiv oyunlar.",
-    eco4_h:"Virtual Internship", eco4_p:"Tapşırıq əsaslı virtual təcrübə proqramı — real sahə ssenariləri üzərində praktika.",
-    eco5_h:"Engineering Map", eco5_p:"Mühəndislik ixtisasları, şirkətlər və layihələrin interaktiv xəritəsi.",
-    eco6_h:"Yeni platformalar", eco6_p:"Ekosistemimiz daim genişlənir — yeni alətlər və proqramlar yolda.",
-    groups_tag:"İcma", groups_h2:"Sahənizə uyğun qrupa qoşulun", groups_p:"Vakansiya paylaşımı, təcrübə mübadiləsi və networking üçün ixtisas üzrə bölünmüş qruplar.",
-    g1_h:"İnşaat Vakansiyaları 1 &amp; 2", g1_p:"Sahə mühəndisi, sahə müdiri və digər inşaat vakansiyaları.",
-    g2_h:"Ümumi Vakansiyalar", g2_p:"Sənayelərarası vakansiya elanları və iş axtaranlar üçün dəstək.",
-    g3_h:"HSE Qrupu", g3_p:"İş təhlükəsizliyi və sağlamlıq üzrə müzakirə və vakansiyalar.",
-    g4_h:"Topoqraf &amp; GEO Mühəndis", g4_p:"Geodeziya və topoqrafiya sahəsi üzrə peşəkarlar.",
-    g5_h:"MEP Mühəndisləri", g5_p:"Mexaniki, elektrik və santexnika sistemləri üzrə mütəxəssislər.",
-    g6_h:"HR Şəbəkəsi", g6_p:"İnsan resursları mütəxəssisləri üçün networking qrupu.",
-    g7_h:"Tenderlər", g7_p:"Aktual tender elanları və müqavilə imkanları.",
-    g8_h:"Usta/İşçilər Qrupu", g8_p:"Ustalar və sahə işçiləri üçün iş elanları və əlaqə şəbəkəsi.",
-    g9_p:"Layihə meneceri və layihə idarəetməsi üzrə mütəxəssislər.",
-    g10_p:"Keyfiyyətə nəzarət və keyfiyyət təminatı mütəxəssisləri.",
-    g11_p:"Layihə planlaşdırması və proqram (scheduling) üzrə mütəxəssislər.",
-    g12_h:"Gənclər &amp; Tələbələr üçün Dəstək", g12_p:"Tələbələr və yeni məzunlar üçün mentorluq, təcrübə və karyera dəstəyi.",
-    join:"Qoşul →", wp_channel:"WhatsApp Kanalı", wp_groups:"WhatsApp Qrupları",
-    int_tag:"Virtual Təcrübə", int_h2:"Virtual Təcrübə Proqramı + Mentorluq + Könüllülük",
-    int_p:"Təcrübəsi az və ya heç olmayanlar üçün sahədən olan mühəndis və mütəxəssislərin dəstəyi ilə 2 aylıq praktiki proqram.",
-    months:"ay", fact1:"müəyyən müddətlərdə keçirilir", fact2_b:"Sahə mütəxəssisi", fact2:"mühəndislər tərəfindən mentorluq",
-    fact3_b:"Praktiki", fact3:"real ssenari əsaslı tapşırıqlar", fact4_b:"Sertifikat", fact4:"proqramı bitirənlərə təqdim olunur",
-    soon_h:"🚀 Tezliklə əlavə olunacaq funksiyalar", soon1:"CV əlavə etmə və profil yaratma", soon2:"Vakansiya paylaşma paneli", soon3:"Gündəlik iş elanları bildirişləri", soon4:"Digər virtual təcrübə növləri (tezliklə)",
-    cv_h:"📄 CV və LinkedIn Hazırlama Xidməti", cv_p:"Peşəkar CV və LinkedIn profili hazırlanması üçün əlaqə saxlayın.",
-    steps_h:"Qəbul proseduru",
-    step1_h:"Forum doldurma", step1_p:"Qeydiyyat forması və CV əsasında ilkin qiymətləndirmə.",
-    step2_h:"Mini test qiymətləndirməsi", step2_p:"Sahə üzrə bazar biliklərini ölçən qısa test.",
-    step3_h:"Video müsahibə", step3_p:"Mentor komandası ilə qısa görüş.",
-    step4_h:"Təbriklər 🎉", step4_p:"Proqrama qəbul və 2 aylıq təcrübəyə başlama.",
-    rm_tag:"Karyera", rm_h2:"Construction Career Roadmap", rm_p:"İnşaat sektorunda addım-addım karyera yolu. Hər mərhələyə klikləyin: lazımi bacarıqlar, təxmini müddət və tövsiyə olunan sertifikatlar görünsün.",
-    rm_branch:'<b>Paralel ixtisas yolları:</b> Sahə Mühəndisi səviyyəsindən etibarən QA/QC, Planlaşdırma, HSE, Smeta (Estimation) və MEP kimi ixtisaslaşmış istiqamətlərə yönəlmək də mümkündür.',
-    about_tag:"Haqqımızda", about_h2:"IndustrCons nədir?", about_p:"Tək bir WhatsApp qrupundan başlayan təşəbbüs, bu gün Azərbaycanda tikinti və mühəndislik sahəsinin ən aktiv rəqəmsal ekosistemlərindən birinə çevrilib.",
-    p1_h:"Vakansiya paylaşımı", p1_p:"İş axtaranları və işəgötürənləri ixtisas üzrə bölünmüş qruplarda birbaşa əlaqələndiririk.",
-    p2_h:"Networking", p2_p:"Sahə mühəndisindən podratçıya qədər — sahədəki hər kəs üçün əlaqə qurma məkanı.",
-    p3_h:"Virtual təcrübə &amp; mentorluq", p3_p:"Təcrübəsi az olanlara peşəkarlardan praktiki dəstək və sertifikat.",
-    p4_h:"Karyera xəritəsi", p4_p:"Sektor üzrə vəzifə artımı yolunu, bacarıq və sertifikatları izləyin.",
-    p5_h:"Rəqəmsal alətlər", p5_p:"Estimator, Docs, AI, Knowledge Center, Games və Engineering Map.",
-    p6_h:"CV &amp; LinkedIn dəstəyi", p6_p:"Peşəkar profil hazırlanmasında birbaşa dəstək xidməti.",
-    founder_tag:"IndustrCons-un yaradıcısı",
-    founder_p:"IndustrCons Azərbaycanda tikinti sektorunda şəffaf əlaqə, əlçatan qiymətləndirmə və peşəkar dəstək ehtiyacından yaranıb. Məqsəd — sahədəki hər kəsə, təcrübəsindən asılı olmayaraq, doğru resurs və doğru insanlarla əlaqə imkanı yaratmaqdır.",
-    follow_h:"Bizi izləyin", follow_p:"Yeniliklər, vakansiyalar və sənaye məzmunu üçün",
-    footer_p:"Azərbaycanda tikinti sənayesi üçün icma, virtual təcrübə, karyera xəritəsi və rəqəmsal alətlər platforması.",
-    rights:"Bütün hüquqlar qorunur.",
-    ai_title:"IndustrCons Köməkçi", ai_status:"Offline · Açar sözlərlə", ai_send:"Göndər", ai_ph:"Sualınızı yazın... (məs: estimator)",
-    ai_greet:"Salam! Mən IndustrCons-un offline köməkçisiyəm. Açar söz yazın: estimator, docs, təcrübə, vakansiya, CV, sertifikat, qrup, əlaqə.",
-    ai_fallback:"Bunu tam anlamadım. Cəhd edin: 'estimator', 'docs', 'təcrübə', 'vakansiya', 'CV', 'sertifikat' və ya birbaşa dəstək üçün yazın: +994 77 588 97 27",
-  },
-  en: {
-    nav_tools:"Tools", nav_eco:"Platforms", nav_groups:"Community", nav_intern:"Virtual Internship", nav_roadmap:"Career Roadmap", nav_about:"About", nav_join:"Join",
-    hero_eyebrow:"Azerbaijan · Construction &amp; Engineering Network",
-    hero_title:'Bringing together the people and <span>tools</span> of the construction industry.',
-    hero_sub:"IndustrCons is a community where engineers, site professionals and students share jobs and build networks. Estimator, Docs, AI, Knowledge Center, Games, Virtual Internship and Engineering Map — all in one ecosystem.",
-    hero_cta1:"Explore the ecosystem", hero_cta2:"See community groups",
-    stat1:"digital platforms", stat2:"specialized groups", stat3:"members", stat4:"languages: AZ / EN / RU",
-    tools_tag:"Digital Tools", tools_h2:"Two platforms that speed up your work", tools_p:"Tools born from our community — built for real field needs, free to use.",
-    est_p:"Calculate your construction project's cost in seconds: accurate estimates by area, floor and building type, material quantities and a printable PDF report.",
-    est_l1:"7-step estimate wizard with a visual dashboard", est_l2:"Regional price coefficients (Baku, Ganja, Sumgait, etc.)", est_l3:"Branded, QR-coded PDF estimate report",
-    docs_p:"80+ ready-made PDF templates, engineering calculators and Excel tools for HSE, KEY/KEN, document management and site engineering.",
-    docs_l1:"86+ ready document templates across 4 core categories", docs_l2:"18 engineering calculators (concrete volume, rebar weight, etc.)", docs_l3:"Fully in Azerbaijani, print-ready formats",
-    open_btn:"Open ↗", go:"Visit →", soon:"Coming soon",
-    eco_tag:"Ecosystem", eco_h2:"IndustrCons platforms", eco_p:"Beyond Estimator and Docs, other platforms built by our community.",
-    eco1_h:"Knowledge Center", eco1_p:"A structured knowledge base and resources for the construction and engineering field.",
-    eco2_h:"IndustrCons AI", eco2_p:"An AI assistant dedicated to the construction field — answers questions and recommends resources.",
-    eco3_h:"IndustrCons Games", eco3_p:"Interactive games that reinforce engineering knowledge in a fun way.",
-    eco4_h:"Virtual Internship", eco4_p:"A task-based virtual internship program — hands-on practice with real field scenarios.",
-    eco5_h:"Engineering Map", eco5_p:"An interactive map of engineering disciplines, companies and projects.",
-    eco6_h:"New platforms", eco6_p:"Our ecosystem keeps growing — new tools and programs are on the way.",
-    groups_tag:"Community", groups_h2:"Join the group that fits your field", groups_p:"Specialized groups for job sharing, knowledge exchange and networking.",
-    g1_h:"Construction Jobs 1 &amp; 2", g1_p:"Site engineer, site manager and other construction vacancies.",
-    g2_h:"General Vacancies", g2_p:"Cross-industry job postings and support for job seekers.",
-    g3_h:"HSE Group", g3_p:"Discussion and vacancies on health and safety.",
-    g4_h:"Surveyor &amp; GEO Engineer", g4_p:"Professionals in geodesy and surveying.",
-    g5_h:"MEP Engineers", g5_p:"Specialists in mechanical, electrical and plumbing systems.",
-    g6_h:"HR Network", g6_p:"Networking group for HR professionals.",
-    g7_h:"Tenders", g7_p:"Current tender announcements and contract opportunities.",
-    g8_h:"Foremen/Workers Group", g8_p:"Job postings and networking for foremen and site workers.",
-    g9_p:"Specialists in project management.",
-    g10_p:"Quality assurance and quality control specialists.",
-    g11_p:"Specialists in project planning and scheduling.",
-    g12_h:"Youth &amp; Student Support", g12_p:"Mentorship, internships and career support for students and new graduates.",
-    join:"Join →", wp_channel:"WhatsApp Channel", wp_groups:"WhatsApp Groups",
-    int_tag:"Virtual Internship", int_h2:"Virtual Internship Program + Mentorship + Volunteering",
-    int_p:"A 2-month, hands-on program supported by field engineers and specialists, for those with little or no experience.",
-    months:"months", fact1:"held during set periods", fact2_b:"Field specialists", fact2:"mentorship from engineers",
-    fact3_b:"Practical", fact3:"real scenario-based tasks", fact4_b:"Certificate", fact4:"awarded to those who complete the program",
-    soon_h:"🚀 Coming soon", soon1:"CV upload and profile creation", soon2:"Vacancy sharing panel", soon3:"Daily job posting notifications", soon4:"Other internship types (coming soon)",
-    cv_h:"📄 CV &amp; LinkedIn Preparation Service", cv_p:"Contact us for professional CV and LinkedIn profile preparation.",
-    steps_h:"Admission procedure",
-    step1_h:"Application form", step1_p:"Initial assessment based on the registration form and CV.",
-    step2_h:"Mini-test assessment", step2_p:"A short test measuring field knowledge.",
-    step3_h:"Video interview", step3_p:"A short meeting with the mentor team.",
-    step4_h:"Congratulations 🎉", step4_p:"Admission to the program and start of the 2-month internship.",
-    rm_tag:"Career", rm_h2:"Construction Career Roadmap", rm_p:"A step-by-step career path in construction. Click each stage to see required skills, typical timeframe and recommended certificates.",
-    rm_branch:'<b>Parallel specialist tracks:</b> From the Site Engineer level onward, you can also move into QA/QC, Planning, HSE, Estimation or MEP specializations.',
-    about_tag:"About", about_h2:"What is IndustrCons?", about_p:"What started as a single WhatsApp group has become one of Azerbaijan's most active digital ecosystems for construction and engineering.",
-    p1_h:"Job sharing", p1_p:"We directly connect job seekers and employers in specialty-based groups.",
-    p2_h:"Networking", p2_p:"From site engineers to contractors — a space to connect for everyone in the field.",
-    p3_h:"Virtual internship &amp; mentorship", p3_p:"Practical support and certification from professionals for those with little experience.",
-    p4_h:"Career roadmap", p4_p:"Track the path of career growth, skills and certificates in the sector.",
-    p5_h:"Digital tools", p5_p:"Estimator, Docs, AI, Knowledge Center, Games and Engineering Map.",
-    p6_h:"CV &amp; LinkedIn support", p6_p:"Direct support service for building a professional profile.",
-    founder_tag:"Founder of IndustrCons",
-    founder_p:"IndustrCons was born from the need for transparent communication, accessible cost estimation and professional support in Azerbaijan's construction sector. The goal: give everyone in the field, regardless of experience, access to the right resources and the right people.",
-    follow_h:"Follow us", follow_p:"For updates, vacancies and industry content",
-    footer_p:"A community, virtual internship, career roadmap and digital tools platform for Azerbaijan's construction industry.",
-    rights:"All rights reserved.",
-    ai_title:"IndustrCons Assistant", ai_status:"Offline · Keyword-based", ai_send:"Send", ai_ph:"Type your question... (e.g. estimator)",
-    ai_greet:"Hi! I'm IndustrCons' offline assistant. Try a keyword: estimator, docs, internship, jobs, CV, certificate, group, contact.",
-    ai_fallback:"I didn't quite catch that. Try: 'estimator', 'docs', 'internship', 'jobs', 'CV', 'certificate', or contact support directly: +994 77 588 97 27",
-  },
-  ru: {
-    nav_tools:"Инструменты", nav_eco:"Платформы", nav_groups:"Сообщество", nav_intern:"Виртуальная стажировка", nav_roadmap:"Карьерный путь", nav_about:"О нас", nav_join:"Вступить",
-    hero_eyebrow:"Азербайджан · Сеть строительства и инженерии",
-    hero_title:'Объединяем людей и <span>инструменты</span> строительной отрасли.',
-    hero_sub:"IndustrCons — сообщество, где инженеры, специалисты и студенты делятся вакансиями и создают деловые связи. Estimator, Docs, AI, Knowledge Center, Games, виртуальная стажировка и карта инженерии — всё в одной экосистеме.",
-    hero_cta1:"Изучить экосистему", hero_cta2:"Посмотреть группы сообщества",
-    stat1:"цифровых платформ", stat2:"специализированных групп", stat3:"участников", stat4:"языки: AZ / EN / RU",
-    tools_tag:"Цифровые инструменты", tools_h2:"Две платформы для ускорения работы", tools_p:"Инструменты, рождённые нашим сообществом — созданы под реальные нужды отрасли, бесплатны для использования.",
-    est_p:"Рассчитайте стоимость проекта за секунды: точная смета по площади, этажам и типу здания, объём материалов и PDF-отчёт для печати.",
-    est_l1:"Мастер сметы из 7 шагов с визуальной панелью", est_l2:"Региональные ценовые коэффициенты (Баку, Гянджа, Сумгайыт и др.)", est_l3:"Фирменный PDF-отчёт с QR-кодом",
-    docs_p:"80+ готовых PDF-шаблонов, инженерные калькуляторы и Excel-инструменты для HSE, документооборота и инженерии на объекте.",
-    docs_l1:"86+ готовых шаблонов документов в 4 категориях", docs_l2:"18 инженерных калькуляторов (объём бетона, вес арматуры и др.)", docs_l3:"Полностью на азербайджанском, в форматах для печати",
-    open_btn:"Открыть ↗", go:"Перейти →", soon:"Скоро",
-    eco_tag:"Экосистема", eco_h2:"Платформы IndustrCons", eco_p:"Помимо Estimator и Docs — другие платформы нашего сообщества.",
-    eco1_h:"Knowledge Center", eco1_p:"Структурированная база знаний и ресурсы по строительству и инженерии.",
-    eco2_h:"IndustrCons AI", eco2_p:"ИИ-ассистент для строительной отрасли — отвечает на вопросы и рекомендует ресурсы.",
-    eco3_h:"IndustrCons Games", eco3_p:"Интерактивные игры, закрепляющие инженерные знания в игровой форме.",
-    eco4_h:"Virtual Internship", eco4_p:"Программа виртуальной стажировки на основе задач — практика на реальных сценариях.",
-    eco5_h:"Engineering Map", eco5_p:"Интерактивная карта инженерных специальностей, компаний и проектов.",
-    eco6_h:"Новые платформы", eco6_p:"Наша экосистема продолжает расти — новые инструменты уже в пути.",
-    groups_tag:"Сообщество", groups_h2:"Вступите в группу по вашей специальности", groups_p:"Группы по специальностям для вакансий, обмена опытом и нетворкинга.",
-    g1_h:"Вакансии в строительстве 1 и 2", g1_p:"Инженер, руководитель объекта и другие вакансии в строительстве.",
-    g2_h:"Общие вакансии", g2_p:"Вакансии из разных отраслей и поддержка соискателей.",
-    g3_h:"Группа HSE", g3_p:"Обсуждения и вакансии по охране труда и безопасности.",
-    g4_h:"Топограф и ГЕО-инженер", g4_p:"Специалисты по геодезии и топографии.",
-    g5_h:"Инженеры MEP", g5_p:"Специалисты по механическим, электрическим и сантехническим системам.",
-    g6_h:"Сеть HR", g6_p:"Группа для нетворкинга HR-специалистов.",
-    g7_h:"Тендеры", g7_p:"Актуальные тендеры и возможности заключения контрактов.",
-    g8_h:"Группа мастеров/рабочих", g8_p:"Вакансии и связи для мастеров и рабочих на объекте.",
-    g9_p:"Специалисты по управлению проектами.",
-    g10_p:"Специалисты по контролю и обеспечению качества.",
-    g11_p:"Специалисты по планированию проектов и графикам.",
-    g12_h:"Поддержка молодёжи и студентов", g12_p:"Наставничество, стажировки и карьерная поддержка для студентов и выпускников.",
-    join:"Вступить →", wp_channel:"Канал WhatsApp", wp_groups:"Группы WhatsApp",
-    int_tag:"Виртуальная стажировка", int_h2:"Виртуальная стажировка + Наставничество + Волонтёрство",
-    int_p:"2-месячная практическая программа при поддержке инженеров и специалистов отрасли — для тех, у кого мало опыта или его нет.",
-    months:"месяца", fact1:"проводится в определённые периоды", fact2_b:"Специалисты отрасли", fact2:"наставничество от инженеров",
-    fact3_b:"Практика", fact3:"задания на основе реальных сценариев", fact4_b:"Сертификат", fact4:"выдаётся по завершении программы",
-    soon_h:"🚀 Скоро появится", soon1:"Загрузка резюме и создание профиля", soon2:"Панель размещения вакансий", soon3:"Уведомления о ежедневных вакансиях", soon4:"Другие виды стажировок (скоро)",
-    cv_h:"📄 Услуга подготовки резюме и LinkedIn", cv_p:"Свяжитесь с нами для профессиональной подготовки резюме и профиля LinkedIn.",
-    steps_h:"Процедура приёма",
-    step1_h:"Заполнение анкеты", step1_p:"Первичная оценка на основе анкеты и резюме.",
-    step2_h:"Мини-тест", step2_p:"Короткий тест на знание отрасли.",
-    step3_h:"Видео-собеседование", step3_p:"Короткая встреча с командой наставников.",
-    step4_h:"Поздравляем 🎉", step4_p:"Зачисление в программу и начало 2-месячной стажировки.",
-    rm_tag:"Карьера", rm_h2:"Карьерный путь в строительстве", rm_p:"Пошаговый карьерный путь в строительстве. Нажмите на этап, чтобы увидеть навыки, сроки и рекомендуемые сертификаты.",
-    rm_branch:'<b>Параллельные специализации:</b> начиная с уровня инженера объекта, можно также развиваться в QA/QC, планировании, HSE, сметном деле (Estimation) или MEP.',
-    about_tag:"О нас", about_h2:"Что такое IndustrCons?", about_p:"Начавшись с одной группы WhatsApp, сегодня это одна из самых активных цифровых экосистем строительства и инженерии в Азербайджане.",
-    p1_h:"Обмен вакансиями", p1_p:"Мы напрямую связываем соискателей и работодателей в группах по специальностям.",
-    p2_h:"Нетворкинг", p2_p:"От инженера объекта до подрядчика — пространство для связей для всех в отрасли.",
-    p3_h:"Стажировка и наставничество", p3_p:"Практическая поддержка и сертификация от профессионалов для тех, у кого мало опыта.",
-    p4_h:"Карьерный путь", p4_p:"Отслеживайте карьерный рост, навыки и сертификаты в отрасли.",
-    p5_h:"Цифровые инструменты", p5_p:"Estimator, Docs, AI, Knowledge Center, Games и Engineering Map.",
-    p6_h:"Поддержка CV и LinkedIn", p6_p:"Прямая услуга поддержки для создания профессионального профиля.",
-    founder_tag:"Основатель IndustrCons",
-    founder_p:"IndustrCons возник из потребности в прозрачной коммуникации, доступной оценке стоимости и профессиональной поддержке в строительном секторе Азербайджана. Цель — дать каждому в отрасли, независимо от опыта, доступ к нужным ресурсам и нужным людям.",
-    follow_h:"Подписывайтесь на нас", follow_p:"Новости, вакансии и отраслевой контент",
-    footer_p:"Платформа сообщества, виртуальной стажировки, карьерного пути и цифровых инструментов для строительной отрасли Азербайджана.",
-    rights:"Все права защищены.",
-    ai_title:"Ассистент IndustrCons", ai_status:"Офлайн · По ключевым словам", ai_send:"Отправить", ai_ph:"Введите вопрос... (напр. estimator)",
-    ai_greet:"Привет! Я офлайн-ассистент IndustrCons. Попробуйте ключевое слово: estimator, docs, стажировка, вакансии, CV, сертификат, группа, контакт.",
-    ai_fallback:"Не совсем понял. Попробуйте: 'estimator', 'docs', 'стажировка', 'вакансии', 'CV', 'сертификат' или свяжитесь напрямую: +994 77 588 97 27",
-  }
-};
-let currentLang = "az";
-function applyLang(lang){
-  try{
-    currentLang = lang;
-    document.getElementById('html-root').setAttribute('lang', lang);
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var key = el.getAttribute('data-i18n');
-      if(I18N[lang] && I18N[lang][key] !== undefined){ el.innerHTML = I18N[lang][key]; }
-    });
-    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
-      var key = el.getAttribute('data-i18n-ph');
-      if(I18N[lang] && I18N[lang][key] !== undefined){ el.setAttribute('placeholder', I18N[lang][key]); }
-    });
-    document.querySelectorAll('.lang-switch button').forEach(function(b){
-      b.classList.toggle('active', b.getAttribute('data-lang')===lang);
-    });
-    if(typeof renderChips === 'function'){ renderChips(); }
-  }catch(err){ console.error('IndustrCons lang switch error:', err); }
-}
-document.addEventListener('DOMContentLoaded', function(){
-  try{
-    document.querySelectorAll('.lang-switch button').forEach(function(btn){
-      btn.addEventListener('click', function(){ applyLang(btn.getAttribute('data-lang')); });
-    });
-  }catch(err){ console.error('IndustrCons init error:', err); }
-});
-</script>
-
-<script>
-/* ===================== AI ASSISTANT (offline, keyword-based) ===================== */
-try{
-var AI_RULES = [
-  {kw:["estimator","smeta","hesabla","смета","calculate"], az:"Estimator ilə tikinti layihənizin smetasını saniyələr içində hesablaya bilərsiniz: https://industrconsestimator.netlify.app/", en:"With Estimator you can calculate your construction project's cost in seconds: https://industrconsestimator.netlify.app/", ru:"С Estimator вы можете рассчитать смету проекта за секунды: https://industrconsestimator.netlify.app/"},
-  {kw:["docs","sənəd","şablon","документ","template"], az:"Docs platformasında 80+ hazır sənəd şablonu və mühəndis kalkulyatorları var: https://industrconsdocs.netlify.app/", en:"On Docs you'll find 80+ ready document templates and engineering calculators: https://industrconsdocs.netlify.app/", ru:"На Docs есть 80+ готовых шаблонов документов и инженерные калькуляторы: https://industrconsdocs.netlify.app/"},
-  {kw:["ai","süni intellekt","искусственный"], az:"IndustrCons AI köməkçisini burdan sınayın: https://industrcons-ai.vercel.app/", en:"Try the IndustrCons AI assistant here: https://industrcons-ai.vercel.app/", ru:"Попробуйте ИИ-ассистента IndustrCons здесь: https://industrcons-ai.vercel.app/"},
-  {kw:["game","oyun","игра"], az:"Mühəndislik oyunlarımıza baxın: https://elvinasgar.github.io/IndustrCons-Games/", en:"Check out our engineering games: https://elvinasgar.github.io/IndustrCons-Games/", ru:"Посмотрите наши инженерные игры: https://elvinasgar.github.io/IndustrCons-Games/"},
-  {kw:["map","xəritə","карта"], az:"Engineering Map ilə sahə və şirkətləri kəşf edin: https://elvinasgar.github.io/IndustrCons-Enginering-Map/", en:"Explore the field with Engineering Map: https://elvinasgar.github.io/IndustrCons-Enginering-Map/", ru:"Исследуйте отрасль с Engineering Map: https://elvinasgar.github.io/IndustrCons-Enginering-Map/"},
-  {kw:["təcrübə","internship","стажировка","virtual"], az:"Virtual Təcrübə Proqramımız 2 aylıqdır, mentorluq və sertifikat daxildir. Ətraflı: #internship bölməsinə baxın və ya https://elvinasgar.github.io/IndustrCons-Virtual-Internship/", en:"Our Virtual Internship Program is 2 months, includes mentorship and a certificate. See the #internship section or https://elvinasgar.github.io/IndustrCons-Virtual-Internship/", ru:"Наша программа виртуальной стажировки длится 2 месяца, включает наставничество и сертификат. Смотрите раздел #internship или https://elvinasgar.github.io/IndustrCons-Virtual-Internship/"},
-  {kw:["vakansiya","iş","job","vacancy","вакансия","работа"], az:"Vakansiyalar üçün İnşaat Vakansiyaları, Ümumi Vakansiyalar və digər ixtisas qruplarımıza qoşulun (#groups bölməsi).", en:"For jobs, join our Construction Jobs, General Vacancies and other specialty groups (#groups section).", ru:"Для вакансий вступите в наши группы (раздел #groups)."},
-  {kw:["cv","linkedin","резюме"], az:"CV və LinkedIn hazırlama xidmətimiz var — WhatsApp: +994 77 588 97 27", en:"We offer CV & LinkedIn preparation — WhatsApp: +994 77 588 97 27", ru:"У нас есть услуга подготовки CV и LinkedIn — WhatsApp: +994 77 588 97 27"},
-  {kw:["sertifikat","certificate","сертификат"], az:"Virtual Təcrübə Proqramını uğurla bitirənlərə sertifikat təqdim olunur.", en:"A certificate is awarded to those who successfully complete the Virtual Internship Program.", ru:"Сертификат выдаётся тем, кто успешно завершил программу стажировки."},
-  {kw:["qrup","group","группа"], az:"12+ ixtisas qrupumuz var: HSE, MEP, HR, Tenderlər, PM, QA/QC, Planning və s. #groups bölməsinə baxın.", en:"We have 12+ specialty groups: HSE, MEP, HR, Tenders, PM, QA/QC, Planning and more. See #groups.", ru:"У нас 12+ групп по специальностям: HSE, MEP, HR, тендеры, PM, QA/QC, планирование и др. Смотрите #groups."},
-  {kw:["roadmap","karyera","карьера","career"], az:"Karyera Yol Xəritəmizə #roadmap bölməsindən baxa bilərsiniz — Site Engineer-dən Construction Director-a qədər.", en:"Check our Career Roadmap in the #roadmap section — from Site Engineer to Construction Director.", ru:"Смотрите наш карьерный путь в разделе #roadmap — от инженера объекта до директора по строительству."},
-  {kw:["əlaqə","contact","контакт","telefon","phone"], az:"Bizimlə əlaqə: elvinasgarov12@gmail.com və ya WhatsApp +994 77 588 97 27", en:"Contact us: elvinasgarov12@gmail.com or WhatsApp +994 77 588 97 27", ru:"Свяжитесь с нами: elvinasgarov12@gmail.com или WhatsApp +994 77 588 97 27"},
-  {kw:["salam","hello","hi","привет","salut"], az:"Salam! Sizə necə kömək edə bilərəm? (estimator, docs, təcrübə, vakansiya, CV, sertifikat, qrup, roadmap, əlaqə)", en:"Hello! How can I help? (estimator, docs, internship, jobs, CV, certificate, group, roadmap, contact)", ru:"Привет! Чем могу помочь? (estimator, docs, стажировка, вакансии, CV, сертификат, группа, карьера, контакт)"},
-];
-const QUICK_CHIPS = {
-  az:["estimator","docs","təcrübə","vakansiya","CV","əlaqə"],
-  en:["estimator","docs","internship","jobs","CV","contact"],
-  ru:["estimator","docs","стажировка","вакансии","CV","контакт"]
-};
-var aiOpened = false;
-function addMsg(text, who){
-  var body = document.getElementById('ai-body');
-  if(!body) return;
-  var d = document.createElement('div');
-  d.className = 'ai-msg ' + who;
-  d.textContent = text;
-  body.appendChild(d);
-  body.scrollTop = body.scrollHeight;
-}
-function renderChips(){
-  var q = document.getElementById('ai-quick');
-  var input = document.getElementById('ai-input');
-  if(!q || !input) return;
-  q.innerHTML = "";
-  var chips = QUICK_CHIPS[currentLang] || QUICK_CHIPS.az;
-  chips.forEach(function(word){
-    var c = document.createElement('button');
-    c.className = 'ai-chip';
-    c.type = 'button';
-    c.textContent = word;
-    c.addEventListener('click', function(){ input.value = word; handleAiSend(); });
-    q.appendChild(c);
-  });
-}
-function handleAiSend(){
-  var input = document.getElementById('ai-input');
-  if(!input) return;
-  var val = input.value.trim();
-  if(!val) return;
-  addMsg(val, 'user');
-  input.value = "";
-  var lower = val.toLowerCase();
-  var matched = null;
-  for(var i=0;i<AI_RULES.length;i++){
-    var rule = AI_RULES[i];
-    if(rule.kw.some(function(k){ return lower.indexOf(k) !== -1; })){ matched = rule; break; }
-  }
-  setTimeout(function(){
-    if(matched){ addMsg(matched[currentLang] || matched.az, 'bot'); }
-    else { addMsg((I18N[currentLang] && I18N[currentLang].ai_fallback) || I18N.az.ai_fallback, 'bot'); }
-  }, 300);
-}
-}catch(err){ console.error('IndustrCons AI setup error:', err); }
-
-document.addEventListener('DOMContentLoaded', function(){
-  try{
-    var aiToggle = document.getElementById('ai-toggle');
-    var aiPanel = document.getElementById('ai-panel');
-    var aiClose = document.getElementById('ai-close');
-    var aiInput = document.getElementById('ai-input');
-    var aiSend = document.getElementById('ai-send');
-    if(aiToggle && aiPanel){
-      aiToggle.addEventListener('click', function(){
-        aiPanel.classList.toggle('open');
-        if(!aiOpened){
-          aiOpened = true;
-          addMsg((I18N[currentLang] && I18N[currentLang].ai_greet) || I18N.az.ai_greet, 'bot');
-          renderChips();
-        }
-      });
-    }
-    if(aiClose && aiPanel){ aiClose.addEventListener('click', function(){ aiPanel.classList.remove('open'); }); }
-    if(aiSend){ aiSend.addEventListener('click', handleAiSend); }
-    if(aiInput){ aiInput.addEventListener('keydown', function(e){ if(e.key==='Enter') handleAiSend(); }); }
-  }catch(err){ console.error('IndustrCons AI init error:', err); }
-});
-</script>
-
-</body>
-</html>
+          <div class="fact"><b data-i18n="fact3_b">Praktiki</b><span data-i18n="fact3">real ssenari əsas
