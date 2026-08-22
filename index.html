@@ -226,6 +226,39 @@
   .mvv-card ul{padding-left:18px;font-size:0.88rem;color:var(--steel);display:flex;flex-direction:column;gap:6px;}
   @media (max-width:860px){ .mvv-grid{grid-template-columns:1fr;} }
 
+  /* IC Events */
+  .events-section{
+    background:var(--ink);color:var(--concrete);position:relative;overflow:hidden;
+  }
+  .events-section::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size:36px 36px;pointer-events:none;
+  }
+  .events-section .section-head p{color:#B9C2C9;}
+  .events-section .tag{color:var(--signal);}
+  .events-wrap{position:relative;z-index:1;}
+  .events-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:start;}
+  .events-badges{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 26px;}
+  .events-badge{
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;font-weight:600;
+    border:1px solid rgba(255,255,255,0.2);color:#DCE3E8;padding:7px 13px;border-radius:20px;
+  }
+  .events-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;}
+  .events-card{
+    background:#1E252B;border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;
+  }
+  .events-card .license-tag{
+    display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;
+    color:#9FD3A8;text-transform:uppercase;letter-spacing:0.05em;
+  }
+  .events-card .license-tag::before{content:"●";}
+  .events-card h4{font-size:1.1rem;}
+  .events-card p{font-size:0.88rem;color:#B9C2C9;}
+  .events-formats{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+  .events-format{display:flex;gap:10px;align-items:flex-start;font-size:0.86rem;color:#DCE3E8;}
+  .events-format b{color:#fff;}
+
   /* Motion */
   @keyframes fadeInUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
   @keyframes pulseDot{0%,100%{opacity:1;}50%{opacity:0.35;}}
@@ -339,6 +372,7 @@
     <div class="nav-links">
       <a href="#tools" data-i18n="nav_tools">Alətlər</a>
       <a href="#ecosystem" data-i18n="nav_eco">Platformalar</a>
+      <a href="#events" data-i18n="nav_events">IC Events</a>
       <a href="#groups" data-i18n="nav_groups">İcma</a>
       <a href="#internship" data-i18n="nav_intern">Virtual Təcrübə</a>
       <a href="#roadmap" data-i18n="nav_roadmap">Karyera Xəritəsi</a>
@@ -464,10 +498,59 @@
         <a class="go" href="https://elvinasgar.github.io/IndustrCons-Engineering-Comics/" target="_blank" rel="noopener" data-i18n="go">Keç →</a>
       </div>
       <div class="eco-card">
+        <span class="icon">🏛️</span>
+        <h4 data-i18n="eco8_h">LearningHub</h4>
+        <p data-i18n="eco8_p">Universitet səviyyəli ixtisas proqramları: fənlər üzrə YouTube və digər konspektlərə çıxış, bildiyiniz fənni sürətlə bitirmə imkanı, sonda diplom və sertifikat.</p>
+        <span class="badge-soon" data-i18n="in_dev">İnkişaf mərhələsində</span>
+        <a class="go" href="https://elvinasgar.github.io/IndustrCons-LearningHub/" target="_blank" rel="noopener" data-i18n="go">Keç →</a>
+      </div>
+      <div class="eco-card">
         <span class="icon">📈</span>
         <h4 data-i18n="eco7_h">Yeni platformalar</h4>
         <p data-i18n="eco7_p">Ekosistemimiz daim genişlənir — yeni alətlər və proqramlar yolda.</p>
         <span class="badge-soon" data-i18n="soon">Tezliklə</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="events" class="events-section">
+  <div class="wrap events-wrap">
+    <div class="section-head">
+      <span class="tag" data-i18n="events_tag">IC Events</span>
+      <h2 data-i18n="events_h2">Lisenziya əsasında tədbir keçirin</h2>
+      <p data-i18n="events_p">IC Event — IndustrCons tərəfindən qurulan icma tədbirləri şəbəkəsidir. Kökümüz mühəndislikdədir, digər sahələrdən müraciətlərə də açığıq.</p>
+    </div>
+    <div class="events-badges">
+      <span class="events-badge" data-i18n="ev_b1">🌍 Qlobal</span>
+      <span class="events-badge" data-i18n="ev_b2">📍 Yerli</span>
+      <span class="events-badge" data-i18n="ev_b3">🎓 Universitetlər</span>
+      <span class="events-badge" data-i18n="ev_b4">🏢 Ofislər</span>
+      <span class="events-badge" data-i18n="ev_b5">💻 Onlayn</span>
+      <span class="events-badge" data-i18n="ev_b6">🤝 Oflayn</span>
+      <span class="events-badge" data-i18n="ev_b7">🔀 Hibrid</span>
+    </div>
+    <div class="events-grid">
+      <div>
+        <p data-i18n="events_desc">Şirkətdə, universitetdə, açıq məkanda və ya onlayn — IC Event lisenziyası ilə istənilən yerdə, istənilən formatda tədbir təşkil edə bilərsiniz. Format sərbəstdir: canlı seminar, podcast epizodu, vebinar və ya hibrid konfrans — həm Bakıda, həm də dünyanın istənilən nöqtəsində.</p>
+        <div class="events-formats">
+          <div class="events-format"><b>🎤</b><span data-i18n="ev_f1"><b>Standart:</b> Şirkət, universitet və ya açıq məkanda canlı, üz-üzə tədbir.</span></div>
+          <div class="events-format"><b>🌱</b><span data-i18n="ev_f2"><b>Green Events:</b> Davamlılıq və yaşıl mühəndislik mövzularına həsr olunmuş tədbirlər.</span></div>
+          <div class="events-format"><b>🎙️</b><span data-i18n="ev_f3"><b>Podcast:</b> Qeydə alınan söhbət epizodları, YouTube kanalında yayımlanır.</span></div>
+          <div class="events-format"><b>🖥️</b><span data-i18n="ev_f4"><b>Vebinar:</b> Onlayn, uzaqdan qoşulan iştirakçılar üçün, istənilən sahə üzrə.</span></div>
+          <div class="events-format"><b>🔀</b><span data-i18n="ev_f5"><b>Hibrid:</b> Həm zalda, həm onlayn — daha geniş auditoriyaya çatmaq üçün.</span></div>
+        </div>
+        <div class="events-cta">
+          <a class="btn btn-primary" href="https://elvinasgar.github.io/IndustrCons-IC-events-/license.html" target="_blank" rel="noopener" data-i18n="ev_apply">Lisenziya üçün müraciət et</a>
+          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,0.3);" href="https://elvinasgar.github.io/IndustrCons-IC-events-/" target="_blank" rel="noopener" data-i18n="ev_visit">IC Events saytına bax ↗</a>
+        </div>
+      </div>
+      <div class="events-card">
+        <span class="license-tag" data-i18n="ev_active">AKTİV · BAKI, AZƏRBAYCAN</span>
+        <h4>IC – MÜSİAD Azərbaycan</h4>
+        <p data-i18n="ev_organizer">Təşkilatçı: Elvin Əsgərov · Tərəfdaş: MÜSİAD</p>
+        <p style="color:#8A9199;font-size:0.8rem;" data-i18n="ev_dates">Lisenziya tarixi: 19.08.2026 · Etibarlıdır: 19.08.2027</p>
+        <a class="btn btn-dark" style="background:#fff;color:var(--ink);width:fit-content;" href="https://elvinasgar.github.io/IndustrCons-IC-events-/organizers.html" target="_blank" rel="noopener" data-i18n="ev_registry">Tam reyestrə bax →</a>
       </div>
     </div>
   </div>
@@ -860,8 +943,9 @@
         <p style="color:var(--signal);font-size:0.85rem;font-weight:600;margin-top:2px;" data-i18n="founder_tag">IndustrCons-un yaradıcısı</p>
         <p data-i18n="founder_p">IndustrCons Azərbaycanda tikinti sektorunda şəffaf əlaqə, əlçatan qiymətləndirmə və peşəkar dəstək ehtiyacından yaranıb. Məqsəd — sahədəki hər kəsə, təcrübəsindən asılı olmayaraq, doğru resurs və doğru insanlarla əlaqə imkanı yaratmaqdır.</p>
         <div class="founder-contact">
-          <a href="mailto:elvinasgarov12@gmail.com">✉️ elvinasgarov12@gmail.com</a>
+          <a href="mailto:industrcons@gmail.com">✉️ industrcons@gmail.com</a>
           <a href="tel:+994775889727">📞 +994 77 588 97 27</a>
+          <a href="https://x.com/IndustrCons" target="_blank" rel="noopener">𝕏 x.com/IndustrCons</a>
         </div>
       </div>
     </div>
@@ -877,6 +961,7 @@
     <div class="social-links">
       <a href="https://www.linkedin.com/company/industrcons/" target="_blank" rel="noopener">in LinkedIn</a>
       <a href="https://www.instagram.com/industrcons" target="_blank" rel="noopener">◎ Instagram</a>
+      <a href="https://x.com/IndustrCons" target="_blank" rel="noopener">𝕏 X</a>
       <a href="https://t.me/industrcons" target="_blank" rel="noopener">✈️ Telegram</a>
       <a href="https://whatsapp.com/channel/0029VbCAEQHA89MiFSgGvP1R" target="_blank" rel="noopener">📢 WA Channel</a>
       <a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" rel="noopener">✆ WhatsApp</a>
@@ -889,14 +974,17 @@
     <div>
       <div class="logo"><img src="logo.png" alt="IndustrCons logo" style="height:32px;"></div>
       <p style="max-width:340px;" data-i18n="footer_p">Azərbaycanda tikinti sənayesi üçün icma, virtual təcrübə, karyera xəritəsi və rəqəmsal alətlər platforması.</p>
+      <p style="margin-top:10px;font-size:0.85rem;"><a href="mailto:industrcons@gmail.com">✉️ industrcons@gmail.com</a></p>
     </div>
     <div class="foot-links">
       <a href="#tools">Estimator</a>
       <a href="#tools">Docs</a>
       <a href="#ecosystem" data-i18n="nav_eco">Platformalar</a>
+      <a href="#events" data-i18n="nav_events">IC Events</a>
       <a href="#internship" data-i18n="nav_intern">Virtual Təcrübə</a>
       <a href="#roadmap" data-i18n="nav_roadmap">Karyera Xəritəsi</a>
       <a href="https://t.me/industrcons" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://x.com/IndustrCons" target="_blank" rel="noopener">X</a>
     </div>
   </div>
   <div class="wrap" style="margin-top:24px;">
@@ -923,7 +1011,7 @@
 /* ===================== I18N ===================== */
 const I18N = {
   az: {
-    nav_tools:"Alətlər", nav_eco:"Platformalar", nav_groups:"İcma", nav_intern:"Virtual Təcrübə", nav_roadmap:"Karyera Xəritəsi", nav_about:"Haqqımızda", nav_join:"Qoşul",
+    nav_tools:"Alətlər", nav_eco:"Platformalar", nav_events:"IC Events", nav_groups:"İcma", nav_intern:"Virtual Təcrübə", nav_roadmap:"Karyera Xəritəsi", nav_about:"Haqqımızda", nav_join:"Qoşul",
     hero_eyebrow:"Azərbaycan · Tikinti &amp; Mühəndislik Şəbəkəsi",
     hero_title:'Tikinti sənayesinin insanlarını və <span>alətlərini</span> bir yerə yığırıq.',
     hero_sub:"IndustrCons — mühəndislərin, sahə mütəxəssislərinin və tələbələrin vakansiya paylaşdığı, networking qurduğu icmadır. Estimator, Docs, Workspace, AI, Biliklər Mərkəzi, Oyunlar, Virtual Təcrübə və Mühəndislik Xəritəsi — hamısı bir ekosistemdə.",
@@ -944,7 +1032,13 @@ const I18N = {
     eco4_h:"Virtual Internship", eco4_p:"Tapşırıq əsaslı virtual təcrübə proqramı — real sahə ssenariləri üzərində praktika.",
     eco5_h:"Engineering Map", eco5_p:"Mühəndislik ixtisasları, şirkətlər və layihələrin interaktiv xəritəsi.",
     eco6_h:"Engineering Comics", eco6_p:"Mühəndislik anlayışlarını komiks formatında sadə, vizual və yadda qalan şəkildə izah edən tədris resursu.",
+    eco8_h:"LearningHub", eco8_p:"Universitet səviyyəli ixtisas proqramları: fənlər üzrə YouTube və digər konspektlərə çıxış, bildiyiniz fənni sürətlə bitirmə imkanı, sonda diplom və sertifikat.", in_dev:"İnkişaf mərhələsində",
     eco7_h:"Yeni platformalar", eco7_p:"Ekosistemimiz daim genişlənir — yeni alətlər və proqramlar yolda.",
+    events_tag:"IC Events", events_h2:"Lisenziya əsasında tədbir keçirin", events_p:"IC Event — IndustrCons tərəfindən qurulan icma tədbirləri şəbəkəsidir. Kökümüz mühəndislikdədir, digər sahələrdən müraciətlərə də açığıq.",
+    ev_b1:"🌍 Qlobal", ev_b2:"📍 Yerli", ev_b3:"🎓 Universitetlər", ev_b4:"🏢 Ofislər", ev_b5:"💻 Onlayn", ev_b6:"🤝 Oflayn", ev_b7:"🔀 Hibrid",
+    events_desc:"Şirkətdə, universitetdə, açıq məkanda və ya onlayn — IC Event lisenziyası ilə istənilən yerdə, istənilən formatda tədbir təşkil edə bilərsiniz. Format sərbəstdir: canlı seminar, podcast epizodu, vebinar və ya hibrid konfrans — həm Bakıda, həm də dünyanın istənilən nöqtəsində.",
+    ev_f1:"<b>Standart:</b> Şirkət, universitet və ya açıq məkanda canlı, üz-üzə tədbir.", ev_f2:"<b>Green Events:</b> Davamlılıq və yaşıl mühəndislik mövzularına həsr olunmuş tədbirlər.", ev_f3:"<b>Podcast:</b> Qeydə alınan söhbət epizodları, YouTube kanalında yayımlanır.", ev_f4:"<b>Vebinar:</b> Onlayn, uzaqdan qoşulan iştirakçılar üçün, istənilən sahə üzrə.", ev_f5:"<b>Hibrid:</b> Həm zalda, həm onlayn — daha geniş auditoriyaya çatmaq üçün.",
+    ev_apply:"Lisenziya üçün müraciət et", ev_visit:"IC Events saytına bax ↗", ev_active:"AKTİV · BAKI, AZƏRBAYCAN", ev_organizer:"Təşkilatçı: Elvin Əsgərov · Tərəfdaş: MÜSİAD", ev_dates:"Lisenziya tarixi: 19.08.2026 · Etibarlıdır: 19.08.2027", ev_registry:"Tam reyestrə bax →",
     groups_tag:"İcma", groups_h2:"Sahənizə uyğun qrupa qoşulun", groups_p:"Vakansiya paylaşımı, təcrübə mübadiləsi və networking üçün ixtisas üzrə bölünmüş qruplar.",
     g1_h:"İnşaat Vakansiyaları 1 &amp; 2", g1_p:"Sahə mühəndisi, sahə müdiri və digər inşaat vakansiyaları.",
     g2_h:"Ümumi Vakansiyalar", g2_p:"Sənayelərarası vakansiya elanları və iş axtaranlar üçün dəstək.",
@@ -995,7 +1089,7 @@ const I18N = {
     ai_fallback:"Bunu tam anlamadım. Cəhd edin: 'estimator', 'docs', 'təcrübə', 'vakansiya', 'CV', 'sertifikat' və ya birbaşa dəstək üçün yazın: +994 77 588 97 27",
   },
   en: {
-    nav_tools:"Tools", nav_eco:"Platforms", nav_groups:"Community", nav_intern:"Virtual Internship", nav_roadmap:"Career Roadmap", nav_about:"About", nav_join:"Join",
+    nav_tools:"Tools", nav_eco:"Platforms", nav_events:"IC Events", nav_groups:"Community", nav_intern:"Virtual Internship", nav_roadmap:"Career Roadmap", nav_about:"About", nav_join:"Join",
     hero_eyebrow:"Azerbaijan · Construction &amp; Engineering Network",
     hero_title:'Bringing together the people and <span>tools</span> of the construction industry.',
     hero_sub:"IndustrCons is a community where engineers, site professionals and students share jobs and build networks. Estimator, Docs, Workspace, AI, Knowledge Center, Games, Virtual Internship and Engineering Map — all in one ecosystem.",
@@ -1016,7 +1110,13 @@ const I18N = {
     eco4_h:"Virtual Internship", eco4_p:"A task-based virtual internship program — hands-on practice with real field scenarios.",
     eco5_h:"Engineering Map", eco5_p:"An interactive map of engineering disciplines, companies and projects.",
     eco6_h:"Engineering Comics", eco6_p:"A learning resource that explains engineering concepts in comic form — simple, visual and memorable.",
+    eco8_h:"LearningHub", eco8_p:"University-level specialty programs: access to YouTube and other lecture notes per subject, the option to fast-track a subject you already know, and a diploma/certificate upon completion.", in_dev:"In development",
     eco7_h:"New platforms", eco7_p:"Our ecosystem keeps growing — new tools and programs are on the way.",
+    events_tag:"IC Events", events_h2:"Run events under license", events_p:"IC Event is a community events network built by IndustrCons. Our roots are in engineering, but we welcome applications from other fields too.",
+    ev_b1:"🌍 Global", ev_b2:"📍 Local", ev_b3:"🎓 Universities", ev_b4:"🏢 Offices", ev_b5:"💻 Online", ev_b6:"🤝 Offline", ev_b7:"🔀 Hybrid",
+    events_desc:"At a company, a university, a public space, or online — with an IC Event license you can organize an event anywhere, in any format. The format is flexible: a live seminar, a podcast episode, a webinar or a hybrid conference — in Baku or anywhere in the world.",
+    ev_f1:"<b>Standard:</b> A live, in-person event at a company, university or public space.", ev_f2:"<b>Green Events:</b> Events focused on sustainability and green engineering.", ev_f3:"<b>Podcast:</b> Recorded conversational episodes, published on YouTube.", ev_f4:"<b>Webinar:</b> Online, for remote participants, across any field.", ev_f5:"<b>Hybrid:</b> Both in the room and online — to reach a wider audience.",
+    ev_apply:"Apply for a license", ev_visit:"Visit IC Events ↗", ev_active:"ACTIVE · BAKU, AZERBAIJAN", ev_organizer:"Organizer: Elvin Əsgərov · Partner: MÜSİAD", ev_dates:"Licensed since: 19.08.2026 · Valid until: 19.08.2027", ev_registry:"See the full registry →",
     groups_tag:"Community", groups_h2:"Join the group that fits your field", groups_p:"Specialized groups for job sharing, knowledge exchange and networking.",
     g1_h:"Construction Jobs 1 &amp; 2", g1_p:"Site engineer, site manager and other construction vacancies.",
     g2_h:"General Vacancies", g2_p:"Cross-industry job postings and support for job seekers.",
@@ -1067,7 +1167,7 @@ const I18N = {
     ai_fallback:"I didn't quite catch that. Try: 'estimator', 'docs', 'internship', 'jobs', 'CV', 'certificate', or contact support directly: +994 77 588 97 27",
   },
   ru: {
-    nav_tools:"Инструменты", nav_eco:"Платформы", nav_groups:"Сообщество", nav_intern:"Виртуальная стажировка", nav_roadmap:"Карьерный путь", nav_about:"О нас", nav_join:"Вступить",
+    nav_tools:"Инструменты", nav_eco:"Платформы", nav_events:"IC Events", nav_groups:"Сообщество", nav_intern:"Виртуальная стажировка", nav_roadmap:"Карьерный путь", nav_about:"О нас", nav_join:"Вступить",
     hero_eyebrow:"Азербайджан · Сеть строительства и инженерии",
     hero_title:'Объединяем людей и <span>инструменты</span> строительной отрасли.',
     hero_sub:"IndustrCons — сообщество, где инженеры, специалисты и студенты делятся вакансиями и создают деловые связи. Estimator, Docs, Workspace, AI, Knowledge Center, Games, виртуальная стажировка и карта инженерии — всё в одной экосистеме.",
@@ -1088,7 +1188,13 @@ const I18N = {
     eco4_h:"Virtual Internship", eco4_p:"Программа виртуальной стажировки на основе задач — практика на реальных сценариях.",
     eco5_h:"Engineering Map", eco5_p:"Интерактивная карта инженерных специальностей, компаний и проектов.",
     eco6_h:"Engineering Comics", eco6_p:"Образовательный ресурс, объясняющий инженерные концепции в формате комиксов — просто, наглядно и запоминающе.",
+    eco8_h:"LearningHub", eco8_p:"Университетские специализированные программы: доступ к YouTube и другим конспектам по предметам, возможность ускоренно пройти уже известный предмет, диплом и сертификат по завершении.", in_dev:"В разработке",
     eco7_h:"Новые платформы", eco7_p:"Наша экосистема продолжает расти — новые инструменты уже в пути.",
+    events_tag:"IC Events", events_h2:"Проводите мероприятия по лицензии", events_p:"IC Event — сеть сообщества мероприятий, созданная IndustrCons. Наши корни в инженерии, но мы открыты для заявок из других сфер.",
+    ev_b1:"🌍 Глобально", ev_b2:"📍 Локально", ev_b3:"🎓 Университеты", ev_b4:"🏢 Офисы", ev_b5:"💻 Онлайн", ev_b6:"🤝 Офлайн", ev_b7:"🔀 Гибрид",
+    events_desc:"В компании, университете, общественном месте или онлайн — с лицензией IC Event вы можете организовать мероприятие где угодно и в любом формате. Формат гибкий: живой семинар, эпизод подкаста, вебинар или гибридная конференция — в Баку или в любой точке мира.",
+    ev_f1:"<b>Стандарт:</b> Живое очное мероприятие в компании, университете или общественном месте.", ev_f2:"<b>Green Events:</b> Мероприятия об устойчивом развитии и зелёной инженерии.", ev_f3:"<b>Подкаст:</b> Записанные разговорные эпизоды, публикуются на YouTube.", ev_f4:"<b>Вебинар:</b> Онлайн, для удалённых участников, по любой теме.", ev_f5:"<b>Гибрид:</b> И в зале, и онлайн — для более широкой аудитории.",
+    ev_apply:"Подать заявку на лицензию", ev_visit:"Перейти на IC Events ↗", ev_active:"АКТИВНО · БАКУ, АЗЕРБАЙДЖАН", ev_organizer:"Организатор: Эльвин Аскеров · Партнёр: MÜSİAD", ev_dates:"Лицензия с: 19.08.2026 · Действительна до: 19.08.2027", ev_registry:"Смотреть весь реестр →",
     groups_tag:"Сообщество", groups_h2:"Вступите в группу по вашей специальности", groups_p:"Группы по специальностям для вакансий, обмена опытом и нетворкинга.",
     g1_h:"Вакансии в строительстве 1 и 2", g1_p:"Инженер, руководитель объекта и другие вакансии в строительстве.",
     g2_h:"Общие вакансии", g2_p:"Вакансии из разных отраслей и поддержка соискателей.",
@@ -1177,4 +1283,92 @@ var AI_RULES = [
   {kw:["ai","süni intellekt","искусственный"], az:"IndustrCons AI köməkçisini burdan sınayın: https://industrcons-ai.vercel.app/", en:"Try the IndustrCons AI assistant here: https://industrcons-ai.vercel.app/", ru:"Попробуйте ИИ-ассистента IndustrCons здесь: https://industrcons-ai.vercel.app/"},
   {kw:["game","oyun","игра"], az:"Mühəndislik oyunlarımıza baxın: https://elvinasgar.github.io/IndustrCons-Games/", en:"Check out our engineering games: https://elvinasgar.github.io/IndustrCons-Games/", ru:"Посмотрите наши инженерные игры: https://elvinasgar.github.io/IndustrCons-Games/"},
   {kw:["map","xəritə","карта"], az:"Engineering Map ilə sahə və şirkətləri kəşf edin: https://elvinasgar.github.io/IndustrCons-Enginering-Map/", en:"Explore the field with Engineering Map: https://elvinasgar.github.io/IndustrCons-Enginering-Map/", ru:"Исследуйте отрасль с Engineering Map: https://elvinasgar.github.io/IndustrCons-Enginering-Map/"},
-  {kw:["comics","komiks","комикс"], az:"Mühəndislik anlayışlarını komiks formatında öyrənin: https://elvinasgar.github.io/IndustrCons-Engineering-Comics/", en:"Le
+  {kw:["comics","komiks","комикс"], az:"Mühəndislik anlayışlarını komiks formatında öyrənin: https://elvinasgar.github.io/IndustrCons-Engineering-Comics/", en:"Learn engineering concepts through comics: https://elvinasgar.github.io/IndustrCons-Engineering-Comics/", ru:"Изучайте инженерные концепции в формате комиксов: https://elvinasgar.github.io/IndustrCons-Engineering-Comics/"},
+  {kw:["mission","missiya","миссия","vision","vizyon","видение","values","dəyər","ценност"], az:"IndustrCons-un missiya, vizyon və dəyərlərini #mission bölməsində tapa bilərsiniz.", en:"You can find IndustrCons' mission, vision and values in the #mission section.", ru:"Миссию, видение и ценности IndustrCons вы найдёте в разделе #mission."},
+  {kw:["təcrübə","internship","стажировка","virtual"], az:"Virtual Təcrübə Proqramımız 2 aylıqdır, mentorluq və sertifikat daxildir. Ətraflı: #internship bölməsinə baxın və ya https://elvinasgar.github.io/IndustrCons-Virtual-Internship/", en:"Our Virtual Internship Program is 2 months, includes mentorship and a certificate. See the #internship section or https://elvinasgar.github.io/IndustrCons-Virtual-Internship/", ru:"Наша программа виртуальной стажировки длится 2 месяца, включает наставничество и сертификат. Смотрите раздел #internship или https://elvinasgar.github.io/IndustrCons-Virtual-Internship/"},
+  {kw:["vakansiya","iş","job","vacancy","вакансия","работа"], az:"Vakansiyalar üçün İnşaat Vakansiyaları, Ümumi Vakansiyalar və digər ixtisas qruplarımıza qoşulun (#groups bölməsi).", en:"For jobs, join our Construction Jobs, General Vacancies and other specialty groups (#groups section).", ru:"Для вакансий вступите в наши группы (раздел #groups)."},
+  {kw:["cv","linkedin","резюме"], az:"CV və LinkedIn hazırlama xidmətimiz var — WhatsApp: +994 77 588 97 27", en:"We offer CV & LinkedIn preparation — WhatsApp: +994 77 588 97 27", ru:"У нас есть услуга подготовки CV и LinkedIn — WhatsApp: +994 77 588 97 27"},
+  {kw:["sertifikat","certificate","сертификат"], az:"Virtual Təcrübə Proqramını uğurla bitirənlərə sertifikat təqdim olunur.", en:"A certificate is awarded to those who successfully complete the Virtual Internship Program.", ru:"Сертификат выдаётся тем, кто успешно завершил программу стажировки."},
+  {kw:["qrup","group","группа"], az:"12+ ixtisas qrupumuz var: HSE, MEP, HR, Tenderlər, PM, QA/QC, Planning və s. #groups bölməsinə baxın.", en:"We have 12+ specialty groups: HSE, MEP, HR, Tenders, PM, QA/QC, Planning and more. See #groups.", ru:"У нас 12+ групп по специальностям: HSE, MEP, HR, тендеры, PM, QA/QC, планирование и др. Смотрите #groups."},
+  {kw:["roadmap","karyera","карьера","career"], az:"Karyera Yol Xəritəmizə #roadmap bölməsindən baxa bilərsiniz — Site Engineer-dən Construction Director-a qədər.", en:"Check our Career Roadmap in the #roadmap section — from Site Engineer to Construction Director.", ru:"Смотрите наш карьерный путь в разделе #roadmap — от инженера объекта до директора по строительству."},
+  {kw:["əlaqə","contact","контакт","telefon","phone"], az:"Bizimlə əlaqə: industrcons@gmail.com və ya WhatsApp +994 77 588 97 27", en:"Contact us: industrcons@gmail.com or WhatsApp +994 77 588 97 27", ru:"Свяжитесь с нами: industrcons@gmail.com или WhatsApp +994 77 588 97 27"},
+  {kw:["event","tədbir","мероприят","ic event","lisenziya","license","лицензия"], az:"IC Events ilə lisenziya əsasında tədbir keçirə bilərsiniz — universitet, ofis, onlayn və ya hibrid formatda: https://elvinasgar.github.io/IndustrCons-IC-events-/", en:"With IC Events you can run licensed events — at a university, office, online or hybrid: https://elvinasgar.github.io/IndustrCons-IC-events-/", ru:"С IC Events вы можете проводить мероприятия по лицензии — в университете, офисе, онлайн или гибридно: https://elvinasgar.github.io/IndustrCons-IC-events-/"},
+  {kw:["learninghub","learning hub","diplom","sertifikat kurs","university program"], az:"LearningHub universitet səviyyəli proqramlar təklif edir, hazırda inkişaf mərhələsindədir: https://elvinasgar.github.io/IndustrCons-LearningHub/", en:"LearningHub offers university-level programs and is currently in development: https://elvinasgar.github.io/IndustrCons-LearningHub/", ru:"LearningHub предлагает университетские программы, сейчас в разработке: https://elvinasgar.github.io/IndustrCons-LearningHub/"},
+  {kw:["salam","hello","hi","привет","salut"], az:"Salam! Sizə necə kömək edə bilərəm? (estimator, docs, təcrübə, vakansiya, CV, sertifikat, qrup, roadmap, əlaqə)", en:"Hello! How can I help? (estimator, docs, internship, jobs, CV, certificate, group, roadmap, contact)", ru:"Привет! Чем могу помочь? (estimator, docs, стажировка, вакансии, CV, сертификат, группа, карьера, контакт)"},
+];
+const QUICK_CHIPS = {
+  az:["estimator","docs","təcrübə","vakansiya","CV","əlaqə"],
+  en:["estimator","docs","internship","jobs","CV","contact"],
+  ru:["estimator","docs","стажировка","вакансии","CV","контакт"]
+};
+var aiOpened = false;
+function addMsg(text, who){
+  var body = document.getElementById('ai-body');
+  if(!body) return;
+  var d = document.createElement('div');
+  d.className = 'ai-msg ' + who;
+  d.textContent = text;
+  body.appendChild(d);
+  body.scrollTop = body.scrollHeight;
+}
+function renderChips(){
+  var q = document.getElementById('ai-quick');
+  var input = document.getElementById('ai-input');
+  if(!q || !input) return;
+  q.innerHTML = "";
+  var chips = QUICK_CHIPS[currentLang] || QUICK_CHIPS.az;
+  chips.forEach(function(word){
+    var c = document.createElement('button');
+    c.className = 'ai-chip';
+    c.type = 'button';
+    c.textContent = word;
+    c.addEventListener('click', function(){ input.value = word; handleAiSend(); });
+    q.appendChild(c);
+  });
+}
+function handleAiSend(){
+  var input = document.getElementById('ai-input');
+  if(!input) return;
+  var val = input.value.trim();
+  if(!val) return;
+  addMsg(val, 'user');
+  input.value = "";
+  var lower = val.toLowerCase();
+  var matched = null;
+  for(var i=0;i<AI_RULES.length;i++){
+    var rule = AI_RULES[i];
+    if(rule.kw.some(function(k){ return lower.indexOf(k) !== -1; })){ matched = rule; break; }
+  }
+  setTimeout(function(){
+    if(matched){ addMsg(matched[currentLang] || matched.az, 'bot'); }
+    else { addMsg((I18N[currentLang] && I18N[currentLang].ai_fallback) || I18N.az.ai_fallback, 'bot'); }
+  }, 300);
+}
+}catch(err){ console.error('IndustrCons AI setup error:', err); }
+
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var aiToggle = document.getElementById('ai-toggle');
+    var aiPanel = document.getElementById('ai-panel');
+    var aiClose = document.getElementById('ai-close');
+    var aiInput = document.getElementById('ai-input');
+    var aiSend = document.getElementById('ai-send');
+    if(aiToggle && aiPanel){
+      aiToggle.addEventListener('click', function(){
+        aiPanel.classList.toggle('open');
+        if(!aiOpened){
+          aiOpened = true;
+          addMsg((I18N[currentLang] && I18N[currentLang].ai_greet) || I18N.az.ai_greet, 'bot');
+          renderChips();
+        }
+      });
+    }
+    if(aiClose && aiPanel){ aiClose.addEventListener('click', function(){ aiPanel.classList.remove('open'); }); }
+    if(aiSend){ aiSend.addEventListener('click', handleAiSend); }
+    if(aiInput){ aiInput.addEventListener('keydown', function(e){ if(e.key==='Enter') handleAiSend(); }); }
+  }catch(err){ console.error('IndustrCons AI init error:', err); }
+});
+</script>
+
+</body>
+</html>
